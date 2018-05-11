@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>${title}</title>
 </head>
 <body>
-
+    <h1>Envie de faire du sport ? </h1>
 </body>
 </html>
