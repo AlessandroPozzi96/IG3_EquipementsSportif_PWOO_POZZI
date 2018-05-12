@@ -4,14 +4,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link type="text/css" href="<spring:url value='/css/first.css' />" rel="Stylesheet">
-    <title>${title}</title>
+    <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
 </head>
 <body>
 <div>
     <div>
         <tiles:insertAttribute name = "main-content" />
-
     </div>
 </div>
 </body>

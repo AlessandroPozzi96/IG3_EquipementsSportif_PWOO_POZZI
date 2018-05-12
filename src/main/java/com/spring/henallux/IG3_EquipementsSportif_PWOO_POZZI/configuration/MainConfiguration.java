@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 public class MainConfiguration extends WebMvcConfigurerAdapter {
+/*
     @Bean
         public ViewResolver viewResolver()
         {
@@ -18,6 +19,7 @@ public class MainConfiguration extends WebMvcConfigurerAdapter {
             resolver.setSuffix(".jsp");
             return resolver;
         }
+*/
 
     @Bean
     public DefaultMessageCodesResolver defaultMessageCodesResolver() {
