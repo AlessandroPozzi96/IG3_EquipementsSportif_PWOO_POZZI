@@ -8,6 +8,10 @@
 </head>
 <body>
 <div>
+    <header>
+        <p id="langue">Choisissez votre langue  <a href="" ><img src='<spring:url value="/images/locale_en.ico"/>'> </a>
+            <a href=""><img src='<spring:url value="/images/locale_fr.ico"/>'> </a></p>
+    </header>
     <div>
         <tiles:insertAttribute name = "main-content" />
     </div>
