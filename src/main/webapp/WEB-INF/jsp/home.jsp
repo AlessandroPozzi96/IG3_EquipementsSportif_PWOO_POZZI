@@ -3,10 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>${title}</title>
+    <title>Home Page</title>
 </head>
 <body>
     <h1>Envie de faire du sport ? </h1>
-    <p>Welcome to <span>${appName}</span></p>
+    <security:authorize access="isAnonymous()">
+        <p><a href='<spring:url value="/login"/>'>Connectez-vous pour passer commande !</a></p>
+    </security:authorize>
+    <security:authorize access="hasRole('USER')">
+        <p>Bienvenu <security:authentication property="principal.username" /> !</p>
+    </security:authorize>
 </body>
 </html>

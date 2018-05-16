@@ -1,16 +1,18 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeController {
+@RequestMapping(value = "/login")
+public class LoginController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
-        return "integrated:home";
+        model.addAttribute("userEntity", new UserEntity());
+        return "integrated:login";
     }
 }
