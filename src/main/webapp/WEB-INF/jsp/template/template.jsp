@@ -5,19 +5,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<spring:url value='/images/haltere.jpg' />">
-    <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
     <script type="javascript" src="<spring:url value='/js/bootstrap.bundle.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/bootstrap.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/jQuery.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/popper.min.js' />" rel="script"></script>
+    <link rel="icon" href="<spring:url value='/images/haltere.jpg' />">
+    <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
+    <link type="text/css" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="Stylesheet">
+    <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
 
 </head>
 <body>
 <div>
-        <header class="dropdown-header">
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="<spring:url value='/'/>">Accueil</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +42,6 @@
             </nav>
             <p id="langue">Choisissez votre langue  <a class="btn-link" href="" ><img src='<spring:url value="/images/locale_en.ico"/>'> </a>
                 <a class="btn-link" href=""><img src='<spring:url value="/images/locale_fr.ico"/>'> </a></p>
-        </header>
         <main role="main">
             <div class="container">
                 <tiles:insertAttribute name = "main-content" />
