@@ -6,14 +6,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Login Page</title>
-    <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="Stylesheet">
-    <script src="<spring:url value='/js/bootstrap.bundle.min.js' />"></script>
-    <script src="<spring:url value='/js/bootstrap.min.js' />"></script>
 </head>
 <body>
-<div class="container">
-    <h1 class="h1">Connectez-vous ! </h1>
+    <h1 class="header-panel">Connectez-vous ! </h1>
     <security:authorize access="!isAuthenticated()">
         <form:form id="formLogin"
                    method="POST"
@@ -34,11 +29,10 @@
         </form:form>
     </security:authorize>
     <security:authorize access="isAuthenticated()">
-        <p>Vous êtes déjà authentifié !</p>
+        <p class="infoText">Vous êtes déjà authentifié !</p>
         <p><a href='<spring:url value="/logout"/>'>Déconnexion</a></p>
     </security:authorize>
     <p><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
-</div>
 <%--<p>${message}</p>--%>
 </body>
 </html>

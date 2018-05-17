@@ -1,103 +1,133 @@
-/* latin-ext */
-@font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-html, body {margin:0; padding:0}
 body {
-    background-color:#FFFFF0;
-    margin:15px 5px 15px 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
     background-image: url("../images/image_fond.gif");
 }
-h1 {
-    font-family:'trebuchet MS', sans-serif;
-    font-size:100%;
-    color:black;
-    background-color:transparent;
-    text-align:center;
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
 }
-h2 {
-    font-family:trebuchet;
-    font-size:100%;
-    color:#696969;
-    background-color:transparent;
-    text-align:center;
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
 }
-h3 {
-    font-family:trebuchet;
-    font-size:100%;
-    color:silver;
-    background-color:transparent;
-    text-align:center;
+
+.form-signin .checkbox {
+    font-weight: normal;
 }
-p {
-    font-family:verdana, sans-serif;
-    font-size:100%;
-    color:black;
-    background-color:transparent;
-    text-align:left;
-    margin-left:5px;
-    margin-right:5px;
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
 }
-li {
-    font-family:verdana, sans-serif;
-    font-size:100%;
-    color:black;
-    background-color:transparent;
-    text-align:left;
-    margin-left:5px;
-    margin-right:5px;
+
+.form-signin .form-control:focus {
+    z-index: 2;
 }
-a:link {
-    font-family:times new roman, serif;
-    font-size:100%;
-    color:gray;
-    background-color:transparent;
-    text-decoration:none;
+
+.form-signin input {
+    margin-top: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
-a:visited {
-    font-family:times new roman, serif;
-    font-size:100%;
-    color:#00bfff;
-    background-color:transparent;
-    text-decoration:underline;
+
+.form-signin button {
+    margin-top: 10px;
 }
-a:hover {
-    font-family:times new roman, serif;
-    font-size:100%;
-    color:cyan;
-    background-color:navy;
-    text-decoration:overline;
+
+.has-error {
+    color: red
 }
-a:active, a:focus {
-    font-family:times new roman, serif; font-size:100%; color:black; background-color:transparent; text-decoration:underline; }
-table {
-    border-color:white;
-    border-style:solid;
-    border-width:1px;
-}
-td {
-    font-family:verdana, sans-serif;
-    font-size:100%;
-    color:black;
-    text-align:left;
-    background-color:transparent;
-    border-color:white;
-    border-style:solid;
-    border-width:1px;
-}
+
 #langue
 {
+    margin-top: 20px;
     text-align: right;
+}
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 32rem;
+    background-color: #777;
+}
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: 400;
+}
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 62em) {
+    .featurette-heading {
+        margin-top: 7rem;
+    }
 }
