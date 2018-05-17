@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String login(Model model) {
         model.addAttribute("userEntity", new UserEntity());
         return "integrated:login";
     }
+
 }
