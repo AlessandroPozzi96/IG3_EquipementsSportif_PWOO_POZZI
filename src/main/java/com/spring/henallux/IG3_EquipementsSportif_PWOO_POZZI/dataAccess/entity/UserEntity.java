@@ -40,9 +40,6 @@ public class UserEntity implements UserDetails {
     @Column(name = "ENABLED")
     private Boolean enabled;
 
-    @Column(name = "numClient")
-    private Integer numClient;
-
     @Column(name = "nom")
     private String nom;
 
@@ -161,14 +158,6 @@ public class UserEntity implements UserDetails {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public Integer getNumClient() {
-        return numClient;
-    }
-
-    public void setNumClient(Integer numClient) {
-        this.numClient = numClient;
     }
 
     public String getNom() {

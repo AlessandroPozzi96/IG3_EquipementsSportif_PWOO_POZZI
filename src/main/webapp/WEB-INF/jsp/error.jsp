@@ -3,10 +3,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Registration Page</title>
+    <title>Error Page</title>
 </head>
 <body>
-<h1 class="header-panel">Enregistrez-vous pour pouvoir commander !</h1>
-
+<h1>Erreur ! Champ de formulaire incorrecte</h1>
+<p><a href="<spring:url value='/registration'/>">Réessayer</a></p>
 </body>
 </html>

@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 import java.util.GregorianCalendar;
 
 public class User {
+    //12 var
     @Size(min = 3, max = 20)
     private String username;
     @Size(min = 6, max = 200)

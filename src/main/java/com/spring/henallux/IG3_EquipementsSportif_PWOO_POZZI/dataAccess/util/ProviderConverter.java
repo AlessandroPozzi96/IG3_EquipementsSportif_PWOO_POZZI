@@ -24,7 +24,6 @@ public class ProviderConverter {
         userEntity.setMale(user.getMale());
         userEntity.setNom(user.getNom());
         userEntity.setPrenom(user.getPrenom());
-        userEntity.setNumClient(null);
         userEntity.setNumTelephone(user.getNumTelephone());
         userEntity.setRue(user.getRue());
         GregorianCalendar calendar = user.getDateNaissance();
