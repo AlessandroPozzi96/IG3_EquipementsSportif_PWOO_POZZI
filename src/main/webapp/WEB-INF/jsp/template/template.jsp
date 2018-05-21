@@ -5,14 +5,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/html" href="<spring:url value='/css/bootstrap.min.css' />" rel="stylesheet">
+    <link type="text/html" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="stylesheet">
+    <link type="text/html" href="<spring:url value='/css/style.css' />" rel="stylesheet">
     <script type="javascript" src="<spring:url value='/js/bootstrap.bundle.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/bootstrap.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/jQuery.min.js' />" rel="script"></script>
     <script type="javascript" src="<spring:url value='/js/popper.min.js' />" rel="script"></script>
     <link rel="icon" href="<spring:url value='/images/haltere.jpg' />">
-    <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
 
 </head>
 <body>

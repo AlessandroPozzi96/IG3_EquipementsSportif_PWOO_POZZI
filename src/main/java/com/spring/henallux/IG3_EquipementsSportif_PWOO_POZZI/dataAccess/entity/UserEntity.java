@@ -40,34 +40,6 @@ public class UserEntity implements UserDetails {
     @Column(name = "ENABLED")
     private Boolean enabled;
 
-    @Column(name = "nom")
-    private String nom;
-
-    @Column(name = "prenom")
-    private String prenom;
-
-    @Column(name = "dateNaissance")
-    private Date dateNaissance;
-
-    @Column(name = "codePostale")
-    private Integer codePostale;
-
-    @Column(name = "localite")
-    private String localite;
-
-    @Column(name = "rue")
-    private String rue;
-
-    @Column(name = "isMale")
-    private Boolean isMale;
-
-    @Column(name = "mail")
-    private String mail;
-
-    @Column(name = "numTelephone")
-    private Integer numTelephone;
-
-
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
@@ -158,77 +130,5 @@ public class UserEntity implements UserDetails {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public Date getDateNaissance() {
-        return dateNaissance;
-    }
-
-    public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
-    }
-
-    public Integer getCodePostale() {
-        return codePostale;
-    }
-
-    public void setCodePostale(Integer codePostale) {
-        this.codePostale = codePostale;
-    }
-
-    public String getLocalite() {
-        return localite;
-    }
-
-    public void setLocalite(String localite) {
-        this.localite = localite;
-    }
-
-    public String getRue() {
-        return rue;
-    }
-
-    public void setRue(String rue) {
-        this.rue = rue;
-    }
-
-    public Boolean getMale() {
-        return isMale;
-    }
-
-    public void setMale(Boolean male) {
-        isMale = male;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Integer getNumTelephone() {
-        return numTelephone;
-    }
-
-    public void setNumTelephone(Integer numTelephone) {
-        this.numTelephone = numTelephone;
     }
 }

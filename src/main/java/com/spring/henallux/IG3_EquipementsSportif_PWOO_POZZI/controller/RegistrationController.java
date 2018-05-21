@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 @Controller
 @RequestMapping(value = "/registration")
@@ -29,12 +32,15 @@ public class RegistrationController {
         return "integrated:registration";
     }
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String submit(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (result.hasErrors()) {
             return "integrated:error";
         }
-        System.out.println(user.toString());
+        user.setPassword("test");
+        user.setConfirmPassWord("test");
+        user.setUsername("kikoo");
+        System.out.println(user.getUsername());
         userDAO.save(user);
         return "redirect:welcome";
     }

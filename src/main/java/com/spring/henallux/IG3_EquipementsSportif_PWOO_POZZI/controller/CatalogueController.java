@@ -13,8 +13,4 @@ public class CatalogueController {
         return "integrated:catalogue";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String panier(Model model) {
-        return "";
-    }
 }
