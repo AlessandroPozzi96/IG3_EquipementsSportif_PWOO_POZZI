@@ -9,47 +9,71 @@
 
     <link rel="icon" href="<spring:url value='/images/haltere.jpg' />">
     <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
-    <link type="text/css" href="<spring:url value='/css/bootstrap-grid.min.css' />" rel="Stylesheet">
     <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
+    <script src="<spring:url value='/js/bootstrap.min.js' />" ></script>
+    <script src="<spring:url value='/js/jQuery.min.js' />" ></script>
+    <script src="<spring:url value='/js/holder.min.js' />" ></script>
 
 </head>
 <body>
-<div>
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="<spring:url value='/'/>">Accueil</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">EquipementsSportif</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
+            <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
+            <a class="p-2 text-dark" href="<spring:url value='/login' />">Compte</a>
+            <a class="p-2 text-dark" href="<spring:url value='/contact' />">Contact</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a>
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <div class="container">
+            <tiles:insertAttribute name = "main-content" />
+            <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Features</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Cool stuff</a></li>
+                            <li><a class="text-muted" href="#">Random feature</a></li>
+                            <li><a class="text-muted" href="#">Team feature</a></li>
+                            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                            <li><a class="text-muted" href="#">Another one</a></li>
+                            <li><a class="text-muted" href="#">Last time</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Resource</a></li>
+                            <li><a class="text-muted" href="#">Resource name</a></li>
+                            <li><a class="text-muted" href="#">Another resource</a></li>
+                            <li><a class="text-muted" href="#">Final resource</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md">
+                        <h5>About</h5>
+                        <ul class="list-unstyled text-small">
+                            <li><a class="text-muted" href="#">Team</a></li>
+                            <li><a class="text-muted" href="#">Locations</a></li>
+                            <li><a class="text-muted" href="#">Privacy</a></li>
+                            <li><a class="text-muted" href="#">Terms</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </nav>
-            <p id="langue">Choisissez votre langue  <a class="btn-link" href="" ><img src='<spring:url value="/images/locale_en.ico"/>'> </a>
-                <a class="btn-link" href=""><img src='<spring:url value="/images/locale_fr.ico"/>'> </a></p>
-        <main role="main">
-            <div class="container">
-                <tiles:insertAttribute name = "main-content" />
-            </div>
-        </main>
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017-2018 EquipementsSportif Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-</div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        Holder.addTheme('thumb', {
+            bg: '#55595c',
+            fg: '#eceeef',
+            text: 'Thumbnail'
+        });
+    </script>
 </body>
 </html>

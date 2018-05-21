@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-    <h1 class="header-panel">Connectez-vous ! </h1>
+    <h1 class="display-4">Connexion</h1>
     <security:authorize access="!isAuthenticated()">
         <form:form id="formLogin"
                    method="POST"
@@ -24,7 +24,7 @@
         </form:form>
     </security:authorize>
     <security:authorize access="isAuthenticated()">
-        <p class="infoText">Vous êtes déjà authentifié !</p>
-        <p><a href='<spring:url value="/logout"/>'>Déconnexion</a></p>
+        <p class="lead">Vous êtes déjà authentifié !</p>
+        <p class="lead"><a href='<spring:url value="/logout"/>'>Déconnexion</a></p>
     </security:authorize>
-    <p><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+    <p class="lead"><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
