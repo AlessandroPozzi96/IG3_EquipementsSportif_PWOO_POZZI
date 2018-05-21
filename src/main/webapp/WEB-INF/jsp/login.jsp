@@ -19,7 +19,8 @@
                 <form:errors path="password"></form:errors>
             </spring:bind>
             </br>
-            <form:button>Login</form:button>
+            <form:button class="btn btn-lg btn-primary btn-block" type="submit">Login</form:button>
+            <form:button class="btn btn-lg btn-primary btn-block" type="reset">Reset</form:button>
         </form:form>
     </security:authorize>
     <security:authorize access="isAuthenticated()">

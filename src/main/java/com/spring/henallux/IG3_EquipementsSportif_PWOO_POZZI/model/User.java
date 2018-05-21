@@ -1,9 +1,6 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
-
 import javax.validation.constraints.Size;
-import java.util.GregorianCalendar;
 
 public class User {
     //12 var
@@ -12,7 +9,7 @@ public class User {
     @Size(min = 6, max = 200)
     private String password;
     @Size(min = 6, max = 200)
-    private String confirmPassWord;
+    private String confirmPassword;
 
     public User() {
     }
@@ -34,11 +31,11 @@ public class User {
         this.password = password;
     }
 
-    public String getConfirmPassWord() {
-        return confirmPassWord;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setConfirmPassWord(String confirmPassWord) {
-        this.confirmPassWord = confirmPassWord;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

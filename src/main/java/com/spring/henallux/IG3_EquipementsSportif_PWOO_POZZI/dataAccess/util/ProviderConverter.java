@@ -4,8 +4,6 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.U
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.User;
 import org.springframework.stereotype.Component;
 
-import java.util.GregorianCalendar;
-
 @Component
 public class ProviderConverter {
 
@@ -26,7 +24,7 @@ public class ProviderConverter {
         User user = new User();
         user.setPassword(userEntity.getPassword());
         user.setUsername(userEntity.getUsername());
-        user.setConfirmPassWord(userEntity.getPassword());
+        user.setConfirmPassword(userEntity.getPassword());
         return user;
     }
 }

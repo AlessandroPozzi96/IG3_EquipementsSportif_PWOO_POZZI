@@ -34,15 +34,12 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(@Valid @ModelAttribute("user") User user, BindingResult result) {
-        if (result.hasErrors()) {
+    public String validationForm(@Valid @ModelAttribute("user") User user, BindingResult result) {
+        if (result.hasErrors() || !user.getPassword().equals(user.getConfirmPassword())) {
             return "integrated:error";
         }
-        user.setPassword("test");
-        user.setConfirmPassWord("test");
-        user.setUsername("kikoo");
         System.out.println(user.getUsername());
         userDAO.save(user);
-        return "redirect:welcome";
+        return "redirect:/";
     }
 }
