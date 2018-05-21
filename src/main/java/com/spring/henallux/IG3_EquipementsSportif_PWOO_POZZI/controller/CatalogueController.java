@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CatalogueController {
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
+        model.addAttribute("title", "Catalogue Page");
         return "integrated:catalogue";
     }
 

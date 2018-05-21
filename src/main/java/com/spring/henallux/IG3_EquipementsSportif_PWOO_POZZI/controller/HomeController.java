@@ -11,6 +11,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
+        model.addAttribute("title", "Home Page");
         return "integrated:home";
     }
 }

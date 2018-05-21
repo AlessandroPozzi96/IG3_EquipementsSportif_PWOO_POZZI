@@ -2,12 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<html lang="fr">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login Page</title>
-</head>
-<body>
     <h1 class="header-panel">Connectez-vous ! </h1>
     <security:authorize access="!isAuthenticated()">
         <form:form id="formLogin"
@@ -33,6 +27,3 @@
         <p><a href='<spring:url value="/logout"/>'>Déconnexion</a></p>
     </security:authorize>
     <p><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
-<%--<p>${message}</p>--%>
-</body>
-</html>

@@ -24,8 +24,8 @@ public class ProviderConverter {
 
     public User userEntityToUserModel(UserEntity userEntity) {
         User user = new User();
-        user.setUsername(userEntity.getUsername());
         user.setPassword(userEntity.getPassword());
+        user.setUsername(userEntity.getUsername());
         user.setConfirmPassWord(userEntity.getPassword());
         return user;
     }
