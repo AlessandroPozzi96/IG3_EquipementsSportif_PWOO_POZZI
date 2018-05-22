@@ -4,5 +4,5 @@
 <%@ page isErrorPage="true" %>
     <h1 class="display-4">Sorry an exception occured!</h1>
 
-    Exception is: <%= exception %>
-    <p class="lead">${contextPath}</p>
+    Exception is: <%= exception %> ${exception}
+    <p class="lead">Champ non valide${contextPath}</p>

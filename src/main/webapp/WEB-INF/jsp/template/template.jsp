@@ -17,11 +17,11 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">EquipementsSportif</h5>
+        <h5 class="my-0 mr-md-auto font-weight-normal">EquipementsSportifs</h5>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
             <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
-            <a class="p-2 text-dark" href="<spring:url value='/login' />">Compte</a>
+            <a class="p-2 text-dark" href="<spring:url value='/compte' />">Compte</a>
             <a class="p-2 text-dark" href="<spring:url value='/contact' />">Contact</a>
         </nav>
         <a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a>

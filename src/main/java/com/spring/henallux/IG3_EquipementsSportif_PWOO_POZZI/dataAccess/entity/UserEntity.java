@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +18,6 @@ import static org.springframework.util.StringUtils.isEmpty;
 @Entity(name="PERSISTABLE_USER")
 public class UserEntity implements UserDetails {
 
-    //17 colonnes
     @Id
     @Column(name = "USERNAME")
     private String username;
@@ -40,6 +40,32 @@ public class UserEntity implements UserDetails {
     @Column(name = "ENABLED")
     private Boolean enabled;
 
+    @Column(name = "NOM")
+    private String nom;
+
+    @Column(name = "PRENOM")
+    private String prenom;
+
+    @Column(name = "MAIL")
+    private String mail;
+
+    @Column(name = "LOCALITE")
+    private String localite;
+
+    @Column(name = "RUE")
+    private String rue;
+
+    @Column(name = "CODEPOSTAL")
+    private Integer codePostal;
+
+    @Column(name = "NUMTELEPHONE")
+    private Integer numTelephone;
+
+    @Column(name = "DATENAISSANCE")
+    private java.sql.Date dateNaissance;
+
+    @Column(name = "ISMALE")
+    private Boolean isMale;
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
@@ -131,5 +157,77 @@ public class UserEntity implements UserDetails {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getLocalite() {
+        return localite;
+    }
+
+    public void setLocalite(String localite) {
+        this.localite = localite;
+    }
+
+    public String getRue() {
+        return rue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public Integer getCodePostal() {
+        return codePostal;
+    }
+
+    public void setCodePostal(Integer codePostal) {
+        this.codePostal = codePostal;
+    }
+
+    public Integer getNumTelephone() {
+        return numTelephone;
+    }
+
+    public void setNumTelephone(Integer numTelephone) {
+        this.numTelephone = numTelephone;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public Boolean getMale() {
+        return isMale;
+    }
+
+    public void setMale(Boolean male) {
+        isMale = male;
     }
 }

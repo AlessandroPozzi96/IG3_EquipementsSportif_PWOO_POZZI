@@ -26,9 +26,10 @@ public class UserDAO
 
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
         UserEntity userEntity = providerConverter.userModelToUserEntity(user);
         //Pas de mdp en clair dans la base de données!
-        userEntity = userRepository.save(userEntity);
+        userRepository.save(userEntity);
     }
 
     public ArrayList<User> getAllUsers() {

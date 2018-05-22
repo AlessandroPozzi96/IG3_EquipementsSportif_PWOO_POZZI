@@ -4,4 +4,4 @@ server:
 spring:
   datasource:
     password: Pa456lOt
-    url: jdbc:mysql://localhost:3306/javaweb?useSSL=false&user=root
+    url: jdbc:mysql://localhost:3306/dbequipementssportifs?useSSL=false&user=root

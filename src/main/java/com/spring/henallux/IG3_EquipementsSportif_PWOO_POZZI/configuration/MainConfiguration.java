@@ -32,7 +32,7 @@ public class MainConfiguration extends WebMvcConfigurerAdapter {
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setDefaultEncoding("UTF-8");
-        messageSource.setBasenames("translations/general", "translations/erros");
+        messageSource.setBasenames("translations/general", "translations/errors");
         messageSource.setUseCodeAsDefaultMessage(true);
         return messageSource;
     }

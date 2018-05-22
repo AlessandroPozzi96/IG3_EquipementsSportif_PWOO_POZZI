@@ -38,7 +38,7 @@ public class RegistrationController {
         if (result.hasErrors() || !user.getPassword().equals(user.getConfirmPassword())) {
             return "integrated:error";
         }
-        System.out.println(user.getUsername());
+        System.out.println("---REGISTRATION CONTROLLER POST---");
         userDAO.save(user);
         return "redirect:/";
     }
