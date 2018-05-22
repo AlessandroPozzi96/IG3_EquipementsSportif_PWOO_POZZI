@@ -65,7 +65,7 @@
         </br>
         <spring:bind path="Male">
             <p class="lead">Homme :</p>
-            <form:radiobutton path="Male" value="true" />
+            <form:radiobutton path="Male" value="true"/>
             <p class="lead">Femme :</p>
             <form:radiobutton path="Male" value="false" />
             <form:errors path="Male"></form:errors>

@@ -46,15 +46,29 @@
             </tr>
             <tr>
                 <td>Numéro de téléphone</td>
-                <td><security:authentication property="principal.numTelephone" /></td>
+                <td><c:choose>
+                    <c:when test="${pageContext.request.userPrincipal.principal.numTelephone == null}" >
+                        Pas de numéro disponible
+                    </c:when>
+                    <c:otherwise>
+                        <security:authentication property='principal.numTelephone' />
+                    </c:otherwise>
+                </c:choose></td>
             </tr>
             <tr>
                 <td>Date de naissance</td>
                 <td><security:authentication property="principal.dateNaissance" /></td>
             </tr>
             <tr>
-                <td>Homme</td>
-                <td><security:authentication property="principal.male" /></td>
+                <td>Sexe</td>
+                <td><c:choose>
+                    <c:when test="${pageContext.request.userPrincipal.principal.male == true}">
+                        Homme
+                    </c:when>
+                    <c:otherwise>
+                        Femme
+                    </c:otherwise>
+                </c:choose></td>
             </tr>
             </tbody>
         </table>

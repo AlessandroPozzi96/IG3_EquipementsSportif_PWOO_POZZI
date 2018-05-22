@@ -77,7 +77,6 @@ CREATE TABLE `typearticle` (
   CONSTRAINT `fk_image` FOREIGN KEY (`url_image_fk`) REFERENCES `image` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-drop table if exists lot;
 CREATE TABLE `lot` (
   `id`				int(9) not null auto_increment, 
   `quantite`		int(10) not null, 
