@@ -178,7 +178,7 @@ INSERT INTO `dbequipementssportifs`.`image`
 `description_en`,
 `codeBarre_fk`)
 VALUES
-('/images/articles/t-shirt.jpg', 'T-shirt pour courir', 'T-shirt for running', 2), ('/images/articles/benchPress', 'Banc de développé couché premium', 'Bench press premium', 1), ('/images/articles/basicbenchPress', 'Banc de développé couché basique', 'Basic bench press', 3);
+('/images/articles/t-shirt.jpg', 'T-shirt pour courir', 'T-shirt for running', 2), ('/images/articles/benchPress.jpg', 'Banc de développé couché premium', 'Bench press premium', 1), ('/images/articles/basicbenchPress.jpg', 'Banc de développé couché basique', 'Basic bench press', 3);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)

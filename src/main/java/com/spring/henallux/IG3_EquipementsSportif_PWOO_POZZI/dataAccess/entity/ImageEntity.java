@@ -1,9 +1,6 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "IMAGE")
@@ -15,6 +12,10 @@ public class ImageEntity {
     private String description_fr;
     @Column(name = "DESCRIPTION_EN")
     private String description_en;
+
+    @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
+    @ManyToOne
+    private TypeArticleEntity articleEntity;
 
     public String getUrl() {
         return url;

@@ -41,4 +41,8 @@ public class TypeArticleDAO {
         }
         return typeArticles;
     }
+
+    public TypeArticle findByCodeBarre(Integer codeBarre) {
+        return providerConverter.typeArticleEntityToTypeArticleModel(typeArticleRepository.findByCodeBarre(codeBarre));
+    }
 }

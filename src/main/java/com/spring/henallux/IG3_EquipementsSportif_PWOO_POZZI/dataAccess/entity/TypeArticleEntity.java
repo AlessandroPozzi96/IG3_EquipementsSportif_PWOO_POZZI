@@ -1,6 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "TYPEARTICLE")
@@ -28,6 +29,9 @@ public class TypeArticleEntity {
     @JoinColumn(name = "ID_CATEGORIE_FK", referencedColumnName = "ID")
     @ManyToOne
     private CategorieArticleEntity categorieArticleEntity;
+
+    @OneToMany(mappedBy = "articleEntity", fetch = FetchType.LAZY)
+    private Collection<ImageEntity> imageEntities;
 
     public Integer getCodeBarre() {
         return codeBarre;

@@ -5,10 +5,11 @@
 <p class="lead">Service indisponible pour le moment, veuillez nous excusez pour ce désagrément.</p>
 <div class="row" >
     <c:forEach items="${categoriesArticles}" var="categorie">
-        <div class="col-sm">
-            <p class="lead" ><a class="badge badge-secondary" href="#">
+        <div class="col-sm-6">
+            <p class="lead" ><a class="badge badge-secondary" href='<spring:url value="/articles?id=${categorie.id}" />'>
             <c:out value="${categorie.libelle_fr}" />
         </a></p>
         </div>
     </c:forEach>
 </div>
+<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>

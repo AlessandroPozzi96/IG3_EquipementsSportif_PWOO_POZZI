@@ -1,9 +1,11 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.CategorieArticleEntity;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.ImageEntity;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.TypeArticleEntity;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.CategorieArticle;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Image;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TypeArticle;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.User;
 import org.springframework.stereotype.Component;
@@ -97,5 +99,15 @@ public class ProviderConverter {
         typeArticle.setId_categorie_fk(typeArticleEntity.getCategorieArticleEntity().getId());
 
         return typeArticle;
+    }
+
+    public Image imageEntityToImageModel(ImageEntity imageEntity) {
+        Image image = new Image();
+
+        image.setUrl(imageEntity.getUrl());
+        image.setDescription_en(imageEntity.getDescription_en());
+        image.setDescription_fr(imageEntity.getDescription_fr());
+
+        return image;
     }
 }

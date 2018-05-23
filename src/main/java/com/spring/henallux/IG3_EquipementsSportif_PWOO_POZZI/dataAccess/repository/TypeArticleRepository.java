@@ -11,4 +11,5 @@ import java.util.List;
 public interface TypeArticleRepository extends JpaRepository<TypeArticleEntity, Integer> {
     @Query("select typearticle from TypeArticleEntity typearticle where typearticle.categorieArticleEntity.id like ?1")
     List<TypeArticleEntity> findByCategorieArticleEntityId(Integer id);
+    TypeArticleEntity findByCodeBarre(Integer codeBarre);
 }
