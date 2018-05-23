@@ -1,6 +1,8 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util;
 
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.CategorieArticleEntity;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.CategorieArticle;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.User;
 import org.springframework.stereotype.Component;
 
@@ -59,5 +61,21 @@ public class ProviderConverter {
             javaDate = new Date(sqlDate.getTime());
         }
         return javaDate;
+    }
+
+    public CategorieArticle categorieArticleEntityToCategorieArticleModel(CategorieArticleEntity categorieArticleEntity) {
+        CategorieArticle categorieArticle = new CategorieArticle();
+        categorieArticle.setId(categorieArticleEntity.getId());
+        categorieArticle.setLibelle_fr(categorieArticleEntity.getLibelle_fr());
+        categorieArticle.setLibelle_en(categorieArticleEntity.getLibelle_en());
+        return categorieArticle;
+    }
+
+    public CategorieArticleEntity categorieArticleModelToCategorieArticleEntity(CategorieArticle categorieArticle) {
+        CategorieArticleEntity categorieArticleEntity = new CategorieArticleEntity();
+        categorieArticleEntity.setId(categorieArticle.getId());
+        categorieArticleEntity.setLibelle_en(categorieArticle.getLibelle_en());
+        categorieArticleEntity.setLibelle_fr(categorieArticle.getLibelle_fr());
+        return categorieArticleEntity;
     }
 }

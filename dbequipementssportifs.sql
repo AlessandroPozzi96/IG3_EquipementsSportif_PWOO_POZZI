@@ -48,7 +48,7 @@ CREATE TABLE `categoriearticle` (
   `libelle_fr` varchar(50) NOT NULL,
   `libelle_en` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `panier` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,

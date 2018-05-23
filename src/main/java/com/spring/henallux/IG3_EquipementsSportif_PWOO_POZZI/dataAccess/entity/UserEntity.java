@@ -4,10 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,7 +12,8 @@ import java.util.List;
 
 import static org.springframework.util.StringUtils.isEmpty;
 
-@Entity(name="PERSISTABLE_USER")
+@Entity
+@Table(name="PERSISTABLE_USER")
 public class UserEntity implements UserDetails {
 
     @Id
