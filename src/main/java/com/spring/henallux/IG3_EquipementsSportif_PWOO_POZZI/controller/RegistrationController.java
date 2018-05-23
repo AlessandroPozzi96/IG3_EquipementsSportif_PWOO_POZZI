@@ -2,6 +2,7 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.UserDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ProviderConverter;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.UserValidator;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,12 @@ import java.util.Locale;
 @RequestMapping(value = "/registration")
 public class RegistrationController {
     private UserDAO userDAO;
+    private UserValidator userValidator;
 
     @Autowired
-    public RegistrationController(UserDAO userDAO) {
+    public RegistrationController(UserDAO userDAO, UserValidator userValidator) {
         this.userDAO = userDAO;
+        this.userValidator = userValidator;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -34,8 +37,10 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String validationForm(@Valid @ModelAttribute("user") User user, BindingResult result) {
-        if (result.hasErrors() || !user.getPassword().equals(user.getConfirmPassword())) {
+    public String validationForm(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+        userValidator.validate(user, result);
+        if (result.hasErrors() ) {
+            model.addAttribute("error", result);
             return "integrated:error";
         }
         System.out.println("---REGISTRATION CONTROLLER POST---");

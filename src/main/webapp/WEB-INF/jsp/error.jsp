@@ -4,5 +4,8 @@
 <%@ page isErrorPage="true" %>
     <h1 class="display-4">Sorry an exception occured!</h1>
 
-    Exception is: <%= exception %> ${exception}
-    <p class="lead">Champ non valide${contextPath}</p>
+    Exception is: <%= exception %>
+    <p class="lead">Champ(s) non valide(s) (source:${contextPath})</p>
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <p class="lead">Erreur recontré : ${error.toString()}</p>
+</div>
