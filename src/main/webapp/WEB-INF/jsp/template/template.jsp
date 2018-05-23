@@ -22,6 +22,7 @@
             <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
             <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
             <a class="p-2 text-dark" href="<spring:url value='/compte' />">Compte</a>
+            <a class="p-2 text-dark" href="<spring:url value='/panier' />">Panier</a>
             <a class="p-2 text-dark" href="<spring:url value='/contact' />">Contact</a>
         </nav>
         <security:authorize access="isAnonymous()">

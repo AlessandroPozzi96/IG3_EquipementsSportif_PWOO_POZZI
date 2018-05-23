@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h1 class="display-4">Compte</h1>
 <security:authorize access="isAnonymous()">
-    <p class="lead">Veuillez vous <a href="<spring:url value="/login"/>">connecter</a></p>
+    <p class="lead">Veuillez vous <a class="badge badge-primary" href="<spring:url value="/login"/>">connecter</a></p>
 </security:authorize>
 <security:authorize access="isAuthenticated()">
     <h2 class="h-auto">Informations personnelles :</h2>

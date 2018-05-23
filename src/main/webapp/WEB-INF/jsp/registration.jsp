@@ -74,4 +74,4 @@
         <form:button class="btn btn-lg btn-primary btn-block" type="submit">Save user</form:button>
         <form:button class="btn btn-lg btn-primary btn-block" type="reset">Reset</form:button>
     </form:form>
-<p class="lead"><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>

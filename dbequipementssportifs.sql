@@ -1,8 +1,10 @@
 drop table if exists lot;
 drop table if exists fournisseur;
 drop table if exists elementspanier;
-drop table if exists typearticle;
 drop table if exists image;
+drop table if exists disponible;
+drop table if exists Taille;
+drop table if exists typearticle;
 drop table if exists categoriearticle;
 drop table if exists panier;
 drop table if exists persistable_user;
@@ -36,19 +38,17 @@ CREATE TABLE `fournisseur` (
   PRIMARY KEY (`numeroTVA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `image` (
-  `url` varchar(200) NOT NULL,
-  `description_fr` varchar(200) NOT NULL,
-  `description_en` varchar(200) NOT NULL,
-  PRIMARY KEY (`url`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `categoriearticle` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `libelle_fr` varchar(50) NOT NULL,
   `libelle_en` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
+
+CREATE TABLE `Taille` (
+  `tailleArticle`		varchar(4) not null,
+  PRIMARY KEY (`tailleArticle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `panier` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,
@@ -66,16 +66,31 @@ CREATE TABLE `typearticle` (
   `description_fr` varchar(200) NOT NULL,
   `description_en` varchar(200) DEFAULT NULL,
   `prix` double NOT NULL,
-  `existeEnPlusieursTailles` tinyint(1) not null,
-  `taille`	char(1) null,
   `id_categorie_fk` int(9) NOT NULL,
-  `url_image_fk` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`codeBarre`),
   KEY `fk_categorie` (`id_categorie_fk`),
-  KEY `fk_image` (`url_image_fk`),
-  CONSTRAINT `fk_categorie` FOREIGN KEY (`id_categorie_fk`) REFERENCES `categoriearticle` (`id`),
-  CONSTRAINT `fk_image` FOREIGN KEY (`url_image_fk`) REFERENCES `image` (`url`)
+  CONSTRAINT `fk_categorie` FOREIGN KEY (`id_categorie_fk`) REFERENCES `categoriearticle` (`id`)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
+
+CREATE TABLE `image` (
+  `url` 			varchar(200) NOT NULL,
+  `description_fr` 	varchar(200) NOT NULL,
+  `description_en` 	varchar(200) NOT NULL,
+  `codeBarre_fk`	INT(9) not null,
+  PRIMARY KEY (`url`),
+  KEY `FK_CodeBarre_img` (`codeBarre_fk`),
+  CONSTRAINT `FK_CodeBarre_img` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `Disponible` (
+  `taille_fk`		char(1) not null,
+  `codeBarre_fk`	INT(9),
+  PRIMARY KEY (`taille_fk`, `codeBarre_fk`),
+  KEY `fk_taille` (`taille_fk`),
+  KEY `fk_codeBarre_Dispo` (`codeBarre_fk`),
+  CONSTRAINT `fk_taille` FOREIGN KEY (`taille_fk`) REFERENCES `Taille` (`tailleArticle`),
+  CONSTRAINT `fk_codeBarre_Dispo` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lot` (
   `id`				int(9) not null auto_increment,
@@ -86,9 +101,9 @@ CREATE TABLE `lot` (
   `codeBarre_fk`	int(9) not null,
   PRIMARY KEY (`id`),
   KEY `fk_numeroTVA` (`numeroTVA_fk`),
-  KEY `fk_codeBarre_typearticle` (`codeBarre_fk`),
+  KEY `fk_codeBarre_lot` (`codeBarre_fk`),
   CONSTRAINT `fk_numeroTVA` FOREIGN KEY (`numeroTVA_fk`) REFERENCES `fournisseur` (`numeroTVA`),
-  CONSTRAINT `fk_codeBarre_typearticle` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
+  CONSTRAINT `fk_codeBarre_lot` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `elementspanier` (
@@ -97,9 +112,9 @@ CREATE TABLE `elementspanier` (
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
   PRIMARY KEY (`codeBarre_fk`, `numTicket_fk`),
-  KEY `fk_codeBarre` (`codeBarre_fk`),
+  KEY `fk_codeBarre_panier` (`codeBarre_fk`),
   KEY `fk_numTicket` (`numTicket_fk`),
-  CONSTRAINT `fk_codeBarre` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
+  CONSTRAINT `fk_codeBarre_panier` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
   CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `panier` (`numTicket`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -132,13 +147,6 @@ INSERT INTO `dbequipementssportifs`.`fournisseur`
 VALUES
 (0112569874, 'Namur', 'Boulevard du nord', 5000, 'Futur Computer');
 
-INSERT INTO `dbequipementssportifs`.`image`
-(`url`,
-`description_fr`,
-`description_en`)
-VALUES
-('/images/articles/t-shirt.jpg', 'T-shirt pour courir', 'T-shirt for running'), ('/images/articles/benchPress', 'Banc de développé couché premium', 'Bench press premium'), ('/images/articles/basicbenchPress', 'Banc de développé couché basique', 'Basic bench press');
-
 INSERT INTO `dbequipementssportifs`.`categoriearticle`
 (`id`,
 `libelle_fr`,
@@ -160,12 +168,29 @@ INSERT INTO `dbequipementssportifs`.`typearticle`
 `description_fr`,
 `description_en`,
 `prix`,
-`existeEnPlusieursTailles`,
-`taille`,
-`id_categorie_fk`,
-`url_image_fk`)
+`id_categorie_fk`)
 VALUES
-(null, 'Banc de développer coucher premium', 'Bench press premium', 'Fait en cuir de haute qualité avec un aspect premium', 'Made of high quality leather with a premium look', 150, false, null, 1, '/images/articles/benchPress'), (null, 'T-shirt sport haute intensité', 'T-shirt high intensity sport', 'Créer spécialement pour le crossfit, ne se déchire pas après 3 entrainements', 'Create especially for the crossfit, do not tear after 3 trainings', 29.99, true, 'L', 2, '/images/articles/t-shirt.jpg'), (null, 'Banc de développer coucher basique', 'Basic bench press', 'Simple banc de DC pour commencer', 'Simple bench press for beginners', 99.99, false, null, 1, '/images/articles/basicbenchPress');
+(null, 'Banc de développer coucher premium', 'Bench press premium', 'Fait en cuir de haute qualité avec un aspect premium', 'Made of high quality leather with a premium look', 150, 1), (null, 'T-shirt sport haute intensité', 'T-shirt high intensity sport', 'Créer spécialement pour le crossfit, ne se déchire pas après 3 entrainements', 'Create especially for the crossfit, do not tear after 3 trainings', 29.99, 2), (null, 'Banc de développer coucher basique', 'Basic bench press', 'Simple banc de DC pour commencer', 'Simple bench press for beginners', 99.99, 1);
+
+INSERT INTO `dbequipementssportifs`.`image`
+(`url`,
+`description_fr`,
+`description_en`,
+`codeBarre_fk`)
+VALUES
+('/images/articles/t-shirt.jpg', 'T-shirt pour courir', 'T-shirt for running', 2), ('/images/articles/benchPress', 'Banc de développé couché premium', 'Bench press premium', 1), ('/images/articles/basicbenchPress', 'Banc de développé couché basique', 'Basic bench press', 3);
+
+INSERT INTO `dbequipementssportifs`.`taille`
+(`tailleArticle`)
+VALUES
+('S'), ('M'), ('L'), ('XL'), ('XXL');
+
+INSERT INTO `dbequipementssportifs`.`disponible`
+(`taille_fk`,
+`codeBarre_fk`)
+VALUES
+('S', 2), ('M', 2);
+
 
 INSERT INTO `dbequipementssportifs`.`lot`
 (`id`,

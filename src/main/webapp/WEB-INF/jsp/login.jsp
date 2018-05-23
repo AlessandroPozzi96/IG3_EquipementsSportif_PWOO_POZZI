@@ -25,6 +25,6 @@
     </security:authorize>
     <security:authorize access="isAuthenticated()">
         <p class="lead">Vous êtes déjà authentifié !</p>
-        <p class="lead"><a href='<spring:url value="/logout"/>'>Déconnexion</a></p>
+        <p class="lead"><a class="badge badge-primary"href='<spring:url value="/logout"/>'>Déconnexion</a></p>
     </security:authorize>
-    <p class="lead"><a href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+    <p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
