@@ -1,6 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "CATEGORIEARTICLE")
@@ -15,6 +16,9 @@ public class CategorieArticleEntity {
 
     @Column(name = "LIBELLE_EN")
     private String libelle_en;
+
+    @OneToMany(mappedBy = "categorieArticleEntity", fetch = FetchType.LAZY)
+    private Collection<TypeArticleEntity> typeArticleEntities;
 
     public Integer getId() {
         return id;

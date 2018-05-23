@@ -22,7 +22,7 @@ public class CategorieArticleDAO {
     }
 
     public CategorieArticleEntity findById(Integer id) {
-        return categorieArticleRepository.findById(id);
+        return categorieArticleRepository.findByIdOrderByIdAsc(id);
     }
 
     public ArrayList<CategorieArticle> getAllCategories() {

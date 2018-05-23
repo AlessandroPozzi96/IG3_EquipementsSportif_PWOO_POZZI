@@ -28,9 +28,6 @@ public class TypeArticle {
     @Min(1)
     @Max(Integer.MAX_VALUE)
     private Integer id_categorie_fk;
-    @NotNull
-    @Size(min = 1, max = 200)
-    private String url_image_fk;
 
     public TypeArticle() {
     }
@@ -89,13 +86,5 @@ public class TypeArticle {
 
     public void setId_categorie_fk(Integer id_categorie_fk) {
         this.id_categorie_fk = id_categorie_fk;
-    }
-
-    public String getUrl_image_fk() {
-        return url_image_fk;
-    }
-
-    public void setUrl_image_fk(String url_image_fk) {
-        this.url_image_fk = url_image_fk;
     }
 }
