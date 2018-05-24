@@ -48,9 +48,10 @@ public class ArticleController {
         }
         try {
             articles.addArticlesPanier(cb, articles.getNbArticles());
-            System.out.println("DANS LE TRY CATCH");
+            System.out.println("DANS LE TRY ");
         } catch (ModelException e) {
             model.addAttribute("error", e.getMessage());
+            System.out.println("DANS LE CATCH");
             return "integrated:error";
         }
         System.out.println("Nb articles commander : " + articles.getNbArticlesPanier());

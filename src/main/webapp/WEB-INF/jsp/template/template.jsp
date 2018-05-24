@@ -17,7 +17,13 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">EquipementsSportifs</h5>
+        <h5 class="my-0 mr-md-auto">EquipementsSportifs</h5>
+        <security:authorize access="hasRole('USER')">
+        <h5 class="my-3 mr-md-auto font-weight-normal"><security:authentication property="principal.username" /></h5>
+        </security:authorize>
+        <security:authorize access="hasRole('ADMIN')">
+            <h5 class="my-3 mr-md-auto font-weight-normal">Salutation, administrateur <security:authentication property="principal.username" /> !</h5>
+        </security:authorize>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
             <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
@@ -27,18 +33,11 @@
                 <a class="p-2 text-dark" href="<spring:url value='/logout' />">Log out</a>
             </security:authorize>
         </nav>
+        <p class="lead">${nbArticles.nbArticlesPanier} article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
         <security:authorize access="isAnonymous()">
             <a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a>
+            <p class="lead">|</p>
             <a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a>
-        </security:authorize>
-        <security:authorize access="hasRole('USER')">
-            <p class="lead"><security:authentication property="principal.username" /></p>
-        </security:authorize>
-        <security:authorize access="hasRole('ADMIN')">
-            <p class="lead">Bienvenu à vous, administrateur <security:authentication property="principal.username" /> !</p>
-        </security:authorize>
-        <security:authorize access="isAuthenticated()">
-            <p class="p-lg-0">0 article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
         </security:authorize>
     </div>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">

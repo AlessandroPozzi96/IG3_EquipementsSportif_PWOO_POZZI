@@ -41,12 +41,19 @@ public class Article {
         if (nbArticles == null || nbArticles <= 0) {
             throw new ModelException("Article", "achatsArticles");
         }
-        Integer nbArticlesTmp = achatsArticles.get(codeBarre);
-        if (nbArticlesTmp != null) {
-            nbArticlesTmp += nbArticles;
-            achatsArticles.put(codeBarre, nbArticlesTmp);
+        else
+        {
+            Integer nbArticlesTmp = achatsArticles.get(codeBarre);
+            if (nbArticlesTmp != null) {
+                nbArticlesTmp += nbArticles;
+                achatsArticles.put(codeBarre, nbArticlesTmp);
+                System.out.println("COMMANDE D'UN 2EME ARTICLE SIMILAIRE valeur : nbArticles " + nbArticles + " nbArticlesTmp : " + nbArticlesTmp);
+            }
+            else
+            {
+                achatsArticles.put(codeBarre, nbArticles);
+            }
         }
-        achatsArticles.put(codeBarre, nbArticles);
     }
 
     public void removeArticlesPanier(Integer codeBarre) {

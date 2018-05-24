@@ -11,16 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping(value = "/catalogue")
 @SessionAttributes({Constants.NB_ARTICLES})
 public class CatalogueController {
     private CategorieArticleDAO categorieArticleDAO;
-
-    @ModelAttribute(Constants.NB_ARTICLES)
-    public Article getNbArticles() {
-        return new Article();
-    }
 
     @Autowired
     public CatalogueController(CategorieArticleDAO categorieArticleDAO) {
