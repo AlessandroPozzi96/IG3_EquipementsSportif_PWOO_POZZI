@@ -2,7 +2,6 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h1 class="display-4">Articles </h1>
-<p class="lead">Service indisponible pour le moment, veuillez nous excusez pour ce désagrément.</p>
 
 <div class="row" >
     <c:forEach items="${articles}" var="article">

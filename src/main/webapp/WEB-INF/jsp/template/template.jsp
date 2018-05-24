@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>${title}</title>
 
-    <link rel="icon" href="<spring:url value='/images/haltere.jpg' />">
+    <link rel="icon" href="<spring:url value='/images/haltere.png' />">
     <link type="text/css" href="<spring:url value='/css/bootstrap.min.css' />" rel="Stylesheet">
     <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">
     <script src="<spring:url value='/js/bootstrap.min.js' />" ></script>
@@ -22,11 +22,23 @@
             <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
             <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
             <a class="p-2 text-dark" href="<spring:url value='/compte' />">Compte</a>
-            <a class="p-2 text-dark" href="<spring:url value='/panier' />">Panier</a>
             <a class="p-2 text-dark" href="<spring:url value='/contact' />">Contact</a>
+            <security:authorize access="isAuthenticated()">
+                <a class="p-2 text-dark" href="<spring:url value='/logout' />">Log out</a>
+            </security:authorize>
         </nav>
         <security:authorize access="isAnonymous()">
             <a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a>
+            <a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a>
+        </security:authorize>
+        <security:authorize access="hasRole('USER')">
+            <p class="lead"><security:authentication property="principal.username" /></p>
+        </security:authorize>
+        <security:authorize access="hasRole('ADMIN')">
+            <p class="lead">Bienvenu à vous, administrateur <security:authentication property="principal.username" /> !</p>
+        </security:authorize>
+        <security:authorize access="isAuthenticated()">
+            <p class="p-lg-0">0 article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
         </security:authorize>
     </div>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -35,27 +47,19 @@
             <footer class="pt-4 my-md-5 pt-md-5 border-top">
                 <div class="row">
                     <div class="col-12 col-md">
-                        <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                        <img class="mb-2" src="<spring:url value='/images/haltere.png' />" alt="" width="24" height="24">
                         <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
                     </div>
                     <div class="col-6 col-md">
                         <h5>Features</h5>
                         <ul class="list-unstyled text-small">
                             <li><a class="text-muted" href="#">Cool stuff</a></li>
-                            <li><a class="text-muted" href="#">Random feature</a></li>
-                            <li><a class="text-muted" href="#">Team feature</a></li>
-                            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                            <li><a class="text-muted" href="#">Another one</a></li>
-                            <li><a class="text-muted" href="#">Last time</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
                         <h5>Resources</h5>
                         <ul class="list-unstyled text-small">
                             <li><a class="text-muted" href="#">Resource</a></li>
-                            <li><a class="text-muted" href="#">Resource name</a></li>
-                            <li><a class="text-muted" href="#">Another resource</a></li>
-                            <li><a class="text-muted" href="#">Final resource</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">

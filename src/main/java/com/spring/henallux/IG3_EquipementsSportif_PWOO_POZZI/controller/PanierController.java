@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PanierController {
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
-        model.addAttribute("title", "Panier");
+        model.addAttribute("title", "Panier Page");
         return "integrated:panier";
     }
 }

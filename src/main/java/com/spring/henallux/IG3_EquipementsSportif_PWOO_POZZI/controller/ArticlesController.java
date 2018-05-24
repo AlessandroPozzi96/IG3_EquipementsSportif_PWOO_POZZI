@@ -20,7 +20,7 @@ public class ArticlesController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(@RequestParam(required = true, defaultValue = "1") Integer id, Model model) {
-        model.addAttribute("title", "Articles Page");
+        model.addAttribute("title", "Article Page");
         model.addAttribute("articles", typeArticleDAO.findByCategorieArticleEntityId(id));
         return "integrated:articles";
     }
