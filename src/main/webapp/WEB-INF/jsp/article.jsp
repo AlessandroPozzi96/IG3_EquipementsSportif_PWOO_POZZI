@@ -29,4 +29,3 @@
 
 <p class="lead">Retour au <a class="badge badge-primary" href='<spring:url value="/catalogue"/>'> catalogue</a></p>
 <p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
-

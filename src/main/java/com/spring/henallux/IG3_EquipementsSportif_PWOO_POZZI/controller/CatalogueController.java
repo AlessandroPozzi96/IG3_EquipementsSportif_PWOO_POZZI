@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/catalogue")
-@SessionAttributes({Constants.NB_ARTICLES})
+/*@SessionAttributes({Constants.NB_ARTICLES})*/
 public class CatalogueController {
     private CategorieArticleDAO categorieArticleDAO;
 
@@ -24,11 +24,18 @@ public class CatalogueController {
         this.categorieArticleDAO = categorieArticleDAO;
     }
 
+/*    @ModelAttribute(Constants.NB_ARTICLES)
+    public Article getNbArticles() {
+        return new Article();
+    }*/
+
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, @ModelAttribute(value = Constants.NB_ARTICLES) Article nbArticles) {
+    public String home(Model model) {
         model.addAttribute("title", "Catalogue Page");
         model.addAttribute("categoriesArticles", categorieArticleDAO.getAllCategories());
         return "integrated:catalogue";
     }
 
 }
+
+    /*@ModelAttribute(value = Constants.NB_ARTICLES) Article nbArticles*/

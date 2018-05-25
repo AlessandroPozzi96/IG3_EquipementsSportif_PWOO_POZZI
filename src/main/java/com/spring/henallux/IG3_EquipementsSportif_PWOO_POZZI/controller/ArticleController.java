@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/article")
-@SessionAttributes({Constants.NB_ARTICLES})
+/*@SessionAttributes({Constants.NB_ARTICLES})*/
 public class ArticleController {
     private TypeArticleDAO typeArticleDAO;
     private ImageDAO imageDAO;
@@ -30,7 +30,7 @@ public class ArticleController {
         this.articleValidator = articleValidator;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, params = {"codeBarre"})
     public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model) {
         model.addAttribute("title", "Article Page");
         model.addAttribute("article", typeArticleDAO.findByCodeBarre(codeBarre));
@@ -40,21 +40,21 @@ public class ArticleController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String getArticle(Model model, @Valid @ModelAttribute(Constants.NB_ARTICLES)Article articles, BindingResult result) {
-        articleValidator.validate(articles, result);
+    public String getArticle(Model model, @Valid @ModelAttribute(Constants.NB_ARTICLES) Article article, BindingResult result) {
+        articleValidator.validate(article, result);
         if (result.hasErrors()) {
             model.addAttribute("error", result);
             return "integrated:error";
         }
         try {
-            articles.addArticlesPanier(cb, articles.getNbArticles());
-            System.out.println("DANS LE TRY ");
+            article.addArticlesPanier(cb, article.getNbArticles());
+            System.out.println("ArticleController : Ok → DANS LE TRY ");
         } catch (ModelException e) {
             model.addAttribute("error", e.getMessage());
-            System.out.println("DANS LE CATCH");
+            System.out.println("ArticleController : Erreur → DANS LE CATCH");
             return "integrated:error";
         }
-        System.out.println("Nb articles commander : " + articles.getNbArticlesPanier());
-        return "redirect:/panier";
+        System.out.println("ArticleController : Nb article totale commander : " + article.getNbArticlesPanier());
+        return "integrated:catalogue";
     }
 }
