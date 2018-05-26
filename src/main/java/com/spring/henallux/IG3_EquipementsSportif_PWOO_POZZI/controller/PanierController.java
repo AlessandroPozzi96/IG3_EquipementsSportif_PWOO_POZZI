@@ -23,7 +23,8 @@ import java.util.Map;
 public class PanierController {
     private TypeArticleDAO typeArticleDAO;
     private Double prixTot = 0.0;
-    private ArrayList<LignePanier> articlePaniers = new ArrayList<>();
+    private ArrayList<LignePanier> lignesPaniers;
+    private LignePanier lignePanier;
     private TypeArticle typeArticle;
 
     @Autowired
@@ -32,10 +33,24 @@ public class PanierController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, @Valid @ModelAttribute(Constants.NB_ARTICLES)Article articles) {
+    public String home(Model model, @Valid @ModelAttribute(Constants.NB_ARTICLES)Article article) {
+        lignesPaniers = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : article.getAchatsArticles().entrySet()) {
+            typeArticle = typeArticleDAO.findByCodeBarre(entry.getKey());
+            lignePanier = new LignePanier(typeArticle.getCodeBarre(), typeArticle.getLibelle_fr(), entry.getValue(), entry.getValue() * typeArticle.getPrix(), typeArticle.getPrix());
+            lignesPaniers.add(lignePanier);
+        }
         model.addAttribute("title", "Panier Page");
-        model.addAttribute("lignesPaniers", articles.getLignesPaniers());
-        model.addAttribute("prixTot", articles.getPrixTot());
+        model.addAttribute("lignesPaniers", lignesPaniers);
+        model.addAttribute("prixTot", getPrixTot());
         return "integrated:panier";
+    }
+
+    public Double getPrixTot() {
+        Double prixTot = 0.0;
+        for (LignePanier lignePanier : lignesPaniers) {
+            prixTot += lignePanier.getPrix();
+        }
+        return prixTot;
     }
 }
