@@ -19,22 +19,12 @@ public class Article implements Serializable {
     //Clé : code barre et valeur : nombre d'articles sélectionner
     private HashMap<Integer, Integer> achatsArticles;
     @NotNull
-    @Min(1)
+    @Min(0)
     @Max(Integer.MAX_VALUE)
-    private Integer nbArticles;
-    private ArrayList<LignePanier> lignesPaniers;
-    private TypeArticle typeArticle;
-    private TypeArticleDAO typeArticleDAO;
-    private LignePanier lignePanier;
-
-    @Autowired
-    public Article(TypeArticleDAO typeArticleDAO) {
-        this.typeArticleDAO = typeArticleDAO;
-    }
+    private Integer nbArticles = 0;
 
     public Article() {
         achatsArticles = new HashMap<>();
-        lignesPaniers = new ArrayList<>();
     }
 
     public HashMap<Integer, Integer> getAchatsArticles() {
@@ -54,21 +44,25 @@ public class Article implements Serializable {
     }
 
     public void addArticlesPanier(Integer codeBarre, Integer nbArticles) throws ModelException{
-        if (nbArticles == null || nbArticles <= 0) {
+
+        if (nbArticles == null || nbArticles < 0) {
             throw new ModelException("Article", "achatsArticles");
         }
         else
         {
-            Integer nbArticlesTmp = achatsArticles.get(codeBarre);
-            if (nbArticlesTmp != null) {
-                nbArticlesTmp += nbArticles;
-                achatsArticles.put(codeBarre, nbArticlesTmp);
-                System.out.println("COMMANDE D'UN 2EME ARTICLE SIMILAIRE valeur : nbArticles " + nbArticles + " nbArticlesTmp : " + nbArticlesTmp);
-            }
-            else
+            if (nbArticles > 0)
             {
-                achatsArticles.put(codeBarre, nbArticles);
-                System.out.println("article ajouter : cb" + codeBarre + " nb : " + nbArticles);
+                Integer nbArticlesTmp = achatsArticles.get(codeBarre);
+                if (nbArticlesTmp != null) {
+                    nbArticlesTmp += nbArticles;
+                    achatsArticles.put(codeBarre, nbArticlesTmp);
+                    System.out.println("COMMANDE D'UN 2EME ARTICLE SIMILAIRE valeur : nbArticles " + nbArticles + " nbArticlesTmp : " + nbArticlesTmp);
+                }
+                else
+                {
+                    achatsArticles.put(codeBarre, nbArticles);
+                    System.out.println("article ajouter : cb" + codeBarre + " nb : " + nbArticles);
+                }
             }
         }
     }
@@ -83,17 +77,5 @@ public class Article implements Serializable {
 
     public void setNbArticles(Integer nbArticles) {
         this.nbArticles = nbArticles;
-    }
-
-    public void setLignesPaniers(ArrayList<LignePanier> lignesPaniers) {
-        this.lignesPaniers = lignesPaniers;
-    }
-
-    public LignePanier getLignePanier() {
-        return lignePanier;
-    }
-
-    public void setLignePanier(LignePanier lignePanier) {
-        this.lignePanier = lignePanier;
     }
 }

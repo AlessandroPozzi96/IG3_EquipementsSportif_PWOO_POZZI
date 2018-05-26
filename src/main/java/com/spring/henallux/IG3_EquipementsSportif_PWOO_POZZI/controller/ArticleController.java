@@ -55,6 +55,6 @@ public class ArticleController {
             return "integrated:error";
         }
         System.out.println("ArticleController : Nb article totale commander : " + article.getNbArticlesPanier());
-        return "integrated:catalogue";
+        return "redirect:article?codeBarre=" + cb;
     }
 }
