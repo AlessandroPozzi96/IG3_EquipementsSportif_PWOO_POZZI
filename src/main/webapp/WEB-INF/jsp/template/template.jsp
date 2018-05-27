@@ -35,8 +35,7 @@
         </nav>
         <p class="lead"> ${nbArticles.nbArticlesPanier} article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
         <security:authorize access="isAnonymous()">
-            <a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a>
-            <a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a>
+            <p class="lead"><a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a><a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a></p>
         </security:authorize>
     </div>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">

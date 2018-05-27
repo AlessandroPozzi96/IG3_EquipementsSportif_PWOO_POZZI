@@ -1,17 +1,11 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,9 +13,9 @@ public class Article implements Serializable {
     //Clé : code barre et valeur : nombre d'articles sélectionner
     private HashMap<Integer, Integer> achatsArticles;
     @NotNull
-    @Min(0)
+    @Min(1)
     @Max(Integer.MAX_VALUE)
-    private Integer nbArticles = 0;
+    private Integer nbArticles;
 
     public Article() {
         achatsArticles = new HashMap<>();
@@ -45,24 +39,20 @@ public class Article implements Serializable {
 
     public void addArticlesPanier(Integer codeBarre, Integer nbArticles) throws ModelException{
 
-        if (nbArticles == null || nbArticles < 0) {
+        if (nbArticles == null || nbArticles <= 0) {
             throw new ModelException("Article", "achatsArticles");
         }
         else
         {
-            if (nbArticles > 0)
+            Integer nbArticlesTmp = achatsArticles.get(codeBarre);
+            if (nbArticlesTmp != null) {
+                achatsArticles.put(codeBarre, nbArticles);
+                System.out.println("MAJ QUANTITE : Article similaire ajoute au panier : nbArticles " + nbArticles + " nbArticlesTmp : " + nbArticlesTmp);
+            }
+            else
             {
-                Integer nbArticlesTmp = achatsArticles.get(codeBarre);
-                if (nbArticlesTmp != null) {
-                    nbArticlesTmp += nbArticles;
-                    achatsArticles.put(codeBarre, nbArticlesTmp);
-                    System.out.println("COMMANDE D'UN 2EME ARTICLE SIMILAIRE valeur : nbArticles " + nbArticles + " nbArticlesTmp : " + nbArticlesTmp);
-                }
-                else
-                {
-                    achatsArticles.put(codeBarre, nbArticles);
-                    System.out.println("article ajouter : cb" + codeBarre + " nb : " + nbArticles);
-                }
+                achatsArticles.put(codeBarre, nbArticles);
+                System.out.println("NOUVEAU : article ajouter : cb" + codeBarre + " nb : " + nbArticles);
             }
         }
     }

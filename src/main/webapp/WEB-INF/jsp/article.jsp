@@ -18,7 +18,7 @@
            modelAttribute="nbArticles">
     </br>
     <spring:bind path="nbArticles">
-        <form:input type="number" path="nbArticles" class="form-control" placeholder="Quantité :"
+        <form:input type="number" path="nbArticles" value="1" min="1" class="form-control" placeholder="Quantité :"
                     autofocus="true"></form:input>
         <form:errors path="nbArticles"></form:errors>
     </spring:bind>

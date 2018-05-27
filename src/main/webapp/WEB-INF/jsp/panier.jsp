@@ -14,16 +14,26 @@
                 <th>QUANTITE</th>
                 <th>PRIX UNITAIRE</th>
                 <th>PRIX</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${lignesPaniers}" var="article">
                 <tr>
-                    <td><c:out value="${article.codeBarre}" /></td>
-                    <td><c:out value="${article.libelle}" /></td>
-                    <td><c:out value="${article.quantite}" /></td>
-                    <td><c:out value="${article.prixUnitaire}" /></td>
-                    <td><c:out value="${article.prix}" /></td>
+                    <form:form id="formPanier"
+                               method="POST"
+                               action="${contextPath}/panier?codeBarre=${article.codeBarre}"
+                               modelAttribute="aSupprimer">
+                        <td><c:out value="${article.codeBarre}" /></td>
+                        <td><c:out value="${article.libelle}" /></td>
+                        <td><c:out value="${article.quantite}" /></td>
+                        <td><c:out value="${article.prixUnitaire}" /></td>
+                        <td><c:out value="${article.prix}" /></td>
+                        <td>
+                            <form:button type="submit" class="btn-block btn-danger" value="Supprimer" name="supprimer">Supprimer</form:button>
+                            <form:button class="btn-block btn-primary" type="submit" name="modifier" value="Modifier">Modifier</form:button>
+                        </td>
+                    </form:form>
                 </tr>
             </c:forEach>
             </tbody>
@@ -34,6 +44,7 @@
                 <td></td>
                 <td></td>
                 <td>${prixTot} euros</td>
+                <td></td>
             </tr>
             </tfoot>
         </table>

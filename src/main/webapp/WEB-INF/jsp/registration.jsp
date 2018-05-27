@@ -49,12 +49,12 @@
         </spring:bind>
         </br>
         <spring:bind path="codePostal">
-            <form:input type="number" path="codePostal" class="form-control" placeholder="Code postal"></form:input>
+            <form:input type="number" path="codePostal" min="0" class="form-control" placeholder="Code postal"></form:input>
             <form:errors path="codePostal"></form:errors>
         </spring:bind>
         </br>
         <spring:bind path="numTelephone">
-            <form:input type="tel" path="numTelephone" class="form-control" placeholder="Numéro de telephone"></form:input>
+            <form:input type="tel" path="numTelephone" min="0" class="form-control" placeholder="Numéro de telephone"></form:input>
             <form:errors path="numTelephone"></form:errors>
         </spring:bind>
         </br>
