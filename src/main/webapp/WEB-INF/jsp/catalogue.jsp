@@ -6,9 +6,10 @@
 <div class="row" >
     <c:forEach items="${categoriesArticles}" var="categorie">
         <div class="col-sm-6">
-            <p class="lead" ><a class="badge badge-secondary" href='<spring:url value="/articles?id=${categorie.id}" />'>
-            <c:out value="${categorie.libelle_fr}" />
-        </a></p>
+            <a class="badge badge-secondary" href='<spring:url value="/articles?id=${categorie.id}" />'>
+                <img src='<spring:url value="${categorie.url_image}"/>' class="img-fluid rounded mx-auto d-block">
+                <p class="lead p-lg-0"><c:out value="${categorie.libelle_fr}" /></p>
+            </a>
         </div>
     </c:forEach>
 </div>

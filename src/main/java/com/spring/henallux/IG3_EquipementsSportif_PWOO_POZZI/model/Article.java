@@ -13,9 +13,9 @@ public class Article implements Serializable {
     //Clé : code barre et valeur : nombre d'articles sélectionner
     private HashMap<Integer, Integer> achatsArticles;
     @NotNull
-    @Min(1)
+    @Min(0)
     @Max(Integer.MAX_VALUE)
-    private Integer nbArticles;
+    private Integer nbArticles = 0;
 
     public Article() {
         achatsArticles = new HashMap<>();

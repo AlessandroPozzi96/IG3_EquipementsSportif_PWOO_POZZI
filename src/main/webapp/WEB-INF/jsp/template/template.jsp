@@ -22,7 +22,7 @@
         <h5 class="my-3 mr-md-auto font-weight-normal"><security:authentication property="principal.username" /></h5>
         </security:authorize>
         <security:authorize access="hasRole('ADMIN')">
-            <h5 class="my-3 mr-md-auto font-weight-normal">Salutation, administrateur <security:authentication property="principal.username" /> !</h5>
+            <h5 class="my-3 mr-md-auto font-weight-normal">Salutations, administrateur <security:authentication property="principal.username" /> !</h5>
         </security:authorize>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>

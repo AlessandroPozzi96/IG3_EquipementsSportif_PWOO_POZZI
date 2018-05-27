@@ -6,9 +6,11 @@
 <div class="row" >
     <c:forEach items="${articles}" var="article">
         <div class="col-sm-6">
-            <p class="lead" ><a class="badge badge-secondary" href='<spring:url value="/article?codeBarre=${article.codeBarre}" />'>
-                <c:out value="${article.libelle_fr}" /> </a> </p>
-            <p class="lead" >Prix : <c:out value="${article.prix}" /> </p>
+            <a class="badge badge-secondary" href='<spring:url value="/article?codeBarre=${article.codeBarre}" />'>
+                <img src='<spring:url value="${imageDAO.findByArticleEntityCodeBarre(article.codeBarre)[0].url}"/>' class="img-fluid rounded mx-auto d-block">
+                <p class="lead"><c:out value="${article.libelle_fr}" /></p>
+                <p class="lead" >Prix : <c:out value="${article.prix}" />€</p>
+            </a>
         </div>
     </c:forEach>
 </div>

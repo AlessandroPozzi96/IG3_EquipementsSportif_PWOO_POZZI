@@ -42,6 +42,7 @@ CREATE TABLE `categoriearticle` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `libelle_fr` varchar(50) NOT NULL,
   `libelle_en` varchar(50) NOT NULL,
+  `url_image`	varchar(200) not null,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
@@ -150,9 +151,10 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`categoriearticle`
 (`id`,
 `libelle_fr`,
-`libelle_en`)
+`libelle_en`,
+`url_image`)
 VALUES
-(null, 'Musculation', 'Bodybuilding'), (null, 'Crossfit', 'Crossfit');
+(null, 'Musculation', 'Bodybuilding', '/images/categories/musculation.jpg'), (null, 'Crossfit', 'Crossfit', '/images/categories/crossfit.jpg');
 
 INSERT INTO `dbequipementssportifs`.`panier`
 (`numTicket`,
@@ -209,8 +211,3 @@ INSERT INTO `dbequipementssportifs`.`elementspanier`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
-
-
-select *
-from categoriearticle;
-

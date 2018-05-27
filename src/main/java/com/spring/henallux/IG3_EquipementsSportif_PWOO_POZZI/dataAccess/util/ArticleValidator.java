@@ -28,7 +28,7 @@ public class ArticleValidator implements Validator {
         Article articles = (Article) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nbArticles", "NotEmpty");
-        if (articles.getNbArticles() < 1 || articles.getNbArticles() > Integer.MAX_VALUE) {
+        if (articles.getNbArticles() < 0 || articles.getNbArticles() > Integer.MAX_VALUE) {
             errors.rejectValue("nbArticles", "Size.formCommande.nbArticles");
         }
     }

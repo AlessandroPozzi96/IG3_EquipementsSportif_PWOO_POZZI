@@ -1,5 +1,6 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.ImageDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/articles")
 public class ArticlesController {
     private TypeArticleDAO typeArticleDAO;
+    private ImageDAO imageDAO;
 
     @Autowired
-    public ArticlesController(TypeArticleDAO typeArticleDAO) {
+    public ArticlesController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO) {
+        this.imageDAO = imageDAO;
         this.typeArticleDAO = typeArticleDAO;
     }
 
@@ -22,6 +25,7 @@ public class ArticlesController {
     public String home(@RequestParam(required = true, defaultValue = "1") Integer id, Model model) {
         model.addAttribute("title", "Article Page");
         model.addAttribute("articles", typeArticleDAO.findByCategorieArticleEntityId(id));
+        model.addAttribute("imageDAO", imageDAO);
         return "integrated:articles";
     }
 }

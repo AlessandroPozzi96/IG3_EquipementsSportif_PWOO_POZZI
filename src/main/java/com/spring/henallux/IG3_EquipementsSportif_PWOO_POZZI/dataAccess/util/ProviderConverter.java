@@ -73,6 +73,7 @@ public class ProviderConverter {
         categorieArticle.setId(categorieArticleEntity.getId());
         categorieArticle.setLibelle_fr(categorieArticleEntity.getLibelle_fr());
         categorieArticle.setLibelle_en(categorieArticleEntity.getLibelle_en());
+        categorieArticle.setUrl_image(categorieArticleEntity.getUrl_image());
 
         return categorieArticle;
     }
@@ -83,6 +84,7 @@ public class ProviderConverter {
         categorieArticleEntity.setId(categorieArticle.getId());
         categorieArticleEntity.setLibelle_en(categorieArticle.getLibelle_en());
         categorieArticleEntity.setLibelle_fr(categorieArticle.getLibelle_fr());
+        categorieArticleEntity.setUrl_image(categorieArticle.getUrl_image());
 
         return categorieArticleEntity;
     }
