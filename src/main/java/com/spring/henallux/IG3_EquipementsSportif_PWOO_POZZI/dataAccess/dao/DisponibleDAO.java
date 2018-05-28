@@ -30,4 +30,14 @@ public class DisponibleDAO {
         }
         return disponibleArrayList;
     }
+
+    public ArrayList<Disponible> findAllByCodeBarre(Integer codeBarre) {
+        List<DisponibleEntity> disponibleEntities = disponibleRepository.findAllByCodeBarre(codeBarre);
+        ArrayList<Disponible> disponibleArrayList = new ArrayList<>();
+        for (DisponibleEntity entity : disponibleEntities) {
+            Disponible disponible = providerConverter.disponibleEntityToDisponibleModel(entity);
+            disponibleArrayList.add(disponible);
+        }
+        return disponibleArrayList;
+    }
 }

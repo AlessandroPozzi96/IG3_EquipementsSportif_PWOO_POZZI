@@ -2,18 +2,14 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable
 public class DisponiblePK implements Serializable {
-    @JoinColumn(name = "TAILLE_FK", referencedColumnName = "TAILLEARTICLE")
-    @ManyToOne
+    @Column(name = "TAILLE_FK")
     private String taille_fk;
 
-    @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
-    @ManyToOne
+    @Column(name = "CODEBARRE_FK")
     private Integer codeBarre_fk;
 
     public DisponiblePK() {

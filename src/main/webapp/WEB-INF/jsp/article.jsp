@@ -12,16 +12,21 @@
         </div>
     </c:forEach>
 </div>
-<form:form id="formCommande"
+<form:form id="formArticle"
            method="POST"
            action="${contextPath}/article"
            modelAttribute="nbArticles">
     </br>
-    <spring:bind path="nbArticles">
-        <form:input type="number" path="nbArticles" value="1" min="1" class="form-control" placeholder="Quantité :"
-                    autofocus="true"></form:input>
-        <form:errors path="nbArticles"></form:errors>
-    </spring:bind>
+    <form:input type="number" path="nbArticles" value="1" min="1" class="form-control" placeholder="Quantité :"
+                autofocus="true"></form:input>
+    <form:errors path="nbArticles"></form:errors>
+    <c:if test="${not empty tailles}" >
+        </br>
+        <form:select path="taille">
+            <form:options items="${tailles}" itemValue="taille_fk" itemLabel="taille_fk" />
+        </form:select>
+        </br>
+    </c:if>
     </br>
     <form:button class="btn btn-lg btn-primary btn-block" type="submit">Commander</form:button>
     <form:button class="btn btn-lg btn-primary btn-block" type="reset">Réinitialiser</form:button>

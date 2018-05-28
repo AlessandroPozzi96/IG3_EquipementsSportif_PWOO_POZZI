@@ -1,6 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.DisponibleDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.ImageDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
@@ -22,12 +23,14 @@ public class ArticleController {
     private ImageDAO imageDAO;
     private Integer cb;
     private ArticleValidator articleValidator;
+    private DisponibleDAO disponibleDAO;
 
     @Autowired
-    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator) {
+    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO) {
         this.typeArticleDAO = typeArticleDAO;
         this.imageDAO = imageDAO;
         this.articleValidator = articleValidator;
+        this.disponibleDAO = disponibleDAO;
     }
 
     @RequestMapping(method = RequestMethod.GET, params = {"codeBarre"})
@@ -36,6 +39,7 @@ public class ArticleController {
         model.addAttribute("article", typeArticleDAO.findByCodeBarre(codeBarre));
         model.addAttribute("images", imageDAO.findByArticleEntityCodeBarre(codeBarre));
         cb = codeBarre;
+        model.addAttribute("tailles", disponibleDAO.findAllByCodeBarre(cb));
         return "integrated:article";
     }
 
