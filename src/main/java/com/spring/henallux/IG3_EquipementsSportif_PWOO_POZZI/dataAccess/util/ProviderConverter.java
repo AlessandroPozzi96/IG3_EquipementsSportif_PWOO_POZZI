@@ -147,4 +147,12 @@ public class ProviderConverter {
 
         return disponible;
     }
+
+    public DisponibleEnCouleur disponibleEnCouleurEntityToDisponibleEnCouleurModel(DisponibleEnCouleurEntity disponibleEnCouleurEntity) {
+        DisponibleEnCouleur disponibleEnCouleur = new DisponibleEnCouleur();
+        disponibleEnCouleur.setCodeBarre_fk(disponibleEnCouleurEntity.getDisponibleEnCouleurPK().getCodeBarre_fk());
+        disponibleEnCouleur.setCouleur_fk(disponibleEnCouleurEntity.getDisponibleEnCouleurPK().getCouleur_fk());
+
+        return disponibleEnCouleur;
+    }
 }

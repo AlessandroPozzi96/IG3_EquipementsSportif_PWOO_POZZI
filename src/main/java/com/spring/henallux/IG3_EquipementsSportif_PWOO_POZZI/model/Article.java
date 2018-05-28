@@ -17,6 +17,7 @@ public class Article implements Serializable {
     @Max(Integer.MAX_VALUE)
     private Integer nbArticles = 0;
     private String taille = "";
+    private String couleur = "";
 
     public Article() {
         achatsArticles = new HashMap<>();
@@ -76,5 +77,13 @@ public class Article implements Serializable {
 
     public void setTaille(String taille) {
         this.taille = taille;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
     }
 }

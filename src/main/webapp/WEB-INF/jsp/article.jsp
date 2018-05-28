@@ -27,6 +27,13 @@
         </form:select>
         </br>
     </c:if>
+    <c:if test="${not empty couleurs}" >
+        </br>
+        <form:select path="couleur">
+            <form:options items="${couleurs}" itemValue="couleur_fk" itemLabel="couleur_fk" />
+        </form:select>
+        </br>
+    </c:if>
     </br>
     <form:button class="btn btn-lg btn-primary btn-block" type="submit">Commander</form:button>
     <form:button class="btn btn-lg btn-primary btn-block" type="reset">Réinitialiser</form:button>
