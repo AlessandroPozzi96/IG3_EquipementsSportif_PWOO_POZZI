@@ -1,13 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util;
 
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.CategorieArticleEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.ImageEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.TypeArticleEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.CategorieArticle;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Image;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TypeArticle;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.User;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.*;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -111,5 +105,46 @@ public class ProviderConverter {
         image.setDescription_fr(imageEntity.getDescription_fr());
 
         return image;
+    }
+
+    public Taille tailleEntityToTailleModel(TailleEntity tailleEntity) {
+        Taille taille = new Taille();
+        taille.setTailleArticle(tailleEntity.getTailleArticle());
+
+        return taille;
+    }
+
+    public TailleEntity tailleModelToTailleEntity(Taille taille) {
+        TailleEntity tailleEntity = new TailleEntity();
+
+        tailleEntity.setTailleArticle(taille.getTailleArticle());
+
+        return tailleEntity;
+    }
+
+    public Couleur couleurEntityToCouleurModel(CouleurEntity couleurEntity) {
+        Couleur couleur = new Couleur();
+
+        couleur.setCouleurArticle(couleurEntity.getCouleurArticle());
+        couleur.setLibelle_en(couleurEntity.getLibelle_en());
+
+        return couleur;
+    }
+
+    public CouleurEntity couleurModelToCouleurEntity(Couleur couleur) {
+        CouleurEntity couleurEntity = new CouleurEntity();
+
+        couleurEntity.setCouleurArticle(couleur.getCouleurArticle());
+        couleurEntity.setLibelle_en(couleur.getLibelle_en());
+
+        return couleurEntity;
+    }
+
+    public Disponible disponibleEntityToDisponibleModel(DisponibleEntity disponibleEntity) {
+        Disponible disponible = new Disponible();
+        disponible.setCodeBarre_fk(disponibleEntity.getDisponiblePK().getCodeBarre_fk());
+        disponible.setTaille_fk(disponibleEntity.getDisponiblePK().getTaille_fk());
+
+        return disponible;
     }
 }

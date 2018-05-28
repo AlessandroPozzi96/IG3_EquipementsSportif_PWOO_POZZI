@@ -33,6 +33,9 @@ public class TypeArticleEntity {
     @OneToMany(mappedBy = "articleEntity", fetch = FetchType.LAZY)
     private Collection<ImageEntity> imageEntities;
 
+    @OneToMany(mappedBy = "disponiblePK", fetch = FetchType.LAZY)
+    private Collection<DisponibleEntity> disponibleEntities;
+
     public Integer getCodeBarre() {
         return codeBarre;
     }

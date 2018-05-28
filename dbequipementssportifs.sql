@@ -3,7 +3,9 @@ drop table if exists fournisseur;
 drop table if exists elementspanier;
 drop table if exists image;
 drop table if exists disponible;
+drop table if exists disponibleEnCouleur;
 drop table if exists Taille;
+drop table if exists Couleur;
 drop table if exists typearticle;
 drop table if exists categoriearticle;
 drop table if exists panier;
@@ -51,6 +53,12 @@ CREATE TABLE `Taille` (
   PRIMARY KEY (`tailleArticle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `Couleur` (
+	`couleurArticle`	varchar(40) not null,
+    `libelle_en`		varchar(40) not null,
+    primary key (`couleurArticle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `panier` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
@@ -84,13 +92,23 @@ CREATE TABLE `image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Disponible` (
-  `taille_fk`		char(1) not null,
-  `codeBarre_fk`	INT(9),
+  `taille_fk`		char(4) not null,
+  `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`taille_fk`, `codeBarre_fk`),
   KEY `fk_taille` (`taille_fk`),
   KEY `fk_codeBarre_Dispo` (`codeBarre_fk`),
   CONSTRAINT `fk_taille` FOREIGN KEY (`taille_fk`) REFERENCES `Taille` (`tailleArticle`),
   CONSTRAINT `fk_codeBarre_Dispo` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `DisponibleEnCouleur` (
+  `couleur_fk`		char(40) not null,
+  `codeBarre_fk`	INT(9) not null,
+  PRIMARY KEY (`couleur_fk`, `codeBarre_fk`),
+  KEY `fk_couleur` (`couleur_fk`),
+  KEY `fk_codeBarre_DispoCouleur` (`codeBarre_fk`),
+  CONSTRAINT `fk_couleur` FOREIGN KEY (`couleur_fk`) REFERENCES `Couleur` (`couleurArticle`),
+  CONSTRAINT `fk_codeBarre_DispoCouleur` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lot` (
@@ -172,7 +190,9 @@ INSERT INTO `dbequipementssportifs`.`typearticle`
 `prix`,
 `id_categorie_fk`)
 VALUES
-(null, 'Banc de développer coucher premium', 'Bench press premium', 'Fait en cuir de haute qualité avec un aspect premium', 'Made of high quality leather with a premium look', 150, 1), (null, 'T-shirt sport haute intensité', 'T-shirt high intensity sport', 'Créer spécialement pour le crossfit, ne se déchire pas après 3 entrainements', 'Create especially for the crossfit, do not tear after 3 trainings', 29.99, 2), (null, 'Banc de développer coucher basique', 'Basic bench press', 'Simple banc de DC pour commencer', 'Simple bench press for beginners', 99.99, 1);
+(null, 'Banc de développer coucher premium', 'Bench press premium', 'Fait en cuir de haute qualité avec un aspect premium', 'Made of high quality leather with a premium look', 150, 1),
+(null, 'T-shirt sport haute intensité', 'T-shirt high intensity sport', 'Créer spécialement pour le crossfit, ne se déchire pas après 3 entrainements', 'Create especially for the crossfit, do not tear after 3 trainings', 29.99, 2),
+(null, 'Banc de développer coucher basique', 'Basic bench press', 'Simple banc de DC pour commencer', 'Simple bench press for beginners', 99.99, 1);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -187,11 +207,24 @@ INSERT INTO `dbequipementssportifs`.`taille`
 VALUES
 ('S'), ('M'), ('L'), ('XL'), ('XXL');
 
+INSERT INTO `dbequipementssportifs`.`couleur`
+(`couleurArticle`,
+`libelle_en`)
+VALUES
+('Rouge', 'Red'), ('Bleu', 'Blue'), ('Noir', 'Black'), ('Blanc', 'White');
+
+
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
 `codeBarre_fk`)
 VALUES
 ('S', 2), ('M', 2);
+
+INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
+(`couleur_fk`,
+`codeBarre_fk`)
+VALUES
+('Rouge', 2);
 
 
 INSERT INTO `dbequipementssportifs`.`lot`
@@ -211,3 +244,4 @@ INSERT INTO `dbequipementssportifs`.`elementspanier`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
+
