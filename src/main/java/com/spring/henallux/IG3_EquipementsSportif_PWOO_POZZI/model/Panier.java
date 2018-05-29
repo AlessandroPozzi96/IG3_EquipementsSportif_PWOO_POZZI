@@ -9,9 +9,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,7 +52,9 @@ public class Panier implements Serializable {
     public Double getPrixArticle(Article article) {
         Integer quantite = panierHashMap.get(article);
         if (quantite != null) {
-            return quantite * article.getPrixUnitaire();
+            Double prix = quantite * article.getPrixUnitaire();
+            prix = new BigDecimal(prix).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            return prix;
         }
         else
             return 0.0;
@@ -60,25 +65,25 @@ public class Panier implements Serializable {
         for (Map.Entry<Article, Integer> panierEntry : panierHashMap.entrySet()) {
             prixTot += (getPrixArticle(panierEntry.getKey()));
         }
+        prixTot = new BigDecimal(prixTot).setScale(2, RoundingMode.HALF_UP).doubleValue();
         return prixTot;
     }
 
     public void addAchatPanier(Article article, Integer quantite) {
         panierHashMap.put(article, quantite);
+        setTaille("");
+        setCouleur("");
     }
 
     public void modifierQuantitePanier(Article article, Integer quantite) throws ModelException{
         Integer quantiteTmp = panierHashMap.get(article);
         if (quantiteTmp != null) {
-            Integer res = quantiteTmp + quantite;
-            if (res <= 0) {
-                removeArticlesPanier(article);
-                System.out.println("QUANTITE ARTICLE SUPPRIMER PANIER : " + quantiteTmp);
-            }
-            else {
-                panierHashMap.put(article, res);
-                System.out.println("QUANTITE ARTICLE MODIFIER PANIER : " + quantiteTmp);
-            }
+            panierHashMap.put(article, quantite);
+            System.out.println("CLASSE PANIER : QUANTITE MODIFIER ! (" + quantite + ")");
+        }
+        else
+        {
+            System.out.println("CLASSE PANIER : ERREUR ARTICLE INTROUVABLE !");
         }
     }
 

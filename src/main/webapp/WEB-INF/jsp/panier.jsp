@@ -26,11 +26,12 @@
                                modelAttribute="panier">
                         <td><c:out value="${article.key.codeBarre}" /></td>
                         <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
-                        <td><c:out value="${article.value}" /></td>
+                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" /></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
                         <td><c:out value="${panier.getPrixArticle(article.key)}" /></td>
                         <td>
-                            <form:button type="submit" class="btn-block btn-danger" value="Supprimer" name="supprimer">Supprimer</form:button>
+                            <form:button type="submit" class="btn-block btn-danger" value="supprimer" name="supprimer">Supprimer</form:button>
+                            <form:button type="submit" class="btn-block btn-info" value="modifier" name="modifier">Modifier</form:button>
                         </td>
                     </form:form>
                 </tr>
