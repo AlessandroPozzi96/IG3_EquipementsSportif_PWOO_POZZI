@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h1 class="display-4">Panier </h1>
 
-<c:if test="${not empty nbArticles.achatsArticles}" >
+<c:if test="${not empty panier.panierHashMap}" >
     <h2 class="h-auto">Liste de vos articles :</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -18,20 +18,19 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${lignesPaniers}" var="article">
+            <c:forEach items="${panier.panierHashMap}" var="article">
                 <tr>
-                    <form:form id="formLignesPanier"
+                    <form:form id="formPanier"
                                method="POST"
-                               action="${contextPath}/panier?codeBarre=${article.codeBarre}"
-                               modelAttribute="aSupprimer">
-                        <td><c:out value="${article.codeBarre}" /></td>
-                        <td><c:out value="${article.libelle}" /></td>
-                        <td><c:out value="${article.quantite}" /></td>
-                        <td><c:out value="${article.prixUnitaire}" /></td>
-                        <td><c:out value="${article.prix}" /></td>
+                               action='${contextPath}/panier?articleJson=${panier.articleToJson(article.key)}'
+                               modelAttribute="panier">
+                        <td><c:out value="${article.key.codeBarre}" /></td>
+                        <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
+                        <td><c:out value="${article.value}" /></td>
+                        <td><c:out value="${article.key.prixUnitaire}" /></td>
+                        <td><c:out value="${panier.getPrixArticle(article.key)}" /></td>
                         <td>
                             <form:button type="submit" class="btn-block btn-danger" value="Supprimer" name="supprimer">Supprimer</form:button>
-                            <form:button class="btn-block btn-primary" type="submit" name="modifier" value="Modifier">Modifier</form:button>
                         </td>
                     </form:form>
                 </tr>
@@ -43,7 +42,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>${prixTot} euros</td>
+                <td>${panier.prixPanier} euros</td>
                 <td></td>
             </tr>
             </tfoot>
@@ -63,7 +62,7 @@
     </security:authorize>
 </c:if>
 <c:if test="${empty nbArticles.achatsArticles}" >
-    <h2 class="h-auto">Aucun article à afficher</h2>
+    <h2 class="h-auto">Aucun panier à afficher</h2>
 </c:if>
 
 <p class="lead"><a class="badge badge-primary" href='<spring:url value="/catalogue"/>'>Catalogue</a></p>

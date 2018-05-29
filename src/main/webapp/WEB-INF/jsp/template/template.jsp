@@ -33,7 +33,7 @@
                 <a class="p-2 text-dark" href="<spring:url value='/logout' />">Log out</a>
             </security:authorize>
         </nav>
-        <p class="lead"> ${nbArticles.nbArticlesPanier} article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
+        <p class="lead"> ${panier.nbArticlesPanier} article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
         <security:authorize access="isAnonymous()">
             <p class="lead"><a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a><a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a></p>
         </security:authorize>

@@ -4,7 +4,7 @@
 
 <h1 class="display-4">${article.libelle_fr}</h1>
 <p class="lead" ><c:out value="${article.description_fr}" /> </p>
-<p class="lead" >Prix : <c:out value="${article.prix}" /> </p>
+<p class="lead" >Prix : <c:out value="${article.prix}€" /> </p>
 <div class="row" >
     <c:forEach items="${images}" var="image">
         <div class="col-sm-6">
@@ -15,21 +15,20 @@
 <form:form id="formArticle"
            method="POST"
            action="${contextPath}/article"
-           modelAttribute="nbArticles">
+           modelAttribute="panier">
     </br>
-    <form:input type="number" path="nbArticles" value="1" min="1" class="form-control" placeholder="Quantité :"
-                autofocus="true"></form:input>
-    <form:errors path="nbArticles"></form:errors>
     <c:if test="${not empty tailles}" >
         </br>
-        <form:select path="taille">
+        <form:label path="taille">Taille :S</form:label>
+        <form:select path="taille" class="custom-select">
             <form:options items="${tailles}" itemValue="taille_fk" itemLabel="taille_fk" />
         </form:select>
         </br>
     </c:if>
     <c:if test="${not empty couleurs}" >
         </br>
-        <form:select path="couleur">
+        <form:label path="couleur">Couleur :</form:label>
+        <form:select path="couleur" class="custom-select">
             <form:options items="${couleurs}" itemValue="couleur_fk" itemLabel="couleur_fk" />
         </form:select>
         </br>

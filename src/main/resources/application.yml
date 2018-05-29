@@ -1,6 +1,8 @@
 server:
   port: 8082
   context-path: /equipementsSportif
+  tomcat:
+    uri-encoding: UTF-8
 spring:
   datasource:
     password: Pa456lOt

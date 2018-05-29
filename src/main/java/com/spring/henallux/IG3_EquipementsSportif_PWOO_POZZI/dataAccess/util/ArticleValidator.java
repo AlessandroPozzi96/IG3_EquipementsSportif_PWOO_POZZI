@@ -2,7 +2,7 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util;
 
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -20,12 +20,12 @@ public class ArticleValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return Article.class.equals(aClass);
+        return Panier.class.equals(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-        Article articles = (Article) o;
+        Panier articles = (Panier) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nbArticles", "NotEmpty");
         if (articles.getNbArticles() < 0 || articles.getNbArticles() > Integer.MAX_VALUE) {

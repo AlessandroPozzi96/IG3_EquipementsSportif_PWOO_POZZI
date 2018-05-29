@@ -113,7 +113,7 @@ CREATE TABLE `DisponibleEnCouleur` (
 
 CREATE TABLE `lot` (
   `id`				int(9) not null auto_increment,
-  `quantite`		int(10) not null,
+  `codeBarre`		int(10) not null,
   `dateFourniture`	date null,
   `dateCommande`	date not null,
   `numeroTVA_fk` 	int(10) not null,
@@ -126,7 +126,7 @@ CREATE TABLE `lot` (
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `elementspanier` (
-  `quantite`		int(10) not null,
+  `codeBarre`		int(10) not null,
   `prixReel`		double not null,
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
@@ -229,7 +229,7 @@ VALUES
 
 INSERT INTO `dbequipementssportifs`.`lot`
 (`id`,
-`quantite`,
+`codeBarre`,
 `dateFourniture`,
 `dateCommande`,
 `numeroTVA_fk`,
@@ -238,7 +238,7 @@ VALUES
 (null, 1500, null, '2018-02-25', 0112569874, 1);
 
 INSERT INTO `dbequipementssportifs`.`elementspanier`
-(`quantite`,
+(`codeBarre`,
 `prixReel`,
 `codeBarre_fk`,
 `numTicket_fk`)

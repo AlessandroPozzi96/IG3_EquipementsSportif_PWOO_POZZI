@@ -1,17 +1,11 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.CategorieArticleDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/catalogue")
@@ -25,8 +19,8 @@ public class CatalogueController {
     }
 
 /*    @ModelAttribute(Constants.NB_ARTICLES)
-    public Article getNbArticles() {
-        return new Article();
+    public Panier getNbArticles() {
+        return new Panier();
     }*/
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,4 +32,4 @@ public class CatalogueController {
 
 }
 
-    /*@ModelAttribute(value = Constants.NB_ARTICLES) Article nbArticles*/
+    /*@ModelAttribute(value = Constants.NB_ARTICLES) Panier nbArticles*/
