@@ -8,7 +8,7 @@
 <div class="row" >
     <c:forEach items="${images}" var="image">
         <div class="col-sm-6">
-            <img src='<spring:url value="${image.url}"/>' class="img-fluid rounded mx-auto d-block" alt="'<spring:url value="${image.description_fr}"/>'">
+            <img src='<spring:url value="${image.url}"/>' class="img-fluid rounded mx-auto d-block">
         </div>
     </c:forEach>
 </div>
@@ -19,7 +19,7 @@
     </br>
     <c:if test="${not empty tailles}" >
         </br>
-        <form:label path="taille">Taille :S</form:label>
+        <form:label path="taille">Taille :</form:label>
         <form:select path="taille" class="custom-select">
             <form:options items="${tailles}" itemValue="taille_fk" itemLabel="taille_fk" />
         </form:select>

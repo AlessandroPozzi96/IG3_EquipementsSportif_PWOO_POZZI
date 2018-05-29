@@ -8,10 +8,6 @@ public class ImageEntity {
     @Id
     @Column(name = "URL")
     private String url;
-    @Column(name = "DESCRIPTION_FR")
-    private String description_fr;
-    @Column(name = "DESCRIPTION_EN")
-    private String description_en;
 
     @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
     @ManyToOne
@@ -23,21 +19,5 @@ public class ImageEntity {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getDescription_fr() {
-        return description_fr;
-    }
-
-    public void setDescription_fr(String description_fr) {
-        this.description_fr = description_fr;
-    }
-
-    public String getDescription_en() {
-        return description_en;
-    }
-
-    public void setDescription_en(String description_en) {
-        this.description_en = description_en;
     }
 }

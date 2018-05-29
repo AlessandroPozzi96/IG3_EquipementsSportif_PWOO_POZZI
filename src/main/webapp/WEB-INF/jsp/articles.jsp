@@ -7,7 +7,7 @@
     <c:forEach items="${articles}" var="article">
         <div class="col-sm-6">
             <a class="badge badge-secondary" href='<spring:url value="/article?codeBarre=${article.codeBarre}" />'>
-                <img src='<spring:url value="${imageDAO.findByArticleEntityCodeBarre(article.codeBarre)[0].url}"/>' class="img-fluid rounded mx-auto d-block">
+                <img src='<spring:url value="${imageDAO.findByArticleEntityCodeBarre(article.codeBarre)[0].url}"/>' class="img-fluid mx-auto d-block">
                 <p class="lead"><c:out value="${article.libelle_fr}" /></p>
                 <p class="lead" >Prix : <c:out value="${article.prix}" />€</p>
             </a>

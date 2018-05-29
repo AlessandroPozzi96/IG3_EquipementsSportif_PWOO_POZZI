@@ -101,8 +101,6 @@ public class ProviderConverter {
         Image image = new Image();
 
         image.setUrl(imageEntity.getUrl());
-        image.setDescription_en(imageEntity.getDescription_en());
-        image.setDescription_fr(imageEntity.getDescription_fr());
 
         return image;
     }

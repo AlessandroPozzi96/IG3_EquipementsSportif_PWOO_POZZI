@@ -49,20 +49,15 @@
             </tfoot>
         </table>
     </div>
-
+    <p class="font-weight-bold" >Penser à cliquer sur le bouton <em>modifier</em> si avez avez changé la quantité </p>
     <security:authorize access="isAuthenticated()">
-        <form action="https://bitpay.com/checkout" method="post" >
-            <input type="hidden" name="action" value="checkout" />
-            <input type="hidden" name="posData" value="1" /> <%--Unique identifiant pour identifier la commande--%>
-            <input type="hidden" name="data" value="vfzxtMQtHHtzvH4So3ZwwI4pW9hi39neieng7MYMH4Jp0c8uHVRtn6cjq+F+VmgJsZ3fYFQAZd6thvC1PNooMcW9zuV6hIjeVMgCdWv06neRmRulqZ5GEuhNpxVzqhorgRqclpnsUFnJFMVQfkE2aCVg2rGFuX3tbJL/4bBAN+InO9EFSZlYc3UsNwekWFqzwaUfd/xcFaI1abHvYGaLSfWQ70K2P63VLQyIT2V7kjlme+z5KBXfFbUcxaNBzB79" />
-            <input type="image" src="https://bitpay.com/img/button2.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
-        </form>
+        <a class="btn btn-block badge-warning" href='<spring:url value="/commande"/>'>Commander</a>
     </security:authorize>
     <security:authorize access="!isAuthenticated()">
         <p class="lead">Veuillez vous <a class="badge badge-primary" href="<spring:url value="/login"/>">connecter</a> pour pouvoir commander</p>
     </security:authorize>
 </c:if>
-<c:if test="${empty nbArticles.achatsArticles}" >
+<c:if test="${empty panier.panierHashMap}" >
     <h2 class="h-auto">Aucun panier à afficher</h2>
 </c:if>
 
