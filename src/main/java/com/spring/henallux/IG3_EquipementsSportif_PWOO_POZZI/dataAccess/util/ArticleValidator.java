@@ -21,7 +21,7 @@ public class ArticleValidator implements Validator {
         Panier panier = (Panier) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nbArticles", "NotEmpty");
-        if (panier.getNbArticles() < 0 || panier.getNbArticles() > Integer.MAX_VALUE) {
+        if (panier.getNbArticles() < 1 || panier.getNbArticles() > Integer.MAX_VALUE) {
             errors.rejectValue("nbArticles", "Size.formPanier.nbArticles");
         }
     }

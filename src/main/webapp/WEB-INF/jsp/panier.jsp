@@ -1,19 +1,19 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<h1 class="display-4">Panier </h1>
+<h1 class="display-4"><spring:message code="caddy"/> </h1>
 
 <c:if test="${not empty panier.panierHashMap}" >
-    <h2 class="h-auto">Liste de vos articles :</h2>
+    <h2 class="h-auto"><spring:message code="articlesList"/></h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th>CODE BARRE</th>
-                <th>NOM ARTICLE</th>
-                <th>QUANTITE</th>
-                <th>PRIX UNITAIRE</th>
-                <th>PRIX</th>
+                <th><spring:message code="barCode"/></th>
+                <th><spring:message code="articleName"/></th>
+                <th><spring:message code="quantity"/></th>
+                <th><spring:message code="unitPrice"/></th>
+                <th><spring:message code="priceU"/></th>
                 <th></th>
             </tr>
             </thead>
@@ -29,10 +29,10 @@
                         <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" />
                             <form:errors path="nbArticles" cssClass="has-error"></form:errors></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
-                        <td><c:out value="${panier.getPrixArticle(article.key)}" /></td>
+                        <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
                         <td>
-                            <form:button type="submit" class="btn-block btn-danger" value="supprimer" name="supprimer">Supprimer</form:button>
-                            <form:button type="submit" class="btn-block btn-info" value="modifier" name="modifier">Modifier</form:button>
+                            <form:button type="submit" class="btn-block btn-danger" value="supprimer" name="supprimer"><spring:message code="delete"/></form:button>
+                            <form:button type="submit" class="btn-block btn-info" value="modifier" name="modifier"><spring:message code="modify"/></form:button>
                         </td>
                     </form:form>
                 </tr>
@@ -44,23 +44,23 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>${panier.prixPanier} euros</td>
+                <td>${panier.prixPanier}€</td>
                 <td></td>
             </tr>
             </tfoot>
         </table>
     </div>
-    <p class="font-weight-bold" >Penser à cliquer sur le bouton <em>modifier</em> si avez avez changé la quantité !</p>
+    <p class="font-weight-bold" ><spring:message code="changeQuantity"/></p>
     <security:authorize access="isAuthenticated()">
-        <a class="btn btn-block badge-warning" href='<spring:url value="/commande"/>'>Commander</a>
+        <a class="btn btn-block badge-warning" href='<spring:url value="/commande"/>'><spring:message code="order"/></a>
     </security:authorize>
     <security:authorize access="!isAuthenticated()">
-        <p class="lead">Veuillez vous <a class="badge badge-primary" href="<spring:url value="/login"/>">connecter</a> pour pouvoir commander</p>
+        <p class="lead"><a class="badge badge-info" href="<spring:url value="/login"/>"><spring:message code="caddyNeedLogin"/></a></p>
     </security:authorize>
 </c:if>
 <c:if test="${empty panier.panierHashMap}" >
-    <h2 class="h-auto">Aucun panier à afficher</h2>
+    <h2 class="h-auto"><spring:message code="noArticles"/></h2>
 </c:if>
 
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/catalogue"/>'>Catalogue</a></p>
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+<p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/> </a></p>
+<p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>

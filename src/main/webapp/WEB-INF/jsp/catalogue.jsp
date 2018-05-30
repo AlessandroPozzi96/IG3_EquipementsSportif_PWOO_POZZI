@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-    <h1 class="display-4">Catalogue </h1>
+    <h1 class="display-4"><spring:message code="catalog"/></h1>
 
 <div class="row" >
     <c:forEach items="${categoriesArticles}" var="categorie">
@@ -13,4 +13,4 @@
         </div>
     </c:forEach>
 </div>
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+<p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>

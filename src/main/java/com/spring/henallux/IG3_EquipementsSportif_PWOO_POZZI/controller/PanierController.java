@@ -46,13 +46,8 @@ public class PanierController {
             return "integrated:panier";
         }
         Article article = panier.jsonToArticle(articleJson);
-        try {
-            panier.modifierQuantitePanier(article, panier.getNbArticles());
-            System.out.println("CONTROLLER MODIFIER " + "ARTICLE : " + article.getLibelle() + " QUANTITE : " + panier.getNbArticles());
-        } catch (ModelException e) {
-            model.addAttribute("error", e.getMessage());
-            return "integrated:error";
-        }
+        panier.modifierQuantitePanier(article, panier.getNbArticles());
+        System.out.println("CONTROLLER MODIFIER " + "ARTICLE : " + article.getLibelle() + " QUANTITE : " + panier.getNbArticles());
         return "redirect:panier";
     }
 }

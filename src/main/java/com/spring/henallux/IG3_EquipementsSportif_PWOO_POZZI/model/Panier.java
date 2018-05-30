@@ -22,9 +22,9 @@ public class Panier implements Serializable {
     //Clé : article et valeur : quantite
     private HashMap<Article, Integer> panierHashMap;
     @NotNull
-    @Min(0)
+    @Min(1)
     @Max(Integer.MAX_VALUE)
-    private Integer nbArticles = 0;
+    private Integer nbArticles = 1;
     private String taille = "";
     private String couleur = "";
     private Gson gson = new Gson();
@@ -75,16 +75,19 @@ public class Panier implements Serializable {
         setCouleur("");
     }
 
-    public void modifierQuantitePanier(Article article, Integer quantite) throws ModelException{
-        Integer quantiteTmp = panierHashMap.get(article);
-        if (quantiteTmp != null) {
-            panierHashMap.put(article, quantite);
-            System.out.println("CLASSE PANIER : QUANTITE MODIFIER ! (" + quantite + ")");
+    public void modifierQuantitePanier(Article article, Integer quantite) {
+        if (quantite != null && quantite > 0) {
+            Integer quantiteTmp = panierHashMap.get(article);
+            if (quantiteTmp != null) {
+                panierHashMap.put(article, quantite);
+                System.out.println("CLASSE PANIER : QUANTITE MODIFIER ! (" + quantite + ")");
+            }
+            else
+            {
+                System.out.println("CLASSE PANIER : ERREUR ARTICLE INTROUVABLE !");
+            }
         }
-        else
-        {
-            System.out.println("CLASSE PANIER : ERREUR ARTICLE INTROUVABLE !");
-        }
+        setNbArticles(1);
     }
 
     public void removeArticlesPanier(Article article) {

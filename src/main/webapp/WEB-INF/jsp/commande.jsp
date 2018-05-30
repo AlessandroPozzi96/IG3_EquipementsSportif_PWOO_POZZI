@@ -2,7 +2,7 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<h1 class="display-4">Commande</h1>
+<h1 class="display-4"><spring:message code="order"/></h1>
 <p class="lead">Vous êtes sur le point de commander ${panier.nbArticlesPanier} article(s) pour un total de ${panier.prixPanier}€</p>
 <p class="lead">Afin de procéder au payement, veuiller utiliser notre partenaire BitPay (Payement disponible uniquement en BitCoins)</p>
 <form action="https://bitpay.com/checkout" method="post" >

@@ -4,7 +4,7 @@
 
 <h1 class="display-4">${article.libelle_fr}</h1>
 <p class="lead" ><c:out value="${article.description_fr}" /> </p>
-<p class="lead" >Prix : <c:out value="${article.prix}€" /> </p>
+<h3 class="mb-lg-auto-4" ><spring:message code="priceL"/> : <c:out value="${article.prix}€" /> </h3>
 <div class="row" >
     <c:forEach items="${images}" var="image">
         <div class="col-sm-6">
@@ -19,7 +19,7 @@
     </br>
     <c:if test="${not empty tailles}" >
         </br>
-        <form:label path="taille">Taille :</form:label>
+        <form:label path="taille"><spring:message code="size"/> :</form:label>
         <form:select path="taille" class="custom-select">
             <form:options items="${tailles}" itemValue="taille_fk" itemLabel="taille_fk" />
         </form:select>
@@ -27,16 +27,16 @@
     </c:if>
     <c:if test="${not empty couleurs}" >
         </br>
-        <form:label path="couleur">Couleur :</form:label>
+        <form:label path="couleur"><spring:message code="color"/> :</form:label>
         <form:select path="couleur" class="custom-select">
             <form:options items="${couleurs}" itemValue="couleur_fk" itemLabel="couleur_fk" />
         </form:select>
         </br>
     </c:if>
     </br>
-    <form:button class="btn btn-lg btn-primary btn-block" type="submit">Commander</form:button>
-    <form:button class="btn btn-lg btn-primary btn-block" type="reset">Réinitialiser</form:button>
+    <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="addToCaddy"/></form:button>
+    <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/></form:button>
 </form:form>
 
-<p class="lead">Retour au <a class="badge badge-primary" href='<spring:url value="/catalogue"/>'> catalogue</a></p>
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'>Retour à l'accueil</a></p>
+<p class="lead"><a class="badge badge-primary" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
+<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>

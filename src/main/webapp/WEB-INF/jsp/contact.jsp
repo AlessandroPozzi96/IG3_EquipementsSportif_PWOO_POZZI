@@ -2,7 +2,7 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h1 class="display-4">Contact</h1>
-<p class="lead">EquipementsSportifs.com est une entreprise de vente en ligne d'équipements sporifs vous l'avez surement deviné !</p>
-<p class="lead">Tout juste créé en 2018, nous sommes encore une jeune compagnie mais nous progressons rapidement, en nous choisissant nous plutôt qu'une autre entreprise vous aurez accès à une qualité incomparable</p>
-<p class="lead">Vous avez une question ou avez un problème ? Contactez le <a href="mailto:savEquipementsSportifs@gmail.com" class="badge badge-primary">S.A.V</a> pour résoudre votre problème !</p>
+<p class="lead"><spring:message code="contactMessage1"/></p>
+<p class="lead"><spring:message code="contactMessage2"/></p>
+<p class="lead"><spring:message code="contactMessage3V1"/><a href="mailto:savEquipementsSportifs@gmail.com" class="badge badge-info"><spring:message code="customerService"/></a><spring:message code="contactMessage3V2"/></p>
 

@@ -25,17 +25,19 @@
             <h5 class="my-3 mr-md-auto font-weight-normal">Salutations, administrateur <security:authentication property="principal.username" /> !</h5>
         </security:authorize>
         <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="<spring:url value='/' />">Home</a>
-            <a class="p-2 text-dark" href="<spring:url value='/catalogue' />">Catalogue</a>
-            <a class="p-2 text-dark" href="<spring:url value='/compte' />">Compte</a>
+            <a class="p-2 text-dark" href="<spring:url value='/' />"><spring:message code="home"/> </a>
+            <a class="p-2 text-dark" href="<spring:url value='/catalogue' />"><spring:message code="catalog"/></a>
+            <a class="p-2 text-dark" href="<spring:url value='/compte' />"><spring:message code="account"/></a>
             <a class="p-2 text-dark" href="<spring:url value='/contact' />">Contact</a>
             <security:authorize access="isAuthenticated()">
-                <a class="p-2 text-dark" href="<spring:url value='/logout' />">Log out</a>
+                <a class="p-2 text-dark" href="<spring:url value='/logout' />"><spring:message code="logout"/></a>
             </security:authorize>
         </nav>
-        <p class="lead"> ${panier.nbArticlesPanier} article(s) dans votre <a class="btn btn-outline-primary" href="<spring:url value='/panier' />">panier</a></p>
+        <p class="lead"> ${panier.nbArticlesPanier} <spring:message code="caddyMessage"/> <a class="btn btn-outline-primary" href="<spring:url value='/panier' />"><spring:message code="caddy"/></a></p>
         <security:authorize access="isAnonymous()">
-            <p class="lead"><a class="btn btn-outline-primary" href="<spring:url value='/registration' />">Sign up</a><a class="btn btn-outline-primary" href="<spring:url value='/login' />">Sign in</a></p>
+            <p class="lead">
+                <a class="btn btn-outline-primary" href="<spring:url value='/registration' />"><spring:message code="signup"/></a>
+                <a class="btn btn-outline-primary" href="<spring:url value='/login' />"><spring:message code="signin"/></a></p>
         </security:authorize>
     </div>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -48,19 +50,19 @@
                         <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
                     </div>
                     <div class="col-6 col-md">
-                        <h5>Features</h5>
+                        <h5><spring:message code="features"/></h5>
                         <ul class="list-unstyled text-small">
                             <li><a class="text-muted" href="#">Cool stuff</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5>Resources</h5>
+                        <h5><spring:message code="resources"/></h5>
                         <ul class="list-unstyled text-small">
                             <li><a class="text-muted" href="#">Resource</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5>About</h5>
+                        <h5><spring:message code="about"/></h5>
                         <ul class="list-unstyled text-small">
                             <li><a class="text-muted" href="#">Team</a></li>
                             <li><a class="text-muted" href="#">Locations</a></li>
