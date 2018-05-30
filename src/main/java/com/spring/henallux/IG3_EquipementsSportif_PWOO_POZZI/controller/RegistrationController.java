@@ -37,11 +37,10 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String validationForm(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+    public String validationForm(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
         userValidator.validate(user, result);
         if (result.hasErrors() ) {
-            model.addAttribute("error", result);
-            return "integrated:error";
+            return "integrated:registration";
         }
         System.out.println("---REGISTRATION CONTROLLER POST---");
         userDAO.save(user);

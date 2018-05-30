@@ -11,13 +11,6 @@ import org.springframework.validation.Validator;
 
 @Component
 public class ArticleValidator implements Validator {
-    private TypeArticleDAO typeArticleDAO;
-
-    @Autowired
-    public ArticleValidator(TypeArticleDAO typeArticleDAO) {
-        this.typeArticleDAO = typeArticleDAO;
-    }
-
     @Override
     public boolean supports(Class<?> aClass) {
         return Panier.class.equals(aClass);
@@ -25,11 +18,11 @@ public class ArticleValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        Panier articles = (Panier) o;
+        Panier panier = (Panier) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nbArticles", "NotEmpty");
-        if (articles.getNbArticles() < 0 || articles.getNbArticles() > Integer.MAX_VALUE) {
-            errors.rejectValue("nbArticles", "Size.formCommande.nbArticles");
+        if (panier.getNbArticles() < 0 || panier.getNbArticles() > Integer.MAX_VALUE) {
+            errors.rejectValue("nbArticles", "Size.formPanier.nbArticles");
         }
     }
 }

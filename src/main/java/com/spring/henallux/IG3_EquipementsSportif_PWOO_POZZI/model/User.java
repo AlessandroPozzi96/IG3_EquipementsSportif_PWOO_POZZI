@@ -6,10 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Basic;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -18,10 +15,10 @@ public class User {
     @Size(min = 3, max = 50)
     private String username;
     @NotNull
-    @Size(min = 6, max = 200)
+    @Size(min = 6, max = 32)
     private String password;
     @NotNull
-    @Size(min = 6, max = 200)
+    @Size(min = 6, max = 32)
     private String confirmPassword;
     @NotNull
     @Size(min = 3, max = 45)
@@ -47,6 +44,7 @@ public class User {
     @Basic
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Temporal(TemporalType.DATE)
+    @Past
     private java.util.Date dateNaissance;
     @NotNull
     private Boolean isMale;

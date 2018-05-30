@@ -25,21 +25,12 @@ public class UserValidator implements org.springframework.validation.Validator {
     public void validate(Object o, Errors errors) {
         User user = (User) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getUsername().length() < 3 || user.getUsername().length() > 50) {
-            errors.rejectValue("username", "Size.formUser.username");
-        }
         if (userDAO.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.formUser.username");
         }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 6 || user.getPassword().length() > 200) {
-            errors.rejectValue("password", "Size.formUser.password");
-        }
-
         if (!user.getConfirmPassword().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.formUser.passwordConfirm");
+            errors.rejectValue("confirmPassword", "Diff.formUser.confirmPassword");
         }
     }
 }

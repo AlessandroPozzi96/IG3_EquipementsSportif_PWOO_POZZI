@@ -18,6 +18,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String LOGIN_REQUEST = "/login";
     private static final String[] AUTHORIZED_REQUESTS_ANYBODY = new String[]{"/", "/registration", "/css/**", "/images/**", "/images/articles/**", "/js/**", "/catalogue", "/registration", "/error", "/contact", "/compte", "/panier", "/articles", "/article"};
     private static final String[] AUTHORIZED_REQUESTS_ADMIN = new String[]{"/admin"};
+    private static final String[] AUTHORIZED_REQUESTS_ONLY_USERS = new String[]{"/commande",};
 
     private UserDetailsService userDetailsServiceImpl;
 
@@ -44,6 +45,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests() // We define the authorization here
                 .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN") // For the request to "/admin", the user needs to be an admin
+                .antMatchers(AUTHORIZED_REQUESTS_ONLY_USERS).hasRole("USER") // Web pages only accessible tu users !
                 .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll() // For the request to the index page, any user has access
                 .anyRequest().authenticated() // For all the other requests, the user needs to be authenticated
 

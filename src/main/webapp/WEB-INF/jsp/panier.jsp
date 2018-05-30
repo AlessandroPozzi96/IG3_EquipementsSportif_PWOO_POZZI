@@ -26,7 +26,8 @@
                                modelAttribute="panier">
                         <td><c:out value="${article.key.codeBarre}" /></td>
                         <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
-                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" /></td>
+                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" />
+                            <form:errors path="nbArticles" cssClass="has-error"></form:errors></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
                         <td><c:out value="${panier.getPrixArticle(article.key)}" /></td>
                         <td>
@@ -49,7 +50,7 @@
             </tfoot>
         </table>
     </div>
-    <p class="font-weight-bold" >Penser à cliquer sur le bouton <em>modifier</em> si avez avez changé la quantité </p>
+    <p class="font-weight-bold" >Penser à cliquer sur le bouton <em>modifier</em> si avez avez changé la quantité !</p>
     <security:authorize access="isAuthenticated()">
         <a class="btn btn-block badge-warning" href='<spring:url value="/commande"/>'>Commander</a>
     </security:authorize>
