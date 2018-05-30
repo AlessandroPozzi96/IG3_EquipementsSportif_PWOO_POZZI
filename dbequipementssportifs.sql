@@ -153,7 +153,8 @@ INSERT INTO `dbequipementssportifs`.`persistable_user`
 `dateNaissance`,
 `isMale`)
 VALUES
-('Aless', '$2a$10$Y8dfdYBpUaJwWyPeyZxczOdJ6tIuIMm5Rss7.FVTZ5eRM8uNUBifS', 'ROLE_ADMIN', 1, 1, 1, 1, 'POZZI', 'Alessandro', 'alessandro.pozzi72@gmail.com', 'Falmagne', 'Place du bati', 5500, 473227085, '1996-07-14', 1);
+('Aless', '$2a$10$Y8dfdYBpUaJwWyPeyZxczOdJ6tIuIMm5Rss7.FVTZ5eRM8uNUBifS', 'ROLE_ADMIN', 1, 1, 1, 1, 'POZZI', 'Alessandro', 'alessandro.pozzi72@gmail.com', 'Falmagne', 'Place du bati', 5500, 473227085, '1996-07-14', 1), 
+('ConstentinDu06', '$2a$10$NsXhCQOsLGt8x6zZiHKWZuOMah4pWOHHN2B6a5btHOwAx3vT4HuB2', 'ROLE_USER', 1, 1, 1, 1, 'PENEURE', 'Constentin', 'constentin@gmail.com', 'Grenoble', 'Rue du mimosa', 7413, NULL, '2003-07-05', 1);
 
 INSERT INTO `dbequipementssportifs`.`fournisseur`
 (`numeroTVA`,
@@ -225,7 +226,7 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
 VALUES
-('S'), ('M'), ('L'), ('XL'), ('XXL'), ('41'), ('42'), ('43'), ('44'), ('45');
+('S'), ('M'), ('L'), ('XL'), ('XXL'), ('38'),('39'),('40'), ('41'), ('42'), ('43'), ('44'), ('45');
 
 INSERT INTO `dbequipementssportifs`.`couleur`
 (`couleurArticle`, 
@@ -239,9 +240,10 @@ INSERT INTO `dbequipementssportifs`.`disponible`
 `codeBarre_fk`)
 VALUES
 ('S', 2), ('M', 2), ('L', 2), 
-('42', 9), ('43', 9), ('44', 9), ('45', 9), 
-('42', 4), ('43', 4), ('44', 4), ('45', 4), 
-('S', 10), ('M', 10);
+('38', 9),('39', 9),('40', 9),('41', 9),('42', 9), ('43', 9), ('44', 9), ('45', 9), 
+('38', 4),('39', 4),('40', 4),('41', 4),('42', 4), ('43', 4), ('44', 4), ('45', 4), 
+('S', 10), ('M', 10), ('L', 10), 
+('38', 7),('39', 7),('40', 7),('41', 7),('42', 7), ('43', 7), ('44', 7), ('45', 7);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -249,7 +251,8 @@ INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 VALUES
 ('Rouge', 2), ('Bleu', 2), ('Blanc', 2), 
 ('Rouge', 10), ('Bleu', 10), 
-('Noir', 5), ('Blanc', 5);
+('Noir', 5), ('Blanc', 5), 
+('Bleu', 11), ('Rouge', 11);
 
 
 INSERT INTO `dbequipementssportifs`.`lot`
@@ -269,4 +272,3 @@ INSERT INTO `dbequipementssportifs`.`elementspanier`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
-
