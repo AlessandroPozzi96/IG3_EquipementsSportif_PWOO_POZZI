@@ -153,4 +153,14 @@ public class ProviderConverter {
 
         return disponibleEnCouleur;
     }
+
+    public TranslationCategorie translationCategorieEntityToTranslationCategorieModel(TranslationCategorieEntity translationCategorieEntity) {
+        TranslationCategorie translationCategorie = new TranslationCategorie();
+
+        translationCategorie.setIdCategorie_FK(translationCategorieEntity.getTranslationCategoriePK().getIdCategorie_FK());
+        translationCategorie.setLangageID_FK(translationCategorieEntity.getTranslationCategoriePK().getLangageID_FK());
+        translationCategorie.setLibelle(translationCategorieEntity.getLibelle());
+
+        return translationCategorie;
+    }
 }

@@ -1,35 +1,38 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.CategorieArticleDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TranslationCategorieDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.CategorieArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping(value = "/catalogue")
-/*@SessionAttributes({Constants.NB_ARTICLES})*/
 public class CatalogueController {
     private CategorieArticleDAO categorieArticleDAO;
+    private TranslationCategorieDAO translationCategorieDAO;
+    private ArrayList<CategorieArticle> categorieArticles;
 
     @Autowired
-    public CatalogueController(CategorieArticleDAO categorieArticleDAO) {
+    public CatalogueController(CategorieArticleDAO categorieArticleDAO, TranslationCategorieDAO translationCategorieDAO) {
         this.categorieArticleDAO = categorieArticleDAO;
+        this.translationCategorieDAO = translationCategorieDAO;
     }
 
-/*    @ModelAttribute(Constants.NB_ARTICLES)
-    public Panier getNbArticles() {
-        return new Panier();
-    }*/
-
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home(Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie) {
         model.addAttribute("title", "Catalogue Page");
-        model.addAttribute("categoriesArticles", categorieArticleDAO.getAllCategories());
+        categorieArticles = categorieArticleDAO.getAllCategories();
+        model.addAttribute("categoriesArticles", categorieArticles);
+        model.addAttribute("translationCategorieDAO", translationCategorieDAO);
+
         return "integrated:catalogue";
     }
 
 }
-
-    /*@ModelAttribute(value = Constants.NB_ARTICLES) Panier nbArticles*/

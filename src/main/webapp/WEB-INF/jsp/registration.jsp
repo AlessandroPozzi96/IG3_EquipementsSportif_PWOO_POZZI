@@ -77,7 +77,7 @@
     </div>
     </br>
     <div class="form-group">
-        <form:label path="Male"><spring:message code="sex"/></form:label>
+        <form:label path="Male"><spring:message code="sex"/> : </form:label>
         <spring:bind path="Male">
             <form:label path="Male"><spring:message code="male"/></form:label>
             <form:radiobutton path="Male" value="true"/>

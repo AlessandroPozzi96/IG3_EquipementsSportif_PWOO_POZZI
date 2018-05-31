@@ -34,9 +34,9 @@
         </br>
     </c:if>
     </br>
-    <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="addToCaddy"/></form:button>
-    <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/></form:button>
+    <form:button class="btn btn-lg btn-info btn-block" type="submit"><spring:message code="addToCaddy"/></form:button>
+    <form:button class="btn btn-lg btn-info btn-block" type="reset"><spring:message code="reset"/></form:button>
 </form:form>
-
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
-<p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>
+</br>
+<p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
+<p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>
