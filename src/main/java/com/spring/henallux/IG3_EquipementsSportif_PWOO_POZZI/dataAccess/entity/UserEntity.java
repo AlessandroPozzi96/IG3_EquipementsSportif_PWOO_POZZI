@@ -65,6 +65,9 @@ public class UserEntity implements UserDetails {
     @Column(name = "ISMALE")
     private Boolean isMale;
 
+    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY)
+    Collection<PanierEntity> panierEntities;
+
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();

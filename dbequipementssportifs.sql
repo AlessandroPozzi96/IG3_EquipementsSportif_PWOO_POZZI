@@ -68,7 +68,7 @@ CREATE TABLE `Langage` (
 CREATE TABLE `panier` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
-  `username_fk` varchar(50) DEFAULT NULL,
+  `username_fk` varchar(50) NOT NULL,
   PRIMARY KEY (`numTicket`),
   KEY `fk_username` (`username_fk`),
   CONSTRAINT `fk_username` FOREIGN KEY (`username_fk`) REFERENCES `persistable_user` (`username`)
@@ -151,7 +151,7 @@ CREATE TABLE `lot` (
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `elementspanier` (
-  `quantite`		int(10) not null,
+  `quantite`		int(9) not null,
   `prixReel`		double not null,
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
@@ -336,8 +336,4 @@ VALUES
 select *
 from  persistable_user;
 
-select libelle
-from translationcategorie  t
-where t.langageID_FK = 'en'
-and t.idCategorie_FK = 1;
 

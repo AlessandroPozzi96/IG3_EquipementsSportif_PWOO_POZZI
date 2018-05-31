@@ -19,10 +19,10 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto"><a class="p-2 text-dark" href="<spring:url value='/' />">EquipementsSportifs</a></h5>
         <security:authorize access="hasRole('USER')">
-        <h5 class="my-3 mr-md-auto font-weight-normal"><security:authentication property="principal.username" /></h5>
+        <h5 class="my-3 mr-md-auto font-weight-normal"><spring:message code="helloMessageClient"/> <security:authentication property="principal.username" /> !</h5>
         </security:authorize>
         <security:authorize access="hasRole('ADMIN')">
-            <h5 class="my-3 mr-md-auto font-weight-normal">Salutations, administrateur <security:authentication property="principal.username" /> !</h5>
+            <h5 class="my-3 mr-md-auto font-weight-normal"><spring:message code="helloMessageAdmin"/> <security:authentication property="principal.username" /> !</h5>
         </security:authorize>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="<spring:url value='/' />"><spring:message code="home"/> </a>

@@ -166,4 +166,14 @@ public class ProviderConverter {
 
         return translationArticle;
     }
+
+    public PanierEntity panierModelToPanierEntity(PanierModel panierModel, UserEntity userEntity) {
+        PanierEntity panierEntity = new PanierEntity();
+        panierEntity.setUserEntity(userEntity);
+        panierEntity.setNumTicket(panierModel.getNumTicket());
+        java.sql.Date sqlDate = new java.sql.Date(panierModel.getDate().getTime());
+        panierEntity.setDate(sqlDate);
+
+        return panierEntity;
+    }
 }
