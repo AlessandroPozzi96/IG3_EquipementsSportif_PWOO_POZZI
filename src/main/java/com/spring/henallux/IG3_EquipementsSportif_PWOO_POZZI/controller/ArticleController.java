@@ -6,6 +6,7 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.Art
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TranslationArticle;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TypeArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ public class ArticleController {
     private DisponibleEnCouleurDAO disponibleEnCouleurDAO;
     private TypeArticle typeArticle;
     private TranslationArticleDAO translationArticleDAO;
+    private TranslationArticle translationArticle;
 
     @Autowired
     public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO) {
@@ -39,7 +41,7 @@ public class ArticleController {
     }
 
     @RequestMapping(method = RequestMethod.GET, params = {"codeBarre"})
-    public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model) {
+    public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie) {
         model.addAttribute("title", "Panier Page");
         typeArticle = typeArticleDAO.findByCodeBarre(codeBarre);
         model.addAttribute("article", typeArticle);
@@ -47,7 +49,8 @@ public class ArticleController {
         cb = codeBarre;
         model.addAttribute("tailles", disponibleDAO.findAllByCodeBarre(cb));
         model.addAttribute("couleurs", disponibleEnCouleurDAO.findAllByCodeBarre(cb));
-        model.addAttribute("translationArticleDAO", translationArticleDAO);
+        translationArticle = translationArticleDAO.findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(cb, myLocaleCookie);
+        model.addAttribute("translationArticle", translationArticle);
         return "integrated:article";
     }
 
@@ -60,7 +63,7 @@ public class ArticleController {
         }
 
         try {
-            Article article = new Article(typeArticle.getLibelle_fr(), cb, typeArticle.getPrix(), panier.getTaille(), panier.getCouleur());
+            Article article = new Article(translationArticle.getLibelle(), cb, typeArticle.getPrix(), panier.getTaille(), panier.getCouleur());
             Integer articleExiste = panier.getPanierHashMap().get(article);
             if (articleExiste != null) {
                 panier.addAchatPanier(article, articleExiste++);

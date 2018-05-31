@@ -1,11 +1,9 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<spring:message code='lang' var="lang"/>
-<c:set var="translation" value="${translationArticleDAO.findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(param.codeBarre, lang)}" />
 
-<h1 class="display-4">${translation.libelle}</h1>
-<p class="lead" ><c:out value="${translation.description}" /> </p>
+<h1 class="display-4">${translationArticle.libelle}</h1>
+<p class="lead" ><c:out value="${translationArticle.description}" /> </p>
 <h3 class="mb-lg-auto-4" ><spring:message code="priceL"/> : <c:out value="${article.prix}€" /> </h3>
 <div class="row" >
     <c:forEach items="${images}" var="image">

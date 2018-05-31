@@ -11,12 +11,6 @@ public class CategorieArticleEntity {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "LIBELLE_FR")
-    private String libelle_fr;
-
-    @Column(name = "LIBELLE_EN")
-    private String libelle_en;
-
     @Column(name = "URL_IMAGE")
     private String url_image;
 
@@ -29,22 +23,6 @@ public class CategorieArticleEntity {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getLibelle_fr() {
-        return libelle_fr;
-    }
-
-    public void setLibelle_fr(String libelle_fr) {
-        this.libelle_fr = libelle_fr;
-    }
-
-    public String getLibelle_en() {
-        return libelle_en;
-    }
-
-    public void setLibelle_en(String libelle_en) {
-        this.libelle_en = libelle_en;
     }
 
     public String getUrl_image() {

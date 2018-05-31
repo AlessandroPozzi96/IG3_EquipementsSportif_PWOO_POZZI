@@ -11,18 +11,6 @@ public class TypeArticleEntity {
     @Column(name = "CODEBARRE")
     private Integer codeBarre;
 
-    @Column(name = "LIBELLE_FR")
-    private String libelle_fr;
-
-    @Column(name = "LIBELLE_EN")
-    private String libelle_en;
-
-    @Column(name = "DESCRIPTION_FR")
-    private String description_fr;
-
-    @Column(name = "DESCRIPTION_EN")
-    private String description_en;
-
     @Column(name = "PRIX")
     private Double prix;
 
@@ -39,38 +27,6 @@ public class TypeArticleEntity {
 
     public void setCodeBarre(Integer codeBarre) {
         this.codeBarre = codeBarre;
-    }
-
-    public String getLibelle_fr() {
-        return libelle_fr;
-    }
-
-    public void setLibelle_fr(String libelle_fr) {
-        this.libelle_fr = libelle_fr;
-    }
-
-    public String getLibelle_en() {
-        return libelle_en;
-    }
-
-    public void setLibelle_en(String libelle_en) {
-        this.libelle_en = libelle_en;
-    }
-
-    public String getDescription_fr() {
-        return description_fr;
-    }
-
-    public void setDescription_fr(String description_fr) {
-        this.description_fr = description_fr;
-    }
-
-    public String getDescription_en() {
-        return description_en;
-    }
-
-    public void setDescription_en(String description_en) {
-        this.description_en = description_en;
     }
 
     public Double getPrix() {

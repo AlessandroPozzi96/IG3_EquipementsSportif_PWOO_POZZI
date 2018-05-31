@@ -65,8 +65,6 @@ public class ProviderConverter {
         CategorieArticle categorieArticle = new CategorieArticle();
 
         categorieArticle.setId(categorieArticleEntity.getId());
-        categorieArticle.setLibelle_fr(categorieArticleEntity.getLibelle_fr());
-        categorieArticle.setLibelle_en(categorieArticleEntity.getLibelle_en());
         categorieArticle.setUrl_image(categorieArticleEntity.getUrl_image());
 
         return categorieArticle;
@@ -76,8 +74,6 @@ public class ProviderConverter {
         CategorieArticleEntity categorieArticleEntity = new CategorieArticleEntity();
 
         categorieArticleEntity.setId(categorieArticle.getId());
-        categorieArticleEntity.setLibelle_en(categorieArticle.getLibelle_en());
-        categorieArticleEntity.setLibelle_fr(categorieArticle.getLibelle_fr());
         categorieArticleEntity.setUrl_image(categorieArticle.getUrl_image());
 
         return categorieArticleEntity;
@@ -87,10 +83,6 @@ public class ProviderConverter {
         TypeArticle typeArticle = new TypeArticle();
 
         typeArticle.setCodeBarre(typeArticleEntity.getCodeBarre());
-        typeArticle.setLibelle_en(typeArticleEntity.getLibelle_en());
-        typeArticle.setLibelle_fr(typeArticleEntity.getLibelle_fr());
-        typeArticle.setDescription_en(typeArticleEntity.getDescription_en());
-        typeArticle.setDescription_fr(typeArticleEntity.getDescription_fr());
         typeArticle.setPrix(typeArticleEntity.getPrix());
         typeArticle.setId_categorie_fk(typeArticleEntity.getCategorieArticleEntity().getId());
 

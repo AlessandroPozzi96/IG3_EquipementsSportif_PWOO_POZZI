@@ -11,18 +11,6 @@ public class TypeArticle {
     @Max(Integer.MAX_VALUE)
     private Integer codeBarre;
     @NotNull
-    @Size(min = 1, max = 50)
-    private String libelle_fr;
-    @NotNull
-    @Size(min = 1, max = 50)
-    private String libelle_en;
-    @NotNull
-    @Size(min = 1, max = 200)
-    private String description_fr;
-    @NotNull
-    @Size(max = 200, min = 1)
-    private String description_en;
-    @NotNull
     private Double prix;
     @NotNull
     @Min(1)
@@ -38,38 +26,6 @@ public class TypeArticle {
 
     public void setCodeBarre(Integer codeBarre) {
         this.codeBarre = codeBarre;
-    }
-
-    public String getLibelle_fr() {
-        return libelle_fr;
-    }
-
-    public void setLibelle_fr(String libelle_fr) {
-        this.libelle_fr = libelle_fr;
-    }
-
-    public String getLibelle_en() {
-        return libelle_en;
-    }
-
-    public void setLibelle_en(String libelle_en) {
-        this.libelle_en = libelle_en;
-    }
-
-    public String getDescription_fr() {
-        return description_fr;
-    }
-
-    public void setDescription_fr(String description_fr) {
-        this.description_fr = description_fr;
-    }
-
-    public String getDescription_en() {
-        return description_en;
-    }
-
-    public void setDescription_en(String description_en) {
-        this.description_en = description_en;
     }
 
     public Double getPrix() {
