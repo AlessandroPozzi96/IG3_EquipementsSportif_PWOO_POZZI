@@ -1,10 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.DisponibleDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.DisponibleEnCouleurDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.ImageDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.*;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
@@ -29,9 +26,11 @@ public class ArticleController {
     private DisponibleDAO disponibleDAO;
     private DisponibleEnCouleurDAO disponibleEnCouleurDAO;
     private TypeArticle typeArticle;
+    private TranslationArticleDAO translationArticleDAO;
 
     @Autowired
-    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO) {
+    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO) {
+        this.translationArticleDAO = translationArticleDAO;
         this.disponibleEnCouleurDAO = disponibleEnCouleurDAO;
         this.typeArticleDAO = typeArticleDAO;
         this.imageDAO = imageDAO;
@@ -48,6 +47,7 @@ public class ArticleController {
         cb = codeBarre;
         model.addAttribute("tailles", disponibleDAO.findAllByCodeBarre(cb));
         model.addAttribute("couleurs", disponibleEnCouleurDAO.findAllByCodeBarre(cb));
+        model.addAttribute("translationArticleDAO", translationArticleDAO);
         return "integrated:article";
     }
 

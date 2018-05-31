@@ -163,4 +163,15 @@ public class ProviderConverter {
 
         return translationCategorie;
     }
+
+    public TranslationArticle translationArticleEntityToTranslationArticleModel(TranslationArticleEntity translationArticleEntity) {
+        TranslationArticle translationArticle = new TranslationArticle();
+
+        translationArticle.setCodeBarre_FK(translationArticleEntity.getTranslationArticlePK().getCodeBarre_FK());
+        translationArticle.setLangageID_FK(translationArticleEntity.getTranslationArticlePK().getLangageID_FK());
+        translationArticle.setDescription(translationArticleEntity.getDescription());
+        translationArticle.setLibelle(translationArticleEntity.getLibelle());
+
+        return translationArticle;
+    }
 }
