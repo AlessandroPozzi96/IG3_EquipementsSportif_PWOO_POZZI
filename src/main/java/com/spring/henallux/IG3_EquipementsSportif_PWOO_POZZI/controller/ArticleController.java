@@ -58,8 +58,7 @@ public class ArticleController {
     public String getArticle(Model model, @Valid @ModelAttribute(Constants.PANIER) Panier panier, BindingResult result) {
         articleValidator.validate(panier, result);
         if (result.hasErrors()) {
-            model.addAttribute("error", result);
-            return "integrated:error";
+            return "integrated:article?codeBarre=" + cb;
         }
 
         try {

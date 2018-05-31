@@ -80,7 +80,8 @@ CREATE TABLE `typearticle` (
   `id_categorie_fk` int(9) NOT NULL,
   PRIMARY KEY (`codeBarre`),
   KEY `fk_categorie` (`id_categorie_fk`),
-  CONSTRAINT `fk_categorie` FOREIGN KEY (`id_categorie_fk`) REFERENCES `categoriearticle` (`id`)
+  CONSTRAINT `fk_categorie` FOREIGN KEY (`id_categorie_fk`) REFERENCES `categoriearticle` (`id`),
+  check (`prix` >=0)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `image` (
@@ -145,7 +146,8 @@ CREATE TABLE `lot` (
   KEY `fk_numeroTVA` (`numeroTVA_fk`),
   KEY `fk_codeBarre_lot` (`codeBarre_fk`),
   CONSTRAINT `fk_numeroTVA` FOREIGN KEY (`numeroTVA_fk`) REFERENCES `fournisseur` (`numeroTVA`),
-  CONSTRAINT `fk_codeBarre_lot` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
+  CONSTRAINT `fk_codeBarre_lot` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
+  check (`quantite` >= 0)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
 
 CREATE TABLE `elementspanier` (
@@ -157,7 +159,9 @@ CREATE TABLE `elementspanier` (
   KEY `fk_codeBarre_panier` (`codeBarre_fk`),
   KEY `fk_numTicket` (`numTicket_fk`),
   CONSTRAINT `fk_codeBarre_panier` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
-  CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `panier` (`numTicket`)
+  CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `panier` (`numTicket`),
+  check (`quantite` >= 0),
+  check (`prixReel` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `dbequipementssportifs`.`persistable_user`

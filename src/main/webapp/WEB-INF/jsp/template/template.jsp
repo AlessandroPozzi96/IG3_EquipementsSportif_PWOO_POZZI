@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto">EquipementsSportifs</h5>
+        <h5 class="my-0 mr-md-auto"><a class="p-2 text-dark" href="<spring:url value='/' />">EquipementsSportifs</a></h5>
         <security:authorize access="hasRole('USER')">
         <h5 class="my-3 mr-md-auto font-weight-normal"><security:authentication property="principal.username" /></h5>
         </security:authorize>
