@@ -29,6 +29,10 @@ public class UserValidator implements org.springframework.validation.Validator {
             errors.rejectValue("username", "Duplicate.formUser.username");
         }
 
+        if (userDAO.findByMail(user.getMail()) != null) {
+            errors.rejectValue("mail", "Duplicate.formUser.mail");
+        }
+
         if (!user.getConfirmPassword().equals(user.getPassword())) {
             errors.rejectValue("confirmPassword", "Diff.formUser.confirmPassword");
         }
