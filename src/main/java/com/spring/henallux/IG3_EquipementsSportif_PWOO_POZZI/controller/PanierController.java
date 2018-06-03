@@ -39,15 +39,29 @@ public class PanierController {
         return "redirect:panier";
     }
 
-    @RequestMapping(method = RequestMethod.POST, params = {"modifier", "articleJson"})
-    public String formDataModification(Model model, @RequestParam(required = true, defaultValue = "1") String articleJson, @Valid @ModelAttribute(Constants.PANIER) Panier panier, BindingResult result) {
-        articleValidator.validate(panier, result);
-        if (result.hasErrors() ) {
-            return "integrated:panier";
-        }
+    @RequestMapping(method = RequestMethod.POST, params = {"ajouter", "articleJson"})
+    public String formDataAdd(Model model, @RequestParam(required = true, defaultValue = "1") String articleJson, @ModelAttribute(Constants.PANIER) Panier panier) {
         Article article = panier.jsonToArticle(articleJson);
-        panier.modifierQuantitePanier(article, panier.getNbArticles());
-        System.out.println("CONTROLLER MODIFIER " + "ARTICLE : " + article.getLibelle() + " QUANTITE : " + panier.getNbArticles());
+        Integer quantiteActuelle = panier.getPanierHashMap().get(article) + 1;
+        panier.modifierQuantitePanier(article, quantiteActuelle);
+        System.out.println("CONTROLLER AJOUTER " + "ARTICLE : " + article.getLibelle() + " QUANTITE : " + panier.getNbArticles());
         return "redirect:panier";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, params = {"enlever", "articleJson"})
+    public String formDataRemove(Model model, @RequestParam(required = true, defaultValue = "1") String articleJson, @ModelAttribute(Constants.PANIER) Panier panier) {
+        Article article = panier.jsonToArticle(articleJson);
+        Integer quantiteActuelle = panier.getPanierHashMap().get(article);
+        if (quantiteActuelle <= 1) {
+            System.out.println("CONTROLLER ENLEVER " + "ARTICLE : " + article.getLibelle() + " QUANTITE = 1");
+            return "redirect:panier";
+        }
+        else
+        {
+            quantiteActuelle--;
+            panier.modifierQuantitePanier(article, quantiteActuelle);
+            System.out.println("CONTROLLER ENLEVER " + "ARTICLE : " + article.getLibelle() + " QUANTITE : " + panier.getNbArticles());
+            return "redirect:panier";
+        }
     }
 }

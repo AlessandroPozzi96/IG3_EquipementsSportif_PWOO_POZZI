@@ -26,13 +26,14 @@
                                modelAttribute="panier">
                         <td><c:out value="${article.key.codeBarre}" /></td>
                         <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
-                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" />
+                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" disabled="true"/>
                             <form:errors path="nbArticles" cssClass="has-error"></form:errors></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
                         <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
                         <td>
                             <form:button type="submit" class="btn-block btn-danger" value="supprimer" name="supprimer"><spring:message code="delete"/></form:button>
-                            <form:button type="submit" class="btn-block btn-info" value="modifier" name="modifier"><spring:message code="modify"/></form:button>
+                                <form:button type="submit" class="btn-block btn-info" value="ajouter" name="ajouter"><spring:message code="caddyAdd"/></form:button>
+                                <form:button type="submit" class="btn-block btn-info" value="enlever" name="enlever"><spring:message code="caddyRemove"/></form:button>
                         </td>
                     </form:form>
                 </tr>
@@ -50,7 +51,6 @@
             </tfoot>
         </table>
     </div>
-    <p class="font-weight-bold" ><spring:message code="changeQuantity"/></p>
     <security:authorize access="isAuthenticated()">
         <a class="btn btn-block badge-warning" href='<spring:url value="/commande"/>'><spring:message code="order"/></a>
     </security:authorize>
