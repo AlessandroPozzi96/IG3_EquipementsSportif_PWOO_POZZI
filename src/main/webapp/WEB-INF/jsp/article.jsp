@@ -35,7 +35,9 @@
     </c:if>
     </br>
     <form:button class="btn btn-lg btn-info btn-block" type="submit"><spring:message code="addToCaddy"/></form:button>
-    <form:button class="btn btn-lg btn-info btn-block" type="reset"><spring:message code="reset"/></form:button>
+    <c:if test="${not empty couleurs or not empty tailles}" >
+        <form:button class="btn btn-lg btn-info btn-block" type="reset"><spring:message code="reset"/></form:button>
+    </c:if>
 </form:form>
 </br>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
