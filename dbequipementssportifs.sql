@@ -227,7 +227,8 @@ VALUES
 (null, 9.99, 5), 
 (null, 59.99, 5), 
 (null, 39.99, 6), 
-(null, 5.99, 6);
+(null, 5.99, 6), 
+(null, 19.99, 1);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -244,7 +245,8 @@ VALUES
 ('/images/articles/chaussureCrampons.jpg', 9), 
 ('/images/articles/casque.jpg', 10),
 ('/images/articles/bandesPoignet.jpg', 11),
-('/images/articles/veloRouteV2.jpg', 6);
+('/images/articles/veloRouteV2.jpg', 6), 
+('/images/articles/haltere20Kg.jpg', 12);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -311,7 +313,8 @@ VALUES
 ('fr', 8, 'Balle', 'Simple balle de foot pour s\'amuser entre amis'), ('en', 8, 'Ball', 'Simple soccer ball to have fun with friends'), 
 ('fr', 9, 'Chaussures à crampons', 'Chaussures destiné à des joueurs de foot aguerri, une fois qu\'on a des crampons, ça ne rigole plus !'), ('en', 9, 'Stud shoes', 'Shoes for seasoned football players, once you have crampons, it does not laugh anymore!'), 
 ('fr', 10, 'Casque', 'Casque de combat protégeant efficacement le nez, les joues, les yeux et le front. Attention : Combattre n\'est pas un jeu.'), ('en', 10, 'Helmet', 'Combat helmet effectively protects the nose, cheeks, eyes and forehead. Warning: Fighting is not a game.'), 
-('fr', 11, 'Bande poignet', 'Bandes pour poignet élastiques protégeant efficacement les poignets et les phalanges. Attention : Combatre n\'est pas un jeu.'), ('en', 11, 'Wrist bands', 'Elastic wrist bands effectively protect wrists and knuckles. Warning: Combatre is not a game');
+('fr', 11, 'Bande poignet', 'Bandes pour poignet élastiques protégeant efficacement les poignets et les phalanges. Attention : Combatre n\'est pas un jeu.'), ('en', 11, 'Wrist bands', 'Elastic wrist bands effectively protect wrists and knuckles. Warning: Combatre is not a game'), 
+('fr', 12, 'Haltere 20Kg', 'Conçu pour la musculation et les entraînements fonctionnels type cross training. Idéal pour la préparation physique. L\'haltère polyvalent, pour les mouvements de musculation et les exercices fonctionnels (type pompe).'), ('en', 12, 'Dumbbell', 'Designed for weight training and functional training like cross training. Ideal for physical preparation. The versatile dumbbell, for bodybuilding movements and functional exercises (pump type).');
 
 
 INSERT INTO `dbequipementssportifs`.`lot`
@@ -331,9 +334,3 @@ INSERT INTO `dbequipementssportifs`.`elementspanier`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
-
-
-select * 
-from  persistable_user;
-
-
