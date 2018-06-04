@@ -7,8 +7,8 @@
 <h3 class="mb-lg-auto-4" ><spring:message code="priceL"/> : <c:out value="${article.prix}€" /> </h3>
 <div class="row" >
     <c:forEach items="${images}" var="image">
-        <div class="col-sm-6">
-            <img src='<spring:url value="${image.url}"/>' class="img-fluid rounded mx-auto d-block">
+        <div class="text-center">
+            <img src='<spring:url value="${image.url}"/>' class="img-fluid rounded ">
         </div>
     </c:forEach>
 </div>

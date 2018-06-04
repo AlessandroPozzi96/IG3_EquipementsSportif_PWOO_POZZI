@@ -32,8 +32,8 @@
                         <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
                         <td>
                             <form:button type="submit" class="btn-block btn-danger" value="supprimer" name="supprimer"><spring:message code="delete"/></form:button>
-                                <form:button type="submit" class="btn-block btn-info" value="ajouter" name="ajouter"><spring:message code="caddyAdd"/></form:button>
-                                <form:button type="submit" class="btn-block btn-info" value="enlever" name="enlever"><spring:message code="caddyRemove"/></form:button>
+                                <form:button type="submit" class="btn-block btn-info" value="ajouter" name="ajouter">+</form:button>
+                                <form:button type="submit" class="btn-block btn-info" value="enlever" name="enlever">-</form:button>
                         </td>
                     </form:form>
                 </tr>
