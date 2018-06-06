@@ -4,6 +4,7 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.*
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -171,8 +172,8 @@ public class ProviderConverter {
         PanierEntity panierEntity = new PanierEntity();
         panierEntity.setUserEntity(userEntity);
         panierEntity.setNumTicket(panierModel.getNumTicket());
-        java.sql.Date sqlDate = new java.sql.Date(panierModel.getDate().getTime());
-        panierEntity.setDate(sqlDate);
+        Timestamp timestamp = new Timestamp(panierModel.getDate().getTime());
+        panierEntity.setDate(timestamp);
 
         return panierEntity;
     }

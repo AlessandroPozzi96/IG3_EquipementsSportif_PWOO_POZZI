@@ -2,6 +2,7 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "PANIER")
@@ -12,7 +13,7 @@ public class PanierEntity {
     private Integer numTicket;
 
     @Column(name = "DATE")
-    private java.sql.Date date;
+    private Timestamp date;
 
     @JoinColumn(name = "USERNAME_FK", referencedColumnName = "USERNAME")
     @ManyToOne
@@ -26,11 +27,11 @@ public class PanierEntity {
         this.numTicket = numTicket;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

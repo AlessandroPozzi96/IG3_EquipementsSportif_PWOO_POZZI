@@ -44,4 +44,9 @@ public class CommandeController {
 
         return "integrated:commande";
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String validationAchat(Model model) {
+        return "";
+    }
 }

@@ -3,8 +3,41 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <h1 class="display-4"><spring:message code="order"/></h1>
-<p class="lead">Vous êtes sur le point de commander ${panier.nbArticlesPanier} article(s) pour un total de ${panier.prixPanier}€</p>
-<p class="lead">Afin de procéder au payement, veuiller utiliser notre partenaire BitPay (Payement disponible uniquement en BitCoins)</p>
+
+<h3 class="display-4"><spring:message code="summary"/> </h3>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th><spring:message code="barCode"/></th>
+            <th><spring:message code="articleName"/></th>
+            <th><spring:message code="quantity"/></th>
+            <th><spring:message code="unitPrice"/></th>
+            <th><spring:message code="priceU"/></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${panier.panierHashMap}" var="article">
+            <tr>
+                    <td><c:out value="${article.key.codeBarre}" /></td>
+                    <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
+                    <td><c:out value="${article.value}" /></td>
+                    <td><c:out value="${article.key.prixUnitaire}" /></td>
+                    <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>${panier.prixPanier}€</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
 <form action="https://bitpay.com/checkout" method="post" >
     <input type="hidden" name="action" value="checkout" />
     <input type="hidden" name="posData" value="1" /> <%--Unique identifiant pour identifier la commande--%>
