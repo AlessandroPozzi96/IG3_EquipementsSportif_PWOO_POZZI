@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class DisponibleEnCouleurEntity {
     @EmbeddedId
     @JoinColumns({
-            @JoinColumn(name = "COULEUR_FK", referencedColumnName = "COULEURARTICLE"),
+            @JoinColumn(name = "COULEUR_FK", referencedColumnName = "ID"),
             @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
     })
     private DisponibleEnCouleurPK disponibleEnCouleurPK;

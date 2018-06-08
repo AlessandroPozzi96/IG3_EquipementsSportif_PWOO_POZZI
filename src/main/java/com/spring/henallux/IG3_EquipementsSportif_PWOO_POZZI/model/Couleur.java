@@ -1,32 +1,25 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Couleur {
     @NotNull
-    @Size(min = 1, max = 40)
-    private String couleurArticle;
-    @NotNull
-    @Size(min = 1, max = 40)
-    private String libelle_en;
+    @Min(1)
+    @Max(999999999)
+    private Integer id;
 
     public Couleur() {
     }
 
-    public String getCouleurArticle() {
-        return couleurArticle;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCouleurArticle(String couleurArticle) {
-        this.couleurArticle = couleurArticle;
-    }
-
-    public String getLibelle_en() {
-        return libelle_en;
-    }
-
-    public void setLibelle_en(String libelle_en) {
-        this.libelle_en = libelle_en;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

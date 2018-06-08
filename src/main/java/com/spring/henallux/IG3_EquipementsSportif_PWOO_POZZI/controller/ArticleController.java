@@ -4,10 +4,7 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.*;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TranslationArticle;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TypeArticle;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping(value = "/article")
@@ -29,9 +27,12 @@ public class ArticleController {
     private TypeArticle typeArticle;
     private TranslationArticleDAO translationArticleDAO;
     private TranslationArticle translationArticle;
+    private TranslationCouleurDAO translationCouleurDAO;
+    private TranslationCouleur translationCouleur;
 
     @Autowired
-    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO) {
+    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO, TranslationCouleurDAO translationCouleurDAO) {
+        this.translationCouleurDAO = translationCouleurDAO;
         this.translationArticleDAO = translationArticleDAO;
         this.disponibleEnCouleurDAO = disponibleEnCouleurDAO;
         this.typeArticleDAO = typeArticleDAO;
@@ -48,7 +49,8 @@ public class ArticleController {
         model.addAttribute("images", imageDAO.findByArticleEntityCodeBarre(codeBarre));
         cb = codeBarre;
         model.addAttribute("tailles", disponibleDAO.findAllByCodeBarre(cb));
-        model.addAttribute("couleurs", disponibleEnCouleurDAO.findAllByCodeBarre(cb));
+        ArrayList<TranslationCouleur> couleurs = obtentionCouleurs(disponibleEnCouleurDAO.findAllByCodeBarre(cb), myLocaleCookie);
+        model.addAttribute("couleurs", couleurs);
         translationArticle = translationArticleDAO.findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(cb, myLocaleCookie);
         model.addAttribute("translationArticle", translationArticle);
         return "integrated:article";
@@ -79,5 +81,14 @@ public class ArticleController {
         }
         System.out.println("ArticleController : Nb panier totale commander : " + panier.getNbArticlesPanier());
         return "redirect:article?codeBarre=" + cb;
+    }
+
+    public ArrayList<TranslationCouleur> obtentionCouleurs(ArrayList<DisponibleEnCouleur> disponibleEnCouleurs, String lang) {
+        ArrayList<TranslationCouleur> couleurs = new ArrayList<>();
+        for (DisponibleEnCouleur disponibleEnCouleur : disponibleEnCouleurs) {
+            translationCouleur = translationCouleurDAO.findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(disponibleEnCouleur.getCouleur_fk(), lang);
+            couleurs.add(translationCouleur);
+        }
+        return couleurs;
     }
 }

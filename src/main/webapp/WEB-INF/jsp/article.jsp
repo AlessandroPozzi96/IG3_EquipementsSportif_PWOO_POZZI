@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<spring:message code='lang' var="lang"/>
 
 <h1 class="display-4">${translationArticle.libelle}</h1>
 <p class="lead" ><c:out value="${translationArticle.description}" /> </p>
@@ -29,7 +30,7 @@
         </br>
         <form:label path="couleur"><spring:message code="color"/> :</form:label>
         <form:select path="couleur" class="custom-select">
-            <form:options items="${couleurs}" itemValue="couleur_fk" itemLabel="couleur_fk" />
+            <form:options items="${couleurs}" itemValue="libelle" itemLabel="libelle" />
         </form:select>
         </br>
     </c:if>

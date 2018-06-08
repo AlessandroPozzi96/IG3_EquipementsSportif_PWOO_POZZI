@@ -6,6 +6,7 @@ drop table if exists disponible;
 drop table if exists disponibleEnCouleur;
 drop table if exists TranslationArticle;
 drop table if exists TranslationCategorie;
+drop table if exists TranslationCouleur;
 drop table if exists Taille;
 drop table if exists Langage;
 drop table if exists Couleur;
@@ -55,15 +56,14 @@ CREATE TABLE `Taille` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Couleur` (
-	`couleurArticle`	varchar(40) not null, 
-    `libelle_en`		varchar(40) not null,
-    primary key (`couleurArticle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	`ID`	INT(9) not null auto_increment,
+    primary key (`ID`)
+) ENGINE=InnoDB auto_increment=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Langage` (
-	`langageID`		varchar(6) not null, 
+	`langageID`		varchar(6) not null,
     primary key (`langageID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `panier` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,
@@ -72,7 +72,7 @@ CREATE TABLE `panier` (
   PRIMARY KEY (`numTicket`),
   KEY `fk_username` (`username_fk`),
   CONSTRAINT `fk_username` FOREIGN KEY (`username_fk`) REFERENCES `persistable_user` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB auto_increment=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `typearticle` (
   `codeBarre` int(9) NOT NULL auto_increment,
@@ -93,7 +93,7 @@ CREATE TABLE `image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Disponible` (
-  `taille_fk`		char(4) not null,
+  `taille_fk`		varchar(4) not null,
   `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`taille_fk`, `codeBarre_fk`),
   KEY `fk_taille` (`taille_fk`),
@@ -103,12 +103,12 @@ CREATE TABLE `Disponible` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `DisponibleEnCouleur` (
-  `couleur_fk`		char(40) not null,
+  `couleur_fk`		INT(9) not null,
   `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`couleur_fk`, `codeBarre_fk`),
   KEY `fk_couleur` (`couleur_fk`),
   KEY `fk_codeBarre_DispoCouleur` (`codeBarre_fk`),
-  CONSTRAINT `fk_couleur` FOREIGN KEY (`couleur_fk`) REFERENCES `Couleur` (`couleurArticle`),
+  CONSTRAINT `fk_couleur` FOREIGN KEY (`couleur_fk`) REFERENCES `Couleur` (`id`),
   CONSTRAINT `fk_codeBarre_DispoCouleur` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -133,6 +133,17 @@ CREATE TABLE `TranslationCategorie` (
 	KEY `fk_idCategorie_TranslationArticle` (`idCategorie_FK`),
 	CONSTRAINT `fk_langageID_Categorie` FOREIGN KEY (`langageID_FK`) REFERENCES `Langage` (`langageID`),
 	CONSTRAINT `fk_idCategorie_TranslationArticle` FOREIGN KEY (`idCategorie_FK`) REFERENCES `categoriearticle` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `TranslationCouleur` (
+	`langageID_FK`	varchar(6) not null,
+    `idCouleur_FK` 	INT(9) not null,
+    `libelle`		varchar(200) not null,
+    primary key (`langageID_FK`, `idCouleur_FK`),
+	KEY `fk_langageID_Categorie` (`langageID_FK`),
+	KEY `fk_idCouleur_TranslationCouleur` (`idCouleur_FK`),
+	CONSTRAINT `fk_langageID_Couleur` FOREIGN KEY (`langageID_FK`) REFERENCES `Langage` (`langageID`),
+	CONSTRAINT `fk_idCouleur_TranslationCouleur` FOREIGN KEY (`idCouleur_FK`) REFERENCES `Couleur` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lot` (
@@ -194,6 +205,11 @@ INSERT INTO `dbequipementssportifs`.`fournisseur`
 VALUES
 (0112569874, 'Namur', 'Boulevard du nord', 5000, 'Futur Computer');
 
+INSERT INTO `dbequipementssportifs`.`langage`
+(`langageID`)
+VALUES
+('fr'), ('en');
+
 INSERT INTO `dbequipementssportifs`.`categoriearticle`
 (`id`,
 `url_image`)
@@ -254,11 +270,18 @@ VALUES
 ('S'), ('M'), ('L'), ('XL'), ('XXL'), ('38'),('39'),('40'), ('41'), ('42'), ('43'), ('44'), ('45');
 
 INSERT INTO `dbequipementssportifs`.`couleur`
-(`couleurArticle`,
-`libelle_en`)
+(`id`)
 VALUES
-('Rouge', 'Red'), ('Bleu', 'Blue'), ('Noir', 'Black'), ('Blanc', 'White'), ('Vert', 'Green'), ('Jaune', 'Yellow'), ('Brun', 'Brown');
+(null), (null), (null);
 
+INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
+(`langageID_FK`,
+`idCouleur_FK`,
+`libelle`)
+values
+('fr', 1, 'Rouge'), ('en', 1, 'Red'),
+('fr', 2, 'Bleu'), ('en', 2, 'Blue'),
+('fr', 3, 'Blanc'), ('en', 3, 'White');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
@@ -274,15 +297,10 @@ INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
 `codeBarre_fk`)
 VALUES
-('Rouge', 2), ('Bleu', 2), ('Blanc', 2),
-('Rouge', 10), ('Bleu', 10),
-('Noir', 5), ('Blanc', 5),
-('Bleu', 11), ('Rouge', 11);
-
-INSERT INTO `dbequipementssportifs`.`langage`
-(`langageID`)
-VALUES
-('fr'), ('en');
+(1, 2), (2, 2), (3, 2),
+(2, 10), (3, 10),
+(1, 5), (3, 5),
+(3, 11), (1, 11);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`

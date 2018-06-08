@@ -116,8 +116,7 @@ public class ProviderConverter {
     public Couleur couleurEntityToCouleurModel(CouleurEntity couleurEntity) {
         Couleur couleur = new Couleur();
 
-        couleur.setCouleurArticle(couleurEntity.getCouleurArticle());
-        couleur.setLibelle_en(couleurEntity.getLibelle_en());
+        couleur.setId(couleurEntity.getId());
 
         return couleur;
     }
@@ -125,8 +124,7 @@ public class ProviderConverter {
     public CouleurEntity couleurModelToCouleurEntity(Couleur couleur) {
         CouleurEntity couleurEntity = new CouleurEntity();
 
-        couleurEntity.setCouleurArticle(couleur.getCouleurArticle());
-        couleurEntity.setLibelle_en(couleur.getLibelle_en());
+        couleurEntity.setId(couleur.getId());
 
         return couleurEntity;
     }
@@ -176,5 +174,14 @@ public class ProviderConverter {
         panierEntity.setDate(timestamp);
 
         return panierEntity;
+    }
+
+    public TranslationCouleur translationCouleurEntityToTranslationCouleurModel(TranslationCouleurEntity translationCouleurEntity) {
+        TranslationCouleur translationCouleur = new TranslationCouleur();
+        translationCouleur.setIdCouleur_FK(translationCouleurEntity.getTranslationCouleurPK().getIdCouleur_FK());
+        translationCouleur.setLangageID_FK(translationCouleurEntity.getTranslationCouleurPK().getLangageID_FK());
+        translationCouleur.setLibelle(translationCouleurEntity.getLibelle());
+
+        return translationCouleur;
     }
 }

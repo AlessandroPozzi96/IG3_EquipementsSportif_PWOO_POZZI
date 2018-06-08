@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Embeddable
 public class DisponibleEnCouleurPK implements Serializable {
     @Column(name = "COULEUR_FK")
-    private String couleur_fk;
+    private Integer couleur_fk;
 
     @Column(name = "CODEBARRE_FK")
     private Integer codeBarre_fk;
@@ -15,11 +15,11 @@ public class DisponibleEnCouleurPK implements Serializable {
     public DisponibleEnCouleurPK() {
     }
 
-    public String getCouleur_fk() {
+    public Integer getCouleur_fk() {
         return couleur_fk;
     }
 
-    public void setCouleur_fk(String couleur_fk) {
+    public void setCouleur_fk(Integer couleur_fk) {
         this.couleur_fk = couleur_fk;
     }
 
