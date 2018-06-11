@@ -2,6 +2,8 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 
+import java.util.Objects;
+
 public class Article {
     private String libelle;
     private Integer codeBarre;
@@ -68,24 +70,20 @@ public class Article {
     }
 
     @Override
-    public int hashCode() {
-        Integer r = prixUnitaire.intValue();
-        return codeBarre + r;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Article)) return false;
+        Article article = (Article) o;
+        return Objects.equals(getLibelle(), article.getLibelle()) &&
+                Objects.equals(getCodeBarre(), article.getCodeBarre()) &&
+                Objects.equals(getPrixUnitaire(), article.getPrixUnitaire()) &&
+                Objects.equals(getTaille(), article.getTaille()) &&
+                Objects.equals(getCouleur(), article.getCouleur());
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof Article) {
-            Article article = (Article) obj;
-            return (this.getLibelle().equals(article.getLibelle())
-                    && this.getPrixUnitaire().equals(article.getPrixUnitaire())
-                    && this.getCodeBarre().equals(article.getCodeBarre())
-                    && this.getTaille().equals(article.getTaille())
-                    && this.getCouleur().equals(article.getCouleur()));
-        }
-        return false;
+    public int hashCode() {
+
+        return Objects.hash(getLibelle(), getCodeBarre(), getPrixUnitaire(), getTaille(), getCouleur());
     }
 }
