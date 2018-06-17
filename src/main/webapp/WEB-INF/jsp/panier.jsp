@@ -61,6 +61,6 @@
 <c:if test="${empty panier.panierHashMap}" >
     <h2 class="h-auto"><spring:message code="noArticles"/></h2>
 </c:if>
-
+</br>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/> </a></p>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>

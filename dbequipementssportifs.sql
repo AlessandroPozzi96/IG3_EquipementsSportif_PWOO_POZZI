@@ -219,7 +219,13 @@ VALUES
 (null, '/images/categories/velo.jpg'),
 (null, '/images/categories/randonnee.jpg'),
 (null, '/images/categories/football.jpg'),
-(null, '/images/categories/combat.jpg');
+(null, '/images/categories/boxeAnglaise.jpg'),
+(null, '/images/categories/natation.jpg'),
+(null, '/images/categories/tennis.jpeg'),
+(null, '/images/categories/yoga.jpg'),
+(null, '/images/categories/kayak.jpg'),
+(null, '/images/categories/escrime.jpg'),
+(null, '/images/categories/airsoft.jpg');
 
 INSERT INTO `dbequipementssportifs`.`panier`
 (`numTicket`,
@@ -244,7 +250,20 @@ VALUES
 (null, 59.99, 5),
 (null, 39.99, 6),
 (null, 5.99, 6),
-(null, 19.99, 1);
+(null, 19.99, 1),
+(null, 23.59, 7),
+(null, 27.59, 7),
+(null, 75.99, 8),
+(null, 19.99, 8),
+(null, 9.99, 9),
+(null, 4.99, 9),
+(null, 269.99, 10),
+(null, 7.99, 10),
+(null, 49.99, 11),
+(null, 29.99, 11),
+(null, 249.99, 12),
+(null, 4.99, 12),
+(null, 4.99, 12);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -262,7 +281,22 @@ VALUES
 ('/images/articles/casque.jpg', 10),
 ('/images/articles/bandesPoignet.jpg', 11),
 ('/images/articles/veloRouteV2.jpg', 6),
-('/images/articles/haltere20Kg.jpg', 12);
+('/images/articles/haltere20Kg.jpg', 12),
+('/images/articles/maillotHomme.jpg', 13),
+('/images/articles/maillotFemme.jpg', 14),
+('/images/articles/raquette.jpg', 15),
+('/images/articles/lotBalles.jpg', 16),
+('/images/articles/tapisYoga.jpg', 17),
+('/images/articles/briqueYoga.jpg', 18),
+('/images/articles/kayakRivière.jpg', 19),
+('/images/articles/pagaie.jpg', 20),
+('/images/articles/pagaieEntière.jpg', 20),
+('/images/articles/fleuret.jpg', 21),
+('/images/articles/casqueEscrime.jpg', 22),
+('/images/articles/FNScarHNoir.jpg', 23),
+('/images/articles/FNScarHNoirV2.jpg', 23),
+('/images/articles/billesBio.jpg', 24),
+('/images/articles/billes.jpg', 25);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -291,7 +325,10 @@ VALUES
 ('38', 9),('39', 9),('40', 9),('41', 9),('42', 9), ('43', 9), ('44', 9), ('45', 9),
 ('38', 4),('39', 4),('40', 4),('41', 4),('42', 4), ('43', 4), ('44', 4), ('45', 4),
 ('S', 10), ('M', 10), ('L', 10),
-('38', 7),('39', 7),('40', 7),('41', 7),('42', 7), ('43', 7), ('44', 7), ('45', 7);
+('38', 7),('39', 7),('40', 7),('41', 7),('42', 7), ('43', 7), ('44', 7), ('45', 7),
+('S', 13), ('M', 13), ('L', 13),
+('S', 14), ('M', 14), ('L', 14),
+('S', 22), ('M', 22);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -313,7 +350,13 @@ VALUES
 ('fr', 3, 'Vélo'), ('en', 3, 'Bike'),
 ('fr', 4, 'Randonnée'), ('en', 4, 'Hiking'),
 ('fr', 5, 'Football'), ('en', 5, 'Soccer'),
-('fr', 6, 'Combat'), ('en', 6, 'Fight');
+('fr', 6, 'Boxe anglaise'), ('en', 6, 'Boxing'),
+('fr', 7, 'Natation'), ('en', 7, 'Swimming'),
+('fr', 8, 'Tennis'), ('en', 8, 'Tennis'),
+('fr', 9, 'Yoga'), ('en', 9, 'Yoga'),
+('fr', 10, 'Kayak'), ('en', 10, 'Kayak'),
+('fr', 11, 'Escrime'), ('en', 11, 'Fencing'),
+('fr', 12, 'Airsoft'), ('en', 12, 'Airsoft');
 
 INSERT INTO `dbequipementssportifs`.`translationarticle`
 (`langageID_FK`,
@@ -332,7 +375,20 @@ VALUES
 ('fr', 9, 'Chaussures à crampons', 'Chaussures destiné à des joueurs de foot aguerri, une fois qu\'on a des crampons, ça ne rigole plus !'), ('en', 9, 'Stud shoes', 'Shoes for seasoned football players, once you have crampons, it does not laugh anymore!'),
 ('fr', 10, 'Casque', 'Casque de combat protégeant efficacement le nez, les joues, les yeux et le front. Attention : Combattre n\'est pas un jeu.'), ('en', 10, 'Helmet', 'Combat helmet effectively protects the nose, cheeks, eyes and forehead. Warning: Fighting is not a game.'),
 ('fr', 11, 'Bande poignet', 'Bandes pour poignet élastiques protégeant efficacement les poignets et les phalanges. Attention : Combatre n\'est pas un jeu.'), ('en', 11, 'Wrist bands', 'Elastic wrist bands effectively protect wrists and knuckles. Warning: Combatre is not a game'),
-('fr', 12, 'Haltere 20Kg', 'Conçu pour la musculation et les entraînements fonctionnels type cross training. Idéal pour la préparation physique. L\'haltère polyvalent, pour les mouvements de musculation et les exercices fonctionnels (type pompe).'), ('en', 12, 'Dumbbell', 'Designed for weight training and functional training like cross training. Ideal for physical preparation. The versatile dumbbell, for bodybuilding movements and functional exercises (pump type).');
+('fr', 12, 'Haltere 20Kg', 'Conçu pour la musculation et les entraînements fonctionnels type cross training. Idéal pour la préparation physique. L\'haltère polyvalent, pour les mouvements de musculation et les exercices fonctionnels (type pompe).'), ('en', 12, 'Dumbbell', 'Designed for weight training and functional training like cross training. Ideal for physical preparation. The versatile dumbbell, for bodybuilding movements and functional exercises (pump type).'),
+('fr', 13, 'Maillot homme', 'Conçu pour Le nageur confirmé qui progresse et qui a besoin de maintien et de liberté de mouvements. Maillot très résistant au chlore. Sa doublure et son cordon de serrage intérieurs offriront un confort maximal et un ajustement parfait.'), ('en', 13, 'Man swimsuit', 'Designed for advanced swimmers who are progressing and in need of support and freedom of movement. Jersey very resistant to chlorine. The interior lining and drawcord provide maximum comfort and a perfect fit.'),
+('fr', 14, 'Maillot femme', 'Conçu pour la nageuse confirmée qui progresse et qui a besoin de maintien et de liberté de mouvements. Un maillot de bain de natation très résistant au chlore, avec une coupe dégagée pour une grande liberté de mouvements.'), ('en', 14, 'Women swimsuit', 'Designed for the advanced swimmer who is progressing and in need of support and freedom of movement. A swimsuit swimming very resistant to chlorine, with a clear cut for a great freedom of movement.'),
+('fr', 15, 'Raquette', 'Conçu pour le joueur de tennis expert à la recherche de puissance et de maniabilité. Jouer en puissance, maîtriser le jeu. Raquette à la fois puissante et plus légère pour une meilleure maniabilité.'), ('en', 15, 'Racket', 'Designed for the expert tennis player looking for power and maneuverability. Play power, master the game. Racket both powerful and lighter for better maneuverability.'),
+('fr', 16, 'Lot de balles', 'Conçu pour le joueur de tennis recherchant une balle d\'entraînement convenant aussi en compétition. Balles munies d\'un colorant spécial donnant un jaune plus visible.'), ('en', 16, 'Batch of balls', 'Designed for the tennis player looking for a suitable training ball also in competition. Balls with a special dye giving a more visible yellow.'),
+('fr', 17, 'Tapis', 'Le tapis de yoga premier prix pour débuter un yoga doux, léger et facile à transporter, sans PVC.'), ('en', 17, 'Mat', 'The first price yoga mat to start a soft, light and easy to carry yoga, without PVC.'),
+('fr', 18, 'Brique', 'Une aide précieuse aux postures ! Légère et douce , pratique à emmener au cours de yoga , pour l\'assise ou les postures.'), ('en', 18, 'Brick', 'A precious help to postures! Light and gentle, convenient to take to yoga class, for sitting or postures.'),
+('fr', 19, 'Kayak de rivière', 'Conçu spécialement pour la vitesse ce kayak vous amènera où bon vous semble ! Robuste et élancé vous serez maitre de l\'eau. (Pour nageur aguerri seulement). Uniquement pour les rivières, lacs ou en mer douce.'), ('en', 19, 'River kayak', 'Designed specifically for speed this kayak will take you wherever you want! Robust and slender you will be master of the water. (For experienced swimmer only). Only for rivers, lakes or in the fresh sea.'),
+('fr', 20, 'Pagaie', 'Pagaie séparable en 2 destiné aux kayaks de rivière, lac ou de mer douce.'), ('en', 20, 'Paddle', 'Separable paddle in 2 for kayaks of river, lake or soft sea.'),
+('fr', 21, 'Fleuret', 'Le fleuret est une arme d’estoc (on touche avec la pointe) et de convention (c’est à dire qu\'il y a un système de priorité dans l\'attribution d’une touche) avec la caractéristique d\'une lame à base carrée.'), ('en', 21, 'Foil', 'The foil is a thrust weapon (one touches with the tip) and conventional (ie there is a priority system in the assignment of a key) with the characteristic of a blade to square base.'),
+('fr', 22, 'Masque', 'Indispensable à l\'escrime, le masque vous garantira une protection total de la tête jusqu\'au cou. Disponible en taille enfant ou adulte.'), ('en', 22, 'Mask', 'Essential to fencing, the mask will guarantee total protection from head to neck. Available in child or adult size.'),
+('fr', 23, 'FN Scar H Noir', 'Réplique livrée avec une batterie 8.4V/1100mAh, un chargeur de batterie, un chargeur supplémentaire de billes.'), ('en', 23, 'FN Scar H Black', 'Replica comes with a 8.4V / 1100mAh battery, a battery charger, an additional charger of balls.'),
+('fr', 24, 'Billes BIO 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft biodégradable haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards (800 billes disponibles).'), ('en', 24, 'BIO balls 0.25g', 'Rediscover the pleasure of playing with a premium airsoft biodegradable ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
+('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).');
 
 
 INSERT INTO `dbequipementssportifs`.`lot`
@@ -352,3 +408,7 @@ INSERT INTO `dbequipementssportifs`.`elementspanier`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
+
+
+select *
+from  persistable_user;
