@@ -269,7 +269,8 @@ INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
 `codeBarre_fk`)
 VALUES
-('/images/articles/t-shirt.jpg', 2),
+('/images/articles/t-shirtHomme.jpg', 2),
+('/images/articles/t-shirtHomme_Bleu.jpg', 2),
 ('/images/articles/benchPress.jpg', 1),
 ('/images/articles/basicbenchPress.jpg', 3),
 ('/images/articles/chaussureCourse.jpg', 4),
@@ -306,7 +307,7 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`couleur`
 (`id`)
 VALUES
-(null), (null), (null);
+(null), (null), (null), (null);
 
 INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
 (`langageID_FK`,
@@ -315,7 +316,8 @@ INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
 values
 ('fr', 1, 'Rouge'), ('en', 1, 'Red'),
 ('fr', 2, 'Bleu'), ('en', 2, 'Blue'),
-('fr', 3, 'Blanc'), ('en', 3, 'White');
+('fr', 3, 'Blanc'), ('en', 3, 'White'),
+('fr', 4, 'Bleu foncé'), ('en', 4, 'Dark blue');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
@@ -334,7 +336,7 @@ INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
 `codeBarre_fk`)
 VALUES
-(1, 2), (2, 2), (3, 2),
+(4, 2), (2, 2),
 (2, 10), (3, 10),
 (1, 5), (3, 5),
 (3, 11), (1, 11);

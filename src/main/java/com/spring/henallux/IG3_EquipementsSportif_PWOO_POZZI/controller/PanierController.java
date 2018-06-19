@@ -1,6 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.Promotion;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @SessionAttributes({Constants.PANIER})
 public class PanierController {
     private ArticleValidator articleValidator;
+    private Promotion promotion;
 
     @Autowired
     public PanierController(ArticleValidator articleValidator) {
@@ -27,6 +29,8 @@ public class PanierController {
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, @Valid @ModelAttribute(Constants.PANIER)Panier panier) {
         model.addAttribute("title", "Panier Page");
+        promotion = new Promotion();
+        model.addAttribute("promotion", promotion);
         return "integrated:panier";
     }
 
