@@ -103,6 +103,12 @@ public class Panier implements Serializable {
         }
     }
 
+    public void viderPanier() {
+        for (Map.Entry<Article, Integer> panierEntry : panierHashMap.entrySet()) {
+            this.removeArticlesPanier(panierEntry.getKey());
+        }
+    }
+
     public Integer getNbArticles() {
         return nbArticles;
     }

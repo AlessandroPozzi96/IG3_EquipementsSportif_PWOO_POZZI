@@ -33,15 +33,14 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>${panier.prixPanier}€</td>
+            <td><spring:message code="total"/> : ${promotion.calculPromotion(panier)}€</td>
         </tr>
         </tfoot>
     </table>
 </div>
-<form action="https://bitpay.com/checkout" method="post" >
-    <input type="hidden" name="action" value="checkout" />
-    <input type="hidden" name="posData" value="1" /> <%--Unique identifiant pour identifier la commande--%>
-    <input type="hidden" name="data" value="vfzxtMQtHHtzvH4So3ZwwI4pW9hi39neieng7MYMH4Jp0c8uHVRtn6cjq+F+VmgJsZ3fYFQAZd6thvC1PNooMcW9zuV6hIjeVMgCdWv06neRmRulqZ5GEuhNpxVzqhorgRqclpnsUFnJFMVQfkE2aCVg2rGFuX3tbJL/4bBAN+InO9EFSZlYc3UsNwekWFqzwaUfd/xcFaI1abHvYGaLSfWQ70K2P63VLQyIT2V7kjlme+z5KBXfFbUcxaNBzB79" />
-    <input type="image" src="https://bitpay.com/img/button2.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
+
+<form method="post" action="${contextPath}/commande/pay">
+    <button type="submit"> Process Payment </button>
 </form>
+
 

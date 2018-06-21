@@ -263,7 +263,8 @@ VALUES
 (null, 29.99, 11),
 (null, 249.99, 12),
 (null, 4.99, 12),
-(null, 4.99, 12);
+(null, 4.99, 12),
+(null, 49.99, 4);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -297,7 +298,9 @@ VALUES
 ('/images/articles/FNScarHNoir.jpg', 23),
 ('/images/articles/FNScarHNoirV2.jpg', 23),
 ('/images/articles/billesBio.jpg', 24),
-('/images/articles/billes.jpg', 25);
+('/images/articles/billes.jpg', 25),
+('/images/articles/batonMarcheNoir.jpg', 26),
+('/images/articles/batonMarcheRose.jpg', 26);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -307,7 +310,7 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`couleur`
 (`id`)
 VALUES
-(null), (null), (null), (null);
+(null), (null), (null), (null), (null), (null);
 
 INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
 (`langageID_FK`,
@@ -317,7 +320,9 @@ values
 ('fr', 1, 'Rouge'), ('en', 1, 'Red'),
 ('fr', 2, 'Bleu'), ('en', 2, 'Blue'),
 ('fr', 3, 'Blanc'), ('en', 3, 'White'),
-('fr', 4, 'Bleu foncé'), ('en', 4, 'Dark blue');
+('fr', 4, 'Bleu foncé'), ('en', 4, 'Dark blue'),
+('fr', 5, 'Rose'), ('en', 5, 'Pink'),
+('fr', 6, 'Noir'), ('en', 6, 'Black');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
@@ -339,7 +344,8 @@ VALUES
 (4, 2), (2, 2),
 (2, 10), (3, 10),
 (1, 5), (3, 5),
-(3, 11), (1, 11);
+(3, 11), (1, 11),
+(5, 26), (6, 26);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -390,7 +396,8 @@ VALUES
 ('fr', 22, 'Masque', 'Indispensable à l\'escrime, le masque vous garantira une protection total de la tête jusqu\'au cou. Disponible en taille enfant ou adulte.'), ('en', 22, 'Mask', 'Essential to fencing, the mask will guarantee total protection from head to neck. Available in child or adult size.'),
 ('fr', 23, 'FN Scar H Noir', 'Réplique livrée avec une batterie 8.4V/1100mAh, un chargeur de batterie, un chargeur supplémentaire de billes.'), ('en', 23, 'FN Scar H Black', 'Replica comes with a 8.4V / 1100mAh battery, a battery charger, an additional charger of balls.'),
 ('fr', 24, 'Billes BIO 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft biodégradable haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards (800 billes disponibles).'), ('en', 24, 'BIO balls 0.25g', 'Rediscover the pleasure of playing with a premium airsoft biodegradable ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
-('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).');
+('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
+('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.');
 
 
 INSERT INTO `dbequipementssportifs`.`lot`

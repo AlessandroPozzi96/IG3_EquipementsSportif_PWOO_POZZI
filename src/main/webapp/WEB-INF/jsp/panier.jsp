@@ -45,8 +45,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>${panier.prixPanier}€</td>
-                <td></td>
+                <td><spring:message code="withoutPromotions"/> : ${panier.prixPanier}€</td>
+                <td><spring:message code="withPromotions"/> : ${promotion.calculPromotion(panier)}€</td>
             </tr>
             </tfoot>
         </table>
