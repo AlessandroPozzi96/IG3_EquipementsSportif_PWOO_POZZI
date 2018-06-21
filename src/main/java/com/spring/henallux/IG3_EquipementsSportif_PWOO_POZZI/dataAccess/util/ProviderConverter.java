@@ -53,7 +53,7 @@ public class ProviderConverter {
         return user;
     }
 
-    public static java.util.Date convertFromSQLDateToJAVADate(
+    public java.util.Date convertFromSQLDateToJAVADate(
             java.sql.Date sqlDate) {
         java.util.Date javaDate = null;
         if (sqlDate != null) {
@@ -176,6 +176,15 @@ public class ProviderConverter {
         return panierEntity;
     }
 
+    public PanierModel panierEntityToPanierModel(PanierEntity panierEntity) {
+        PanierModel panierModel = new PanierModel();
+        panierModel.setUsername_fk(panierEntity.getUserEntity().getUsername());
+        panierModel.setNumTicket(panierEntity.getNumTicket());
+        panierModel.setDate(panierEntity.getDate());
+
+        return panierModel;
+    }
+
     public TranslationCouleur translationCouleurEntityToTranslationCouleurModel(TranslationCouleurEntity translationCouleurEntity) {
         TranslationCouleur translationCouleur = new TranslationCouleur();
         translationCouleur.setIdCouleur_FK(translationCouleurEntity.getTranslationCouleurPK().getIdCouleur_FK());
@@ -183,5 +192,18 @@ public class ProviderConverter {
         translationCouleur.setLibelle(translationCouleurEntity.getLibelle());
 
         return translationCouleur;
+    }
+
+    public ElementsPanierEntity elementsPanierModelToElementsPanierEntity (ElementsPanier elementsPanier) {
+        ElementsPanierEntity elementsPanierEntity = new ElementsPanierEntity();
+        elementsPanierEntity.setPrixReel(elementsPanier.getPrixReel());
+        elementsPanierEntity.setQuantite(elementsPanier.getQuantite());
+
+        ElementsPanierPK elementsPanierPK = new ElementsPanierPK();
+        elementsPanierPK.setCodeBarre_fk(elementsPanier.getCodeBarre_fk());
+        elementsPanierPK.setNumTicket_fk(elementsPanier.getNumTicket_fk());
+        elementsPanierEntity.setElementsPanierPK(elementsPanierPK);
+
+        return elementsPanierEntity;
     }
 }

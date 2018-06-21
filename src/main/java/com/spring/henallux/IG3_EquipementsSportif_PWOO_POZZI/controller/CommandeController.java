@@ -7,9 +7,13 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.Promotion;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.PaypalPaymentIntent;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.PaypalPaymentMethod;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.ElementsPanierDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.PanierModelDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.UserDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.repository.ElementsPanierRepository;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.ElementsPanier;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.PanierModel;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.service.PaypalService;
@@ -23,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/commande")
@@ -33,12 +38,14 @@ public class CommandeController {
     private Promotion promotion;
     private Logger log = LoggerFactory.getLogger(getClass());
     private PaypalService paypalService;
+    private ElementsPanierDAO elementsPanierDAO;
 
     public static final String PAYPAL_SUCCESS_URL = "/pay/success";
     public static final String PAYPAL_CANCEL_URL = "/pay/cancel";
 
     @Autowired
-    public CommandeController(UserDAO userDAO, PanierModelDAO panierModelDAO, PaypalService paypalService) {
+    public CommandeController(UserDAO userDAO, PanierModelDAO panierModelDAO, PaypalService paypalService, ElementsPanierDAO elementsPanierDAO) {
+        this.elementsPanierDAO = elementsPanierDAO;
         this.paypalService = paypalService;
         this.userDAO = userDAO;
         this.panierModelDAO = panierModelDAO;
@@ -61,7 +68,7 @@ public class CommandeController {
         try {
             Payment payment = paypalService.createPayment(
                     promotion.calculPromotion(panier),
-                    "USD",
+                    "EUR",
                     PaypalPaymentMethod.paypal,
                     PaypalPaymentIntent.sale,
                     panier.getPanierHashMap().toString(),
@@ -89,6 +96,7 @@ public class CommandeController {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if(payment.getState().equals("approved")){
                 //On insert les informations de paiement dans la db avant de supprimer le panier
+                //Ajout dans la table Panier
                 UserEntity userEntity = userDAO.findByUsername(principal.getName());
                 PanierModel panierModel = new PanierModel();
                 Calendar calendar = new GregorianCalendar();
@@ -96,6 +104,15 @@ public class CommandeController {
                 panierModel.setNumTicket(null);
                 panierModel.setUsername_fk(principal.getName());
                 panierModelDAO.savePanier(panierModel, userEntity);
+                //Ajout de tous les articles dans la table ElementsPanier
+                ElementsPanier elementsPanier = new ElementsPanier();
+                for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {
+                    elementsPanier.setQuantite(panierEntry.getValue());
+                    elementsPanier.setPrixReel(panierEntry.getKey().getPrixUnitaire());
+                    elementsPanier.setNumTicket_fk(1);
+                    elementsPanier.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
+                    elementsPanierDAO.saveElementsPanier(elementsPanier);
+                }
                 //On vide le panier
                 panier.viderPanier();
                 System.out.println("Payement réussi !!!");

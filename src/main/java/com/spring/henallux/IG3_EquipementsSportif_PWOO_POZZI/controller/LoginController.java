@@ -12,7 +12,6 @@ public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String login(Model model) {
-        model.addAttribute("title", "Login Page");
         model.addAttribute("userEntity", new UserEntity());
         return "integrated:login";
     }

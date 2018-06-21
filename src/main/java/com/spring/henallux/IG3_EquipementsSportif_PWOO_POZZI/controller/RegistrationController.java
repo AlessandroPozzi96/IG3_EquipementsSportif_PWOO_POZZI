@@ -31,7 +31,6 @@ public class RegistrationController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("title", "Registration Page");
         model.addAttribute("user", new User());
         return "integrated:registration";
     }

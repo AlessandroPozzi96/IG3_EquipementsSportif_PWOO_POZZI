@@ -8,6 +8,8 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.PanierModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.GregorianCalendar;
+
 @Service
 public class PanierModelDAO {
     private PanierModelRepository panierModelRepository;
@@ -23,4 +25,11 @@ public class PanierModelDAO {
         PanierEntity panierEntity = providerConverter.panierModelToPanierEntity(panierModel, userEntity);
         panierModelRepository.save(panierEntity);
     }
+
+/*    public PanierModel findPanierEntityByDateBeforeOrderByDateDateAsc() {
+        PanierEntity panierEntity = panierModelRepository.findPanierEntityByDateBeforeOrderByDateDateAsc();
+        PanierModel panierModel = providerConverter.panierEntityToPanierModel(panierEntity);
+
+        return panierModel;
+    }*/
 }

@@ -28,7 +28,6 @@ public class PanierController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, @Valid @ModelAttribute(Constants.PANIER)Panier panier) {
-        model.addAttribute("title", "Panier Page");
         promotion = new Promotion();
         model.addAttribute("promotion", promotion);
         return "integrated:panier";

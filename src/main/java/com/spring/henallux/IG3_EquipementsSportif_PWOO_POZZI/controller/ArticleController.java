@@ -43,7 +43,6 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.GET, params = {"codeBarre"})
     public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie) {
-        model.addAttribute("title", "Panier Page");
         typeArticle = typeArticleDAO.findByCodeBarre(codeBarre);
         model.addAttribute("article", typeArticle);
         model.addAttribute("images", imageDAO.findByArticleEntityCodeBarre(codeBarre));

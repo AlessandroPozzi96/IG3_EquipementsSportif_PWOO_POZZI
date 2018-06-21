@@ -31,7 +31,6 @@ public class ArticlesController {
 
     @RequestMapping(method = RequestMethod.GET, params = "id")
     public String home(@RequestParam(required = true, defaultValue = "1") Integer id, Model model) {
-        model.addAttribute("title", "Panier Page");
         typeArticles = typeArticleDAO.findByCategorieArticleEntityId(id);
         model.addAttribute("articles", typeArticles);
         model.addAttribute("imageDAO", imageDAO);

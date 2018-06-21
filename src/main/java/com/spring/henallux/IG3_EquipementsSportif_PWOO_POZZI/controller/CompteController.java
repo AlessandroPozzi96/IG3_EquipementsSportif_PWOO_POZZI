@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CompteController {
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
-        model.addAttribute("title", "Account Page");
         return "integrated:compte";
     }
 }
