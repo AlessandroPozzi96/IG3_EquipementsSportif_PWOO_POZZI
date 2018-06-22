@@ -2,10 +2,10 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ page isErrorPage="true" %>
-    <h1 class="display-4">Sorry an exception occured!</h1>
+    <h1 class="display-4"><spring:message code="errorMessage"/> !</h1>
 
-    Exception is: <%= exception %>
-    <p class="lead">Champ(s) non valide(s) (source:${contextPath})</p>
+    <spring:message code="exceptionName"/> : <%= exception %>
+    <p class="lead"><spring:message code="invalidFields"/> (source:${contextPath})</p>
 <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <p class="lead">Erreur recontré : ${error.toString()}</p>
+    <p class="lead"><spring:message code="errorEncountered"/> : ${error.toString()}</p>
 </div>

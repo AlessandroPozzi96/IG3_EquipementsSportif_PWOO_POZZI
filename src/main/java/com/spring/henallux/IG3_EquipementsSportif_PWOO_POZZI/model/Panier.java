@@ -104,9 +104,7 @@ public class Panier implements Serializable {
     }
 
     public void viderPanier() {
-        for (Map.Entry<Article, Integer> panierEntry : panierHashMap.entrySet()) {
-            this.removeArticlesPanier(panierEntry.getKey());
-        }
+        panierHashMap.clear();
     }
 
     public Integer getNbArticles() {

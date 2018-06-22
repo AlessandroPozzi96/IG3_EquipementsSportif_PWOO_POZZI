@@ -71,7 +71,7 @@ public class CommandeController {
                     "EUR",
                     PaypalPaymentMethod.paypal,
                     PaypalPaymentIntent.sale,
-                    panier.getPanierHashMap().toString(),
+                    "Paiement via SandBox PayPal.",
                     cancelUrl,
                     successUrl);
             for(Links links : payment.getLinks()){
@@ -104,12 +104,14 @@ public class CommandeController {
                 panierModel.setNumTicket(null);
                 panierModel.setUsername_fk(principal.getName());
                 panierModelDAO.savePanier(panierModel, userEntity);
+
                 //Ajout de tous les articles dans la table ElementsPanier
                 ElementsPanier elementsPanier = new ElementsPanier();
                 for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {
                     elementsPanier.setQuantite(panierEntry.getValue());
                     elementsPanier.setPrixReel(panierEntry.getKey().getPrixUnitaire());
-                    elementsPanier.setNumTicket_fk(1);
+                    //Il faut obtenir le numéro de ticket le plus récent
+                    elementsPanier.setNumTicket_fk(2);
                     elementsPanier.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
                     elementsPanierDAO.saveElementsPanier(elementsPanier);
                 }
