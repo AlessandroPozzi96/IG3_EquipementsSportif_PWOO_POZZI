@@ -155,4 +155,13 @@ public class Panier implements Serializable {
         Article article = gson.fromJson(jsonDecode, Article.class);
         return article;
     }
+
+    @Override
+    public String toString() {
+        String description = "";
+        for (Map.Entry<Article, Integer> panierEntry : panierHashMap.entrySet()) {
+            description += panierEntry.getKey().toString() + " Quantité -> " + panierEntry.getValue();
+        }
+        return description;
+    }
 }

@@ -86,4 +86,15 @@ public class Article {
 
         return Objects.hash(getLibelle(), getCodeBarre(), getPrixUnitaire(), getTaille(), getCouleur());
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "libelle='" + libelle + '\'' +
+                ", codeBarre=" + codeBarre +
+                ", prixUnitaire=" + prixUnitaire +
+                ", taille='" + taille + '\'' +
+                ", couleur='" + couleur + '\'' +
+                '}';
+    }
 }

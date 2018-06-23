@@ -4,5 +4,9 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.P
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Date;
+import java.util.List;
+
 public interface PanierModelRepository extends JpaRepository<PanierEntity, String> {
+    List<PanierEntity> findAllByUserEntityUsername(String username);
 }

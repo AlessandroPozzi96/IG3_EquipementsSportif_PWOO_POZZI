@@ -40,7 +40,8 @@
 </div>
 
 <form method="post" action="${contextPath}/commande/pay">
-    <button type="submit"> Process Payment </button>
+    <p class="lead"><spring:message code="processPayement"/> </p>
+    <button type="submit" class="btn-link"><img src='<spring:url value="/images/paypal.png"/>' class="img-thumbnail"></button>
 </form>
 
 

@@ -52,7 +52,7 @@ public class CommandeController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, @ModelAttribute(Constants.PANIER) Panier panier, Principal principal) {
+    public String home(Model model, @ModelAttribute(Constants.PANIER) Panier panier) {
 
         //On passe la méthode de calcul de promotion dans le model
         promotion = new Promotion();
@@ -66,12 +66,13 @@ public class CommandeController {
         String cancelUrl = "http://localhost:8082/equipementsSportif/commande" + PAYPAL_CANCEL_URL;
         String successUrl = "http://localhost:8082/equipementsSportif/commande" + PAYPAL_SUCCESS_URL;
         try {
+            System.out.println(panier.getPanierHashMap().toString());
             Payment payment = paypalService.createPayment(
                     promotion.calculPromotion(panier),
                     "EUR",
                     PaypalPaymentMethod.paypal,
                     PaypalPaymentIntent.sale,
-                    "Paiement via SandBox PayPal.",
+                    panier.getPanierHashMap().toString(),
                     cancelUrl,
                     successUrl);
             for(Links links : payment.getLinks()){
@@ -107,23 +108,25 @@ public class CommandeController {
 
                 //Ajout de tous les articles dans la table ElementsPanier
                 ElementsPanier elementsPanier = new ElementsPanier();
+                //Récupération du numéro de ticket le plus récent de l'utilisateur
+                Integer numTicketMax = panierModelDAO.findLastNumTicket(principal.getName());
                 for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {
                     elementsPanier.setQuantite(panierEntry.getValue());
-                    elementsPanier.setPrixReel(panierEntry.getKey().getPrixUnitaire());
+                    elementsPanier.setPrixReel(promotion.calculPromotionParArticle(panierEntry.getKey(), panierEntry.getValue()));
                     //Il faut obtenir le numéro de ticket le plus récent
-                    elementsPanier.setNumTicket_fk(2);
+                    elementsPanier.setNumTicket_fk(numTicketMax);
                     elementsPanier.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
                     elementsPanierDAO.saveElementsPanier(elementsPanier);
                 }
                 //On vide le panier
                 panier.viderPanier();
-                System.out.println("Payement réussi !!!");
+                System.out.println("PAYPAL : Payement réussi");
                 return "integrated:home";
             }
         } catch (PayPalRESTException e) {
             log.error(e.getMessage());
         }
-        System.out.println("Payement échoué !");
+        System.out.println("PAYPAL : Payement échoué");
         return "redirect:/commande";
     }
 }
