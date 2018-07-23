@@ -33,6 +33,7 @@ public class PaypalService {
 			String successUrl) throws PayPalRESTException{
 		Amount amount = new Amount();
 		amount.setCurrency(currency);
+		//On arrondit vers le haut à 2 décimales
 		total = new BigDecimal(total).setScale(2, RoundingMode.HALF_UP).doubleValue();
 		amount.setTotal(total.toString());
 

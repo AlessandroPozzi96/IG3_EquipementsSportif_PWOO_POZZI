@@ -1,5 +1,3 @@
-drop table if exists lot;
-drop table if exists fournisseur;
 drop table if exists elementspanier;
 drop table if exists image;
 drop table if exists disponible;
@@ -13,9 +11,9 @@ drop table if exists Couleur;
 drop table if exists typearticle;
 drop table if exists categoriearticle;
 drop table if exists panier;
-drop table if exists persistable_user;
+drop table if exists client;
 
-CREATE TABLE `persistable_user` (
+CREATE TABLE `client` (
   `username` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL,
   `authorities` varchar(500) NOT NULL,
@@ -33,15 +31,6 @@ CREATE TABLE `persistable_user` (
   `dateNaissance` date NOT NULL,
   `isMale` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `fournisseur` (
-  `numeroTVA` int(10) NOT NULL,
-  `localite` varchar(50) NOT NULL,
-  `rue` varchar(50) NOT NULL,
-  `codePostal` int(9) NOT NULL,
-  `nom` varchar(45) NOT NULL,
-  PRIMARY KEY (`numeroTVA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `categoriearticle` (
@@ -71,7 +60,7 @@ CREATE TABLE `panier` (
   `username_fk` varchar(50) NOT NULL,
   PRIMARY KEY (`numTicket`),
   KEY `fk_username` (`username_fk`),
-  CONSTRAINT `fk_username` FOREIGN KEY (`username_fk`) REFERENCES `persistable_user` (`username`)
+  CONSTRAINT `fk_username` FOREIGN KEY (`username_fk`) REFERENCES `client` (`username`)
 ) ENGINE=InnoDB auto_increment=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `typearticle` (
@@ -146,21 +135,6 @@ CREATE TABLE `TranslationCouleur` (
 	CONSTRAINT `fk_idCouleur_TranslationCouleur` FOREIGN KEY (`idCouleur_FK`) REFERENCES `Couleur` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `lot` (
-  `id`				int(9) not null auto_increment,
-  `quantite`		int(10) not null,
-  `dateFourniture`	date null,
-  `dateCommande`	date not null,
-  `numeroTVA_fk` 	int(10) not null,
-  `codeBarre_fk`	int(9) not null,
-  PRIMARY KEY (`id`),
-  KEY `fk_numeroTVA` (`numeroTVA_fk`),
-  KEY `fk_codeBarre_lot` (`codeBarre_fk`),
-  CONSTRAINT `fk_numeroTVA` FOREIGN KEY (`numeroTVA_fk`) REFERENCES `fournisseur` (`numeroTVA`),
-  CONSTRAINT `fk_codeBarre_lot` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
-  check (`quantite` >= 0)
-) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
-
 CREATE TABLE `elementspanier` (
   `quantite`		int(9) not null,
   `prixReel`		double not null,
@@ -175,7 +149,7 @@ CREATE TABLE `elementspanier` (
   check (`prixReel` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `dbequipementssportifs`.`persistable_user`
+INSERT INTO `dbequipementssportifs`.`client`
 (`username`,
 `password`,
 `authorities`,
@@ -195,15 +169,6 @@ INSERT INTO `dbequipementssportifs`.`persistable_user`
 VALUES
 ('Aless', '$2a$10$Y8dfdYBpUaJwWyPeyZxczOdJ6tIuIMm5Rss7.FVTZ5eRM8uNUBifS', 'ROLE_ADMIN', 1, 1, 1, 1, 'POZZI', 'Alessandro', 'alessandro.pozzi72@gmail.com', 'Falmagne', 'Place du bati', 5500, 473227085, '1996-07-14', 1),
 ('ConstentinDu06', '$2a$10$NsXhCQOsLGt8x6zZiHKWZuOMah4pWOHHN2B6a5btHOwAx3vT4HuB2', 'ROLE_USER', 1, 1, 1, 1, 'PENEURE', 'Constentin', 'constentin@gmail.com', 'Grenoble', 'Rue du mimosa', 7413, NULL, '2003-07-05', 1);
-
-INSERT INTO `dbequipementssportifs`.`fournisseur`
-(`numeroTVA`,
-`localite`,
-`rue`,
-`codePostal`,
-`nom`)
-VALUES
-(0112569874, 'Namur', 'Boulevard du nord', 5000, 'Futur Computer');
 
 INSERT INTO `dbequipementssportifs`.`langage`
 (`langageID`)
@@ -399,17 +364,6 @@ VALUES
 ('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
 ('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.');
 
-
-INSERT INTO `dbequipementssportifs`.`lot`
-(`id`,
-`quantite`,
-`dateFourniture`,
-`dateCommande`,
-`numeroTVA_fk`,
-`codeBarre_fk`)
-VALUES
-(null, 1500, null, '2018-02-25', 0112569874, 1);
-
 INSERT INTO `dbequipementssportifs`.`elementspanier`
 (`quantite`,
 `prixReel`,
@@ -420,4 +374,7 @@ VALUES
 
 
 select *
-from  persistable_user;
+from  client;
+
+select *
+from elementsPanier;

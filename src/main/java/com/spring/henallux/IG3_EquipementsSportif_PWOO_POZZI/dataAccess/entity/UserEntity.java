@@ -13,7 +13,7 @@ import java.util.List;
 import static org.springframework.util.StringUtils.isEmpty;
 
 @Entity
-@Table(name="PERSISTABLE_USER")
+@Table(name="CLIENT")
 public class UserEntity implements UserDetails {
 
     @Id
