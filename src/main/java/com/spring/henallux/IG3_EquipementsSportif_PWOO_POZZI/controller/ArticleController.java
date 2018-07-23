@@ -2,7 +2,6 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.*;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ public class ArticleController {
     private TypeArticleDAO typeArticleDAO;
     private ImageDAO imageDAO;
     private Integer cb;
-    private ArticleValidator articleValidator;
     private DisponibleDAO disponibleDAO;
     private DisponibleEnCouleurDAO disponibleEnCouleurDAO;
     private TypeArticle typeArticle;
@@ -31,13 +29,12 @@ public class ArticleController {
     private TranslationCouleur translationCouleur;
 
     @Autowired
-    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, ArticleValidator articleValidator, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO, TranslationCouleurDAO translationCouleurDAO) {
+    public ArticleController(TypeArticleDAO typeArticleDAO, ImageDAO imageDAO, DisponibleDAO disponibleDAO, DisponibleEnCouleurDAO disponibleEnCouleurDAO, TranslationArticleDAO translationArticleDAO, TranslationCouleurDAO translationCouleurDAO) {
         this.translationCouleurDAO = translationCouleurDAO;
         this.translationArticleDAO = translationArticleDAO;
         this.disponibleEnCouleurDAO = disponibleEnCouleurDAO;
         this.typeArticleDAO = typeArticleDAO;
         this.imageDAO = imageDAO;
-        this.articleValidator = articleValidator;
         this.disponibleDAO = disponibleDAO;
     }
 
@@ -57,7 +54,6 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String getArticle(Model model, @Valid @ModelAttribute(Constants.PANIER) Panier panier, BindingResult result) {
-        articleValidator.validate(panier, result);
         if (result.hasErrors()) {
             return "integrated:article?codeBarre=" + cb;
         }

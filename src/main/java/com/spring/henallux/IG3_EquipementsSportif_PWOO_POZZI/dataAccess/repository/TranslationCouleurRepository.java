@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface TranslationCouleurRepository extends JpaRepository<TranslationCouleurEntity, TranslationCouleurPK> {
     @Query("select translationCouleur from TranslationCouleurEntity translationCouleur where translationCouleur.translationCouleurPK.idCouleur_FK = ?1 and translationCouleur.translationCouleurPK.langageID_FK = ?2")
     TranslationCouleurEntity findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(Integer idCouleur, String langageID);
+    @Query("select translationCouleur from TranslationCouleurEntity translationCouleur where translationCouleur.libelle = ?1 and translationCouleur.translationCouleurPK.langageID_FK = ?2")
+    TranslationCouleurEntity findByLibelleAndAndTranslationCouleurPK_LangageID_FK(String libelle, String langageID);
 }

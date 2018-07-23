@@ -39,9 +39,9 @@ public class RegistrationController {
     public String validationForm(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
         userValidator.validate(user, result);
         if (result.hasErrors() ) {
+            System.out.println("---REGISTRATION CONTROLLER ERROR ---");
             return "integrated:registration";
         }
-        System.out.println("---REGISTRATION CONTROLLER POST---");
         userDAO.save(user);
         return "redirect:/";
     }

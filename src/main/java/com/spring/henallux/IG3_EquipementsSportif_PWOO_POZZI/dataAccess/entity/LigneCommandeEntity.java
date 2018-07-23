@@ -15,6 +15,10 @@ public class LigneCommandeEntity {
     private Integer quantite;
     @Column(name = "PRIXREEL")
     private Double prixReel;
+    @Column(name = "TAILLE_FK")
+    private String taille_fk;
+    @Column(name = "COULEUR_FK")
+    private Integer couleur_fk;
 
     public LigneCommandePK getLigneCommandePK() {
         return ligneCommandePK;
@@ -38,5 +42,21 @@ public class LigneCommandeEntity {
 
     public void setPrixReel(Double prixReel) {
         this.prixReel = prixReel;
+    }
+
+    public String getTaille_fk() {
+        return taille_fk;
+    }
+
+    public void setTaille_fk(String taille_fk) {
+        this.taille_fk = taille_fk;
+    }
+
+    public Integer getCouleur_fk() {
+        return couleur_fk;
+    }
+
+    public void setCouleur_fk(Integer couleur_fk) {
+        this.couleur_fk = couleur_fk;
     }
 }

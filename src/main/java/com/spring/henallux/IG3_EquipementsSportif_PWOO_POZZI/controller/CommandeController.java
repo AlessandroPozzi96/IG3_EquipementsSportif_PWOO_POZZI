@@ -9,12 +9,10 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.Paypa
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.PaypalPaymentMethod;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.LigneCommandeDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.CommandeDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TranslationCouleurDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.UserDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.LigneCommande;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Commande;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.service.PaypalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,16 +36,18 @@ public class CommandeController {
     private Logger log = LoggerFactory.getLogger(getClass());
     private PaypalService paypalService;
     private LigneCommandeDAO ligneCommandeDAO;
+    private TranslationCouleurDAO translationCouleurDAO;
 
     public static final String PAYPAL_SUCCESS_URL = "/pay/success";
     public static final String PAYPAL_CANCEL_URL = "/pay/cancel";
 
     @Autowired
-    public CommandeController(UserDAO userDAO, CommandeDAO commandeDAO, PaypalService paypalService, LigneCommandeDAO ligneCommandeDAO) {
+    public CommandeController(UserDAO userDAO, CommandeDAO commandeDAO, PaypalService paypalService, LigneCommandeDAO ligneCommandeDAO, TranslationCouleurDAO translationCouleurDAO) {
         this.ligneCommandeDAO = ligneCommandeDAO;
         this.paypalService = paypalService;
         this.userDAO = userDAO;
         this.commandeDAO = commandeDAO;
+        this.translationCouleurDAO = translationCouleurDAO;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -91,7 +91,7 @@ public class CommandeController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = PAYPAL_SUCCESS_URL)
-    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, @ModelAttribute(Constants.PANIER) Panier panier, Principal principal){
+    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, @ModelAttribute(Constants.PANIER) Panier panier, Principal principal, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie){
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if(payment.getState().equals("approved")){
@@ -109,12 +109,30 @@ public class CommandeController {
                 LigneCommande ligneCommande = new LigneCommande();
                 //Récupération du numéro de ticket le plus récent de l'utilisateur
                 Integer numTicketMax = commandeDAO.findLastNumTicket(principal.getName());
+                TranslationCouleur couleur;
                 for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {
                     ligneCommande.setQuantite(panierEntry.getValue());
                     ligneCommande.setPrixReel(promotion.calculPromotionParArticle(panierEntry.getKey(), panierEntry.getValue()));
                     //Il faut obtenir le numéro de ticket le plus récent
                     ligneCommande.setNumTicket_fk(numTicketMax);
                     ligneCommande.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
+                    //Un article peut ne pas avoir de taille
+                    if (panierEntry.getKey().getTaille() == "") {
+                        ligneCommande.setTaille_fk(null);
+                    }
+                    else
+                    {
+                        ligneCommande.setTaille_fk(panierEntry.getKey().getTaille());
+                    }
+                    //Un article peut ne pas avoir de couleur
+                    if (panierEntry.getKey().getCouleur() == "") {
+                        ligneCommande.setCouleur_fk(null);
+                    }
+                    else
+                    {
+                        couleur = translationCouleurDAO.findByLibelleAndAndTranslationCouleurPK_LangageID_FK(panierEntry.getKey().getCouleur(), myLocaleCookie);
+                        ligneCommande.setCouleur_fk(couleur.getIdCouleur_FK());
+                    }
                     ligneCommandeDAO.saveLigneCommande(ligneCommande);
                 }
                 //On vide le panier

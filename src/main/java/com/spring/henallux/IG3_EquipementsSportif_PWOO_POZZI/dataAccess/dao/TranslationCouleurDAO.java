@@ -24,4 +24,11 @@ public class TranslationCouleurDAO {
 
         return translationCouleur;
     }
+
+    public TranslationCouleur findByLibelleAndAndTranslationCouleurPK_LangageID_FK(String libelle, String langageID) {
+        TranslationCouleurEntity translationCouleurEntity = translationCouleurRepository.findByLibelleAndAndTranslationCouleurPK_LangageID_FK(libelle, langageID);
+        TranslationCouleur translationCouleur = providerConverter.translationCouleurEntityToTranslationCouleurModel(translationCouleurEntity);
+
+        return translationCouleur;
+    }
 }

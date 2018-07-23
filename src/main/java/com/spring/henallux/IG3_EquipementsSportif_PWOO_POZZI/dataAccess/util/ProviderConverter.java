@@ -197,6 +197,8 @@ public class ProviderConverter {
         LigneCommandeEntity ligneCommandeEntity = new LigneCommandeEntity();
         ligneCommandeEntity.setPrixReel(ligneCommande.getPrixReel());
         ligneCommandeEntity.setQuantite(ligneCommande.getQuantite());
+        ligneCommandeEntity.setTaille_fk(ligneCommande.getTaille_fk());
+        ligneCommandeEntity.setCouleur_fk(ligneCommande.getCouleur_fk());
 
         LigneCommandePK ligneCommandePK = new LigneCommandePK();
         ligneCommandePK.setCodeBarre_fk(ligneCommande.getCodeBarre_fk());

@@ -8,11 +8,11 @@
                method="POST"
                action="${contextPath}/login"
                modelAttribute="userEntity">
-            <form:input type="text" path="username" class="form-control" placeholder="Username"
+            <form:input type="text" path="username" class="form-control" placeholder="Ex: DarkDragon03"
                         autofocus="true"></form:input>
             <form:errors path="username" cssClass="has-error"></form:errors>
         </br>
-            <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
+            <form:input type="password" path="password" class="form-control" placeholder="Ex: ******"></form:input>
             <form:errors path="password" cssClass="has-error"></form:errors>
         </br>
         <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>

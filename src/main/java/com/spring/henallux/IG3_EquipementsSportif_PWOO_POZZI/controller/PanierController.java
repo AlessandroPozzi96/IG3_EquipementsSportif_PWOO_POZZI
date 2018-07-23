@@ -2,14 +2,10 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.Promotion;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.ArticleValidator;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,13 +14,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/panier")
 @SessionAttributes({Constants.PANIER})
 public class PanierController {
-    private ArticleValidator articleValidator;
     private Promotion promotion;
-
-    @Autowired
-    public PanierController(ArticleValidator articleValidator) {
-        this.articleValidator = articleValidator;
-    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model, @Valid @ModelAttribute(Constants.PANIER)Panier panier) {

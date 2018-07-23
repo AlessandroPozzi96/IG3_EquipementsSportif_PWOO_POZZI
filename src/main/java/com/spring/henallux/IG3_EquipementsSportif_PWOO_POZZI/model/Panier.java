@@ -75,8 +75,8 @@ public class Panier implements Serializable {
         setCouleur("");
     }
 
-    public void modifierQuantitePanier(Article article, Integer quantite) {
-        if (quantite != null && quantite > 0) {
+    public void modifierQuantitePanier(Article article, int quantite) {
+        if (quantite > 0) {
             Integer quantiteTmp = panierHashMap.get(article);
             if (quantiteTmp != null) {
                 panierHashMap.put(article, quantite);

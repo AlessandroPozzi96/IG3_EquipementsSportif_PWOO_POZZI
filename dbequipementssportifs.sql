@@ -59,7 +59,6 @@ CREATE TABLE `commande` (
   `date` timestamp NOT NULL,
   `username_fk` varchar(50) NOT NULL,
   PRIMARY KEY (`numTicket`),
-  KEY `fk_username` (`username_fk`),
   CONSTRAINT `fk_username` FOREIGN KEY (`username_fk`) REFERENCES `client` (`username`)
 ) ENGINE=InnoDB auto_increment=1 DEFAULT CHARSET=utf8;
 
@@ -68,7 +67,6 @@ CREATE TABLE `typearticle` (
   `prix` double NOT NULL,
   `id_categorie_fk` int(9) NOT NULL,
   PRIMARY KEY (`codeBarre`),
-  KEY `fk_categorie` (`id_categorie_fk`),
   CONSTRAINT `fk_categorie` FOREIGN KEY (`id_categorie_fk`) REFERENCES `categoriearticle` (`id`),
   check (`prix` >=0)
 ) ENGINE=InnoDB auto_increment=1 CHARSET=utf8;
@@ -77,7 +75,6 @@ CREATE TABLE `image` (
   `url` 			varchar(200) NOT NULL,
   `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`url`),
-  KEY `FK_CodeBarre_img` (`codeBarre_fk`),
   CONSTRAINT `FK_CodeBarre_img` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -85,8 +82,6 @@ CREATE TABLE `Disponible` (
   `taille_fk`		varchar(4) not null,
   `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`taille_fk`, `codeBarre_fk`),
-  KEY `fk_taille` (`taille_fk`),
-  KEY `fk_codeBarre_Dispo` (`codeBarre_fk`),
   CONSTRAINT `fk_taille` FOREIGN KEY (`taille_fk`) REFERENCES `Taille` (`tailleArticle`),
   CONSTRAINT `fk_codeBarre_Dispo` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -95,8 +90,6 @@ CREATE TABLE `DisponibleEnCouleur` (
   `couleur_fk`		INT(9) not null,
   `codeBarre_fk`	INT(9) not null,
   PRIMARY KEY (`couleur_fk`, `codeBarre_fk`),
-  KEY `fk_couleur` (`couleur_fk`),
-  KEY `fk_codeBarre_DispoCouleur` (`codeBarre_fk`),
   CONSTRAINT `fk_couleur` FOREIGN KEY (`couleur_fk`) REFERENCES `Couleur` (`id`),
   CONSTRAINT `fk_codeBarre_DispoCouleur` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -107,8 +100,6 @@ CREATE TABLE `TranslationArticle` (
     `libelle`		varchar(200) not null,
     `description`	varchar(400) not null,
     primary key (`langageID_FK`, `codeBarre_FK`),
-	KEY `fk_langageID_Article` (`langageID_FK`),
-	KEY `fk_codeBarre_TranslationArticle` (`codeBarre_FK`),
 	CONSTRAINT `fk_langageID_Article` FOREIGN KEY (`langageID_FK`) REFERENCES `Langage` (`langageID`),
 	CONSTRAINT `fk_codeBarre_TranslationArticle` FOREIGN KEY (`codeBarre_FK`) REFERENCES `typearticle` (`codeBarre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -118,8 +109,6 @@ CREATE TABLE `TranslationCategorie` (
     `idCategorie_FK` 	INT(9) not null,
     `libelle`		varchar(200) not null,
     primary key (`langageID_FK`, `idCategorie_FK`),
-	KEY `fk_langageID_Categorie` (`langageID_FK`),
-	KEY `fk_idCategorie_TranslationArticle` (`idCategorie_FK`),
 	CONSTRAINT `fk_langageID_Categorie` FOREIGN KEY (`langageID_FK`) REFERENCES `Langage` (`langageID`),
 	CONSTRAINT `fk_idCategorie_TranslationArticle` FOREIGN KEY (`idCategorie_FK`) REFERENCES `categoriearticle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -129,8 +118,6 @@ CREATE TABLE `TranslationCouleur` (
     `idCouleur_FK` 	INT(9) not null,
     `libelle`		varchar(200) not null,
     primary key (`langageID_FK`, `idCouleur_FK`),
-	KEY `fk_langageID_Categorie` (`langageID_FK`),
-	KEY `fk_idCouleur_TranslationCouleur` (`idCouleur_FK`),
 	CONSTRAINT `fk_langageID_Couleur` FOREIGN KEY (`langageID_FK`) REFERENCES `Langage` (`langageID`),
 	CONSTRAINT `fk_idCouleur_TranslationCouleur` FOREIGN KEY (`idCouleur_FK`) REFERENCES `Couleur` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -140,11 +127,13 @@ CREATE TABLE `lignecommande` (
   `prixReel`		double not null,
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
+  `taille_fk`		varchar(4),
+  `couleur_fk`		int(9),
   PRIMARY KEY (`codeBarre_fk`, `numTicket_fk`),
-  KEY `fk_codeBarre_commande` (`codeBarre_fk`),
-  KEY `fk_numTicket` (`numTicket_fk`),
   CONSTRAINT `fk_codeBarre_commande` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
   CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `commande` (`numTicket`),
+  CONSTRAINT `fk_taille_ligneCommande` FOREIGN KEY (`taille_fk`) REFERENCES `taille` (`tailleArticle`),
+  CONSTRAINT `fk_couleur_ligneCommande` FOREIGN KEY (`couleur_fk`) REFERENCES `couleur` (`ID`),
   check (`quantite` >= 0),
   check (`prixReel` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
