@@ -46,15 +46,15 @@ public class Promotion {
         switch (quantite) {
             case 1 : prixAvecPromo += article.getPrixUnitaire();
                 break;
-            case 2 : prixAvecPromo += article.getPrixUnitaire() * Constants.PROMO2ARTICLES;
+            case 2 : prixAvecPromo += (article.getPrixUnitaire() * quantite) * Constants.PROMO2ARTICLES;
                 break;
-            case 3 : prixAvecPromo += article.getPrixUnitaire() * Constants.PROMO3ARTICLES;
+            case 3 : prixAvecPromo += (article.getPrixUnitaire() * quantite) * Constants.PROMO3ARTICLES;
                 break;
-            case 4 : prixAvecPromo += article.getPrixUnitaire() * Constants.PROMO4ARTICLES;
+            case 4 : prixAvecPromo += (article.getPrixUnitaire() * quantite) * Constants.PROMO4ARTICLES;
                 break;
-            case 5 : prixAvecPromo += article.getPrixUnitaire() * Constants.PROMO5ARTICLES;
+            case 5 : prixAvecPromo += (article.getPrixUnitaire() * quantite) * Constants.PROMO5ARTICLES;
                 break;
-            default: prixAvecPromo += article.getPrixUnitaire() * Constants.PROMOSUPA5ARTICLES;
+            default: prixAvecPromo += (article.getPrixUnitaire() * quantite) * Constants.PROMOSUPA5ARTICLES;
         }
         prixAvecPromo = new BigDecimal(prixAvecPromo).setScale(2, RoundingMode.HALF_UP).doubleValue();
         return prixAvecPromo;

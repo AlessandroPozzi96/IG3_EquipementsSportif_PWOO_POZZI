@@ -51,7 +51,7 @@ public class Panier implements Serializable {
 
     public Double getPrixArticle(Article article) {
         Integer quantite = panierHashMap.get(article);
-        if (quantite != null) {
+        if (quantite != null && quantite > 0) {
             Double prix = quantite * article.getPrixUnitaire();
             prix = new BigDecimal(prix).setScale(2, RoundingMode.HALF_UP).doubleValue();
             return prix;
