@@ -5,8 +5,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "PANIER")
-public class PanierEntity {
+@Table(name = "COMMANDE")
+public class CommandeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "NUMTICKET")

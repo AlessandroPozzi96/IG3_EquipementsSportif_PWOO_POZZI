@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 @Component
 public class ProviderConverter {
@@ -166,23 +165,23 @@ public class ProviderConverter {
         return translationArticle;
     }
 
-    public PanierEntity panierModelToPanierEntity(PanierModel panierModel, UserEntity userEntity) {
-        PanierEntity panierEntity = new PanierEntity();
-        panierEntity.setUserEntity(userEntity);
-        panierEntity.setNumTicket(panierModel.getNumTicket());
-        Timestamp timestamp = new Timestamp(panierModel.getDate().getTime());
-        panierEntity.setDate(timestamp);
+    public CommandeEntity commandeModelToCommandeEntity(Commande commande, UserEntity userEntity) {
+        CommandeEntity commandeEntity = new CommandeEntity();
+        commandeEntity.setUserEntity(userEntity);
+        commandeEntity.setNumTicket(commande.getNumTicket());
+        Timestamp timestamp = new Timestamp(commande.getDate().getTime());
+        commandeEntity.setDate(timestamp);
 
-        return panierEntity;
+        return commandeEntity;
     }
 
-    public PanierModel panierEntityToPanierModel(PanierEntity panierEntity) {
-        PanierModel panierModel = new PanierModel();
-        panierModel.setUsername_fk(panierEntity.getUserEntity().getUsername());
-        panierModel.setNumTicket(panierEntity.getNumTicket());
-        panierModel.setDate(panierEntity.getDate());
+    public Commande commandeEntityToCommandeModel(CommandeEntity commandeEntity) {
+        Commande commande = new Commande();
+        commande.setUsername_fk(commandeEntity.getUserEntity().getUsername());
+        commande.setNumTicket(commandeEntity.getNumTicket());
+        commande.setDate(commandeEntity.getDate());
 
-        return panierModel;
+        return commande;
     }
 
     public TranslationCouleur translationCouleurEntityToTranslationCouleurModel(TranslationCouleurEntity translationCouleurEntity) {
@@ -194,16 +193,16 @@ public class ProviderConverter {
         return translationCouleur;
     }
 
-    public ElementsPanierEntity elementsPanierModelToElementsPanierEntity (ElementsPanier elementsPanier) {
-        ElementsPanierEntity elementsPanierEntity = new ElementsPanierEntity();
-        elementsPanierEntity.setPrixReel(elementsPanier.getPrixReel());
-        elementsPanierEntity.setQuantite(elementsPanier.getQuantite());
+    public LigneCommandeEntity ligneCommandeModelToLigneCommandeEntity(LigneCommande ligneCommande) {
+        LigneCommandeEntity ligneCommandeEntity = new LigneCommandeEntity();
+        ligneCommandeEntity.setPrixReel(ligneCommande.getPrixReel());
+        ligneCommandeEntity.setQuantite(ligneCommande.getQuantite());
 
-        ElementsPanierPK elementsPanierPK = new ElementsPanierPK();
-        elementsPanierPK.setCodeBarre_fk(elementsPanier.getCodeBarre_fk());
-        elementsPanierPK.setNumTicket_fk(elementsPanier.getNumTicket_fk());
-        elementsPanierEntity.setElementsPanierPK(elementsPanierPK);
+        LigneCommandePK ligneCommandePK = new LigneCommandePK();
+        ligneCommandePK.setCodeBarre_fk(ligneCommande.getCodeBarre_fk());
+        ligneCommandePK.setNumTicket_fk(ligneCommande.getNumTicket_fk());
+        ligneCommandeEntity.setLigneCommandePK(ligneCommandePK);
 
-        return elementsPanierEntity;
+        return ligneCommandeEntity;
     }
 }

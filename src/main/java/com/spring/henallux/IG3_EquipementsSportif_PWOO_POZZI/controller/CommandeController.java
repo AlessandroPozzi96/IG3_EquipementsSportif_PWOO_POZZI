@@ -7,15 +7,14 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.Promotion;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.PaypalPaymentIntent;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration.PaypalPaymentMethod;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.ElementsPanierDAO;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.PanierModelDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.LigneCommandeDAO;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.CommandeDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.UserDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity.UserEntity;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.repository.ElementsPanierRepository;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.ElementsPanier;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.LigneCommande;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Panier;
-import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.PanierModel;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Commande;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.service.PaypalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,21 +33,21 @@ import java.util.Map;
 @SessionAttributes({Constants.PANIER})
 public class CommandeController {
     private UserDAO userDAO;
-    private PanierModelDAO panierModelDAO;
+    private CommandeDAO commandeDAO;
     private Promotion promotion;
     private Logger log = LoggerFactory.getLogger(getClass());
     private PaypalService paypalService;
-    private ElementsPanierDAO elementsPanierDAO;
+    private LigneCommandeDAO ligneCommandeDAO;
 
     public static final String PAYPAL_SUCCESS_URL = "/pay/success";
     public static final String PAYPAL_CANCEL_URL = "/pay/cancel";
 
     @Autowired
-    public CommandeController(UserDAO userDAO, PanierModelDAO panierModelDAO, PaypalService paypalService, ElementsPanierDAO elementsPanierDAO) {
-        this.elementsPanierDAO = elementsPanierDAO;
+    public CommandeController(UserDAO userDAO, CommandeDAO commandeDAO, PaypalService paypalService, LigneCommandeDAO ligneCommandeDAO) {
+        this.ligneCommandeDAO = ligneCommandeDAO;
         this.paypalService = paypalService;
         this.userDAO = userDAO;
-        this.panierModelDAO = panierModelDAO;
+        this.commandeDAO = commandeDAO;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -99,24 +98,24 @@ public class CommandeController {
                 //On insert les informations de paiement dans la db avant de supprimer le panier
                 //Ajout dans la table Panier
                 UserEntity userEntity = userDAO.findByUsername(principal.getName());
-                PanierModel panierModel = new PanierModel();
+                Commande commande = new Commande();
                 Calendar calendar = new GregorianCalendar();
-                panierModel.setDate(calendar.getTime());
-                panierModel.setNumTicket(null);
-                panierModel.setUsername_fk(principal.getName());
-                panierModelDAO.savePanier(panierModel, userEntity);
+                commande.setDate(calendar.getTime());
+                commande.setNumTicket(null);
+                commande.setUsername_fk(principal.getName());
+                commandeDAO.saveCommande(commande, userEntity);
 
-                //Ajout de tous les articles dans la table ElementsPanier
-                ElementsPanier elementsPanier = new ElementsPanier();
+                //Ajout de tous les articles dans la table LigneCommande
+                LigneCommande ligneCommande = new LigneCommande();
                 //Récupération du numéro de ticket le plus récent de l'utilisateur
-                Integer numTicketMax = panierModelDAO.findLastNumTicket(principal.getName());
+                Integer numTicketMax = commandeDAO.findLastNumTicket(principal.getName());
                 for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {
-                    elementsPanier.setQuantite(panierEntry.getValue());
-                    elementsPanier.setPrixReel(promotion.calculPromotionParArticle(panierEntry.getKey(), panierEntry.getValue()));
+                    ligneCommande.setQuantite(panierEntry.getValue());
+                    ligneCommande.setPrixReel(promotion.calculPromotionParArticle(panierEntry.getKey(), panierEntry.getValue()));
                     //Il faut obtenir le numéro de ticket le plus récent
-                    elementsPanier.setNumTicket_fk(numTicketMax);
-                    elementsPanier.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
-                    elementsPanierDAO.saveElementsPanier(elementsPanier);
+                    ligneCommande.setNumTicket_fk(numTicketMax);
+                    ligneCommande.setCodeBarre_fk(panierEntry.getKey().getCodeBarre());
+                    ligneCommandeDAO.saveLigneCommande(ligneCommande);
                 }
                 //On vide le panier
                 panier.viderPanier();

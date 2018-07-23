@@ -5,13 +5,13 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class ElementsPanierPK implements Serializable {
+public class LigneCommandePK implements Serializable {
     @Column(name = "CODEBARRE_FK")
     private Integer codeBarre_fk;
     @Column(name = "NUMTICKET_FK")
     private Integer numTicket_fk;
 
-    public ElementsPanierPK() {
+    public LigneCommandePK() {
     }
 
     public Integer getCodeBarre_fk() {

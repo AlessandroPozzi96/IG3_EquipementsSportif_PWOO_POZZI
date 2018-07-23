@@ -1,4 +1,4 @@
-drop table if exists elementspanier;
+drop table if exists lignecommande;
 drop table if exists image;
 drop table if exists disponible;
 drop table if exists disponibleEnCouleur;
@@ -10,7 +10,7 @@ drop table if exists Langage;
 drop table if exists Couleur;
 drop table if exists typearticle;
 drop table if exists categoriearticle;
-drop table if exists panier;
+drop table if exists commande;
 drop table if exists client;
 
 CREATE TABLE `client` (
@@ -54,7 +54,7 @@ CREATE TABLE `Langage` (
     primary key (`langageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `panier` (
+CREATE TABLE `commande` (
   `numTicket` int(9) NOT NULL AUTO_INCREMENT,
   `date` timestamp NOT NULL,
   `username_fk` varchar(50) NOT NULL,
@@ -135,16 +135,16 @@ CREATE TABLE `TranslationCouleur` (
 	CONSTRAINT `fk_idCouleur_TranslationCouleur` FOREIGN KEY (`idCouleur_FK`) REFERENCES `Couleur` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `elementspanier` (
+CREATE TABLE `lignecommande` (
   `quantite`		int(9) not null,
   `prixReel`		double not null,
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
   PRIMARY KEY (`codeBarre_fk`, `numTicket_fk`),
-  KEY `fk_codeBarre_panier` (`codeBarre_fk`),
+  KEY `fk_codeBarre_commande` (`codeBarre_fk`),
   KEY `fk_numTicket` (`numTicket_fk`),
-  CONSTRAINT `fk_codeBarre_panier` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
-  CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `panier` (`numTicket`),
+  CONSTRAINT `fk_codeBarre_commande` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
+  CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `commande` (`numTicket`),
   check (`quantite` >= 0),
   check (`prixReel` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -192,7 +192,7 @@ VALUES
 (null, '/images/categories/escrime.jpg'),
 (null, '/images/categories/airsoft.jpg');
 
-INSERT INTO `dbequipementssportifs`.`panier`
+INSERT INTO `dbequipementssportifs`.`commande`
 (`numTicket`,
 `date`,
 `username_fk`)
@@ -364,7 +364,7 @@ VALUES
 ('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
 ('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.');
 
-INSERT INTO `dbequipementssportifs`.`elementspanier`
+INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
 `prixReel`,
 `codeBarre_fk`,
@@ -377,4 +377,4 @@ select *
 from  client;
 
 select *
-from elementsPanier;
+from lignecommande;

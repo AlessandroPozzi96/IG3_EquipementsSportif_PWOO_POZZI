@@ -66,7 +66,7 @@ public class UserEntity implements UserDetails {
     private Boolean isMale;
 
     @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY)
-    Collection<PanierEntity> panierEntities;
+    Collection<CommandeEntity> panierEntities;
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {

@@ -3,25 +3,25 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ELEMENTSPANIER")
-public class ElementsPanierEntity {
+@Table(name = "LIGNECOMMANDE")
+public class LigneCommandeEntity {
     @EmbeddedId
     @JoinColumns({
             @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE"),
             @JoinColumn(name = "NUMTICKET_FK", referencedColumnName = "NUMTICKET")
     })
-    private ElementsPanierPK elementsPanierPK;
+    private LigneCommandePK ligneCommandePK;
     @Column(name = "QUANTITE")
     private Integer quantite;
     @Column(name = "PRIXREEL")
     private Double prixReel;
 
-    public ElementsPanierPK getElementsPanierPK() {
-        return elementsPanierPK;
+    public LigneCommandePK getLigneCommandePK() {
+        return ligneCommandePK;
     }
 
-    public void setElementsPanierPK(ElementsPanierPK elementsPanierPK) {
-        this.elementsPanierPK = elementsPanierPK;
+    public void setLigneCommandePK(LigneCommandePK ligneCommandePK) {
+        this.ligneCommandePK = ligneCommandePK;
     }
 
     public Integer getQuantite() {

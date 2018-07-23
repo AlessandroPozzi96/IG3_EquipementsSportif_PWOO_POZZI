@@ -10,7 +10,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.*;
 import java.util.Date;
 
-public class PanierModel {
+public class Commande {
     @NotNull
     @Min(1)
     @Max(999999999)
@@ -25,7 +25,7 @@ public class PanierModel {
     @Size(max = 50, min = 3)
     private String username_fk;
 
-    public PanierModel() {
+    public Commande() {
     }
 
     public Integer getNumTicket() {

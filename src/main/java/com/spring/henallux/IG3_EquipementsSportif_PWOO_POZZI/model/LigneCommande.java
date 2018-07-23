@@ -4,7 +4,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class ElementsPanier {
+public class LigneCommande {
     @NotNull
     @Min(1)
     @Max(999999999)
@@ -21,7 +21,7 @@ public class ElementsPanier {
     @Max(999999999)
     private Integer numTicket_fk;
 
-    public ElementsPanier() {
+    public LigneCommande() {
     }
 
     public Integer getQuantite() {
