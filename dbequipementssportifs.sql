@@ -219,7 +219,10 @@ VALUES
 (null, 4.99, 12),
 (null, 4.99, 12),
 (null, 49.99, 4),
-(null, 39.99, 6);
+(null, 39.99, 6),
+(null, 30.00, 1),
+(null, 60.00, 1),
+(null, 45.00, 1);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -257,7 +260,10 @@ VALUES
 ('/images/articles/batonMarcheNoir.jpg', 26),
 ('/images/articles/batonMarcheRose.jpg', 26),
 ('/images/articles/gantsBoxeRouge.jpg', 27),
-('/images/articles/gantsBoxeBleu.jpg', 27);
+('/images/articles/gantsBoxeBleu.jpg', 27),
+('/images/articles/tapisDomyosNoir.jpg', 28),
+('/images/articles/barreDeTraction.jpg', 29),
+('/images/articles/barresParalleles.jpg', 30);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -293,7 +299,8 @@ VALUES
 ('S', 13), ('M', 13), ('L', 13),
 ('S', 14), ('M', 14), ('L', 14),
 ('S', 22), ('M', 22),
-('S', 27), ('M', 27);
+('S', 27), ('M', 27),
+('S', 30), ('M', 30), ('L', 30);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -357,7 +364,10 @@ VALUES
 ('fr', 24, 'Billes BIO 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft biodégradable haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards (800 billes disponibles).'), ('en', 24, 'BIO balls 0.25g', 'Rediscover the pleasure of playing with a premium airsoft biodegradable ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
 ('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
 ('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.'),
-('fr', 27, 'Gants de boxe', 'Conçu pour le boxeur expert recherchant un gant en cuir naturel. Le gant en cuir qui résiste aux entraînements intensifs. '), ('en', 27, 'Boxing gloves', 'Designed for the expert boxer looking for a natural leather glove. The leather glove that resists intensive training.');
+('fr', 27, 'Gants de boxe', 'Conçu pour le boxeur expert recherchant un gant en cuir naturel. Le gant en cuir qui résiste aux entraînements intensifs. '), ('en', 27, 'Boxing gloves', 'Designed for the expert boxer looking for a natural leather glove. The leather glove that resists intensive training.'),
+('fr', 28, 'Tapis Domyos', 'Tapis de protection à mettre sous votre matériel de fitness cardio pour protèger efficacement votre sol et diminuer le bruit lors de votre pratique.'), ('en', 28, 'Domyos mat', 'Protective mats to put under your cardio fitness equipment to effectively protect your floor and reduce noise during your practice.'),
+('fr', 29, 'Barre de traction', 'Conçu pour se muscler le haut du corps. Variez l\'écartement et la position des mains pour les tractions en pronation ou en supination, prises larges, serrés et marteau. Pour une stabilité maximum, ancrez le produit sur un mur porteur.'), ('en', 29, 'Pull up bar', 'Designed to build your upper body. Vary the spacing and position of the hands for pronation or supine pulls, wide, tight grips and hammer. For maximum stability, anchor the product on a load-bearing wall.'),
+('fr', 30, 'Barres parallèles', 'Station d\'entraînement : nomade, compact et complète qui permet de travailler l\'ensemble des muscles au poids, en statique ou en dynamique.'), ('en', 30, 'Parallel bars', 'Training station: nomadic, compact and complete that allows all muscles to work on weight, static or dynamic.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
