@@ -13,4 +13,5 @@ public class AdminController {
     public String home(Model model) {
         return "integrated:admin";
     }
+    //test
 }

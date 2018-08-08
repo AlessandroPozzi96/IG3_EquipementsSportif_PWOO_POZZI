@@ -77,5 +77,5 @@
         <p class="lead"><a class="badge badge-info" href='<spring:url value="/admin"/>'>ADMIN</a></p>
     </security:authorize>
 </security:authorize>
-
+//test
 
