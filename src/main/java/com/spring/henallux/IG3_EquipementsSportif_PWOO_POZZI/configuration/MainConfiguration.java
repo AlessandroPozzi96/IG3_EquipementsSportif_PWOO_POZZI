@@ -3,6 +3,7 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.validation.DefaultMessageCodesResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -57,5 +58,10 @@ public class MainConfiguration extends WebMvcConfigurerAdapter {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
         interceptor.setParamName("locale");
         registry.addInterceptor(interceptor);
+    }
+
+    @Bean
+    public HibernateJpaSessionFactoryBean sessionFactory() {
+        return new HibernateJpaSessionFactoryBean();
     }
 }

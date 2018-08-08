@@ -361,9 +361,3 @@ INSERT INTO `dbequipementssportifs`.`lignecommande`
 VALUES
 (20, 130.99, 1, 1);
 
-
-select *
-from  client;
-
-select *
-from lignecommande;
