@@ -218,7 +218,8 @@ VALUES
 (null, 249.99, 12),
 (null, 4.99, 12),
 (null, 4.99, 12),
-(null, 49.99, 4);
+(null, 49.99, 4),
+(null, 39.99, 6);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -254,7 +255,9 @@ VALUES
 ('/images/articles/billesBio.jpg', 24),
 ('/images/articles/billes.jpg', 25),
 ('/images/articles/batonMarcheNoir.jpg', 26),
-('/images/articles/batonMarcheRose.jpg', 26);
+('/images/articles/batonMarcheRose.jpg', 26),
+('/images/articles/gantsBoxeRouge.jpg', 27),
+('/images/articles/gantsBoxeBleu.jpg', 27);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -289,7 +292,8 @@ VALUES
 ('38', 7),('39', 7),('40', 7),('41', 7),('42', 7), ('43', 7), ('44', 7), ('45', 7),
 ('S', 13), ('M', 13), ('L', 13),
 ('S', 14), ('M', 14), ('L', 14),
-('S', 22), ('M', 22);
+('S', 22), ('M', 22),
+('S', 27), ('M', 27);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -299,7 +303,8 @@ VALUES
 (2, 10), (3, 10),
 (1, 5), (3, 5),
 (3, 11), (1, 11),
-(5, 26), (6, 26);
+(5, 26), (6, 26),
+(1, 27), (2, 27);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -351,7 +356,8 @@ VALUES
 ('fr', 23, 'FN Scar H Noir', 'Réplique livrée avec une batterie 8.4V/1100mAh, un chargeur de batterie, un chargeur supplémentaire de billes.'), ('en', 23, 'FN Scar H Black', 'Replica comes with a 8.4V / 1100mAh battery, a battery charger, an additional charger of balls.'),
 ('fr', 24, 'Billes BIO 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft biodégradable haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards (800 billes disponibles).'), ('en', 24, 'BIO balls 0.25g', 'Rediscover the pleasure of playing with a premium airsoft biodegradable ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
 ('fr', 25, 'Billes 0.25g', 'Redécouvrez le plaisir de jouer avec une bille airsoft haut de gamme dont la finition est étudiée pour toutes les répliques. Elles possèdent une homogénéité élevée dans leurs dimensions et sont adaptées à tous les répliques d\'armes Spring et les AEG standards(800 billes disponibles).'), ('en', 25, 'Balles 0.25g', 'Rediscover the pleasure of playing with a high-end airsoft ball whose finish is studied for all replicas. They have high homogeneity in their dimensions and are suitable for all Spring weapon replicas and standard AEGs (800 balls availables).'),
-('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.');
+('fr', 26, 'Baton de marche', 'Conçu pour marcher 3 fois par semaine ou plus par tout temps. Performez avec les bâtons de marche nordique Newfeel Propulse Walk 900 qui allient propulsion et légèreté. '), ('en', 26, 'Walking stick', 'Designed for walking 3 times a week or more in any weather. Perform with the Newfeel Propulse Walk 900 Nordic walking sticks that combine propulsion and lightness.'),
+('fr', 27, 'Gants de boxe', 'Conçu pour le boxeur expert recherchant un gant en cuir naturel. Le gant en cuir qui résiste aux entraînements intensifs. '), ('en', 27, 'Boxing gloves', 'Designed for the expert boxer looking for a natural leather glove. The leather glove that resists intensive training.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
