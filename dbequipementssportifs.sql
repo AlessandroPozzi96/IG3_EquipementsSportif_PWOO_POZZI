@@ -230,7 +230,22 @@ VALUES
 (null, 29.99, 9),
 (null, 14.99, 10),
 (null, 23.99, 10),
-(null, 59.99, 8);
+(null, 59.99, 8),
+(null, 19.99, 8),
+(null, 21.99, 7),
+(null, 14.99, 7),
+(null, 1.99, 5),
+(null, 6.99, 5),
+(null, 24.99, 6),
+(null, 39.99, 6),
+(null, 169.99, 4),
+(null, 79.99, 4),
+(null, 24.99, 3),
+(null, 39.99, 3),
+(null, 19.99, 2),
+(null, 17.99, 2),
+(null, 129.99, 12),
+(null, 69.99, 12);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -282,7 +297,29 @@ VALUES
 ('/images/articles/ShortKayak.jpg', 36),
 ('/images/articles/ShortyDébardeurFemmeNopreneBleu.jpg', 37),
 ('/images/articles/ShortyDébardeurFemmeNopreneGris.jpg', 37),
-('/images/articles/sacSportRaquetteWilson.jpg', 38);
+('/images/articles/sacSportRaquetteWilson.jpg', 38),
+('/images/articles/ChaussuresTennisBleuMarinne.jpg', 39),
+('/images/articles/ChaussuresTennisBleu.jpg', 39),
+('/images/articles/ChaussuresTennisNoir.jpg', 39),
+('/images/articles/ChaussuresTennisBlanc.jpg', 39),
+('/images/articles/lunetteNatation.jpg', 40),
+('/images/articles/BonnetNatation.jpg', 41),
+('/images/articles/chaussetteFootballBlanches.jpg', 42),
+('/images/articles/chaussetteFootballBleues.jpg', 42),
+('/images/articles/gantGardienOrange.jpg', 43),
+('/images/articles/gantGardienBleu.jpg', 43),
+('/images/articles/PattesD_OursBoxe.jpg', 44),
+('/images/articles/SacDeFrappe.jpg', 45),
+('/images/articles/TenteTrekRandonnee.jpg', 46),
+('/images/articles/SacADosTreckingRandonnee.jpg', 47),
+('/images/articles/CasqueVTTJaune.jpg', 48),
+('/images/articles/CasqueVTTNoir.jpg', 48),
+('/images/articles/lunetteVéloNoir.jpg', 49),
+('/images/articles/lunetteVéloBlanches.jpg', 49),
+('/images/articles/CuissardCourseNoir.jpg', 50),
+('/images/articles/VesteCourse.jpg', 51),
+('/images/articles/vesteCamouflageAirsoft.jpg', 52),
+('/images/articles/pantalonCamouflageAirsoft.jpg', 53);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -292,7 +329,7 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`couleur`
 (`id`)
 VALUES
-(null), (null), (null), (null), (null), (null), (null), (null);
+(null), (null), (null), (null), (null), (null), (null), (null), (null), (null);
 
 INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
 (`langageID_FK`,
@@ -306,7 +343,9 @@ values
 ('fr', 5, 'Rose'), ('en', 5, 'Pink'),
 ('fr', 6, 'Noir'), ('en', 6, 'Black'),
 ('fr', 7, 'Olive'), ('en', 7, 'Olive'),
-('fr', 8, 'Gris'), ('en', 8, 'Grey');
+('fr', 8, 'Gris'), ('en', 8, 'Grey'),
+('fr', 9, 'Orange'), ('en', 9, 'Orange'),
+('fr', 10, 'Jaune'), ('en', 10, 'Jaune');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
@@ -327,7 +366,17 @@ VALUES
 ('38', 33), ('39', 33), ('40', 33),
 ('S', 35), ('M', 35), ('L', 35),
 ('S', 36), ('M', 36), ('L', 36),
-('S', 37), ('M', 37), ('L', 37);
+('S', 37), ('M', 37), ('L', 37),
+('38', 39), ('39', 39), ('40', 39), ('41', 39), ('42', 39), ('43', 39), ('44', 39), ('45', 39),
+('M', 41), ('L', 41),
+('S', 42), ('M', 42), ('L', 42),
+('S', 43), ('M', 43), ('L', 43),
+('S', 47), ('M', 47), ('L', 47),
+('M', 48), ('L', 48),
+('S', 50), ('M', 50), ('L', 50),
+('S', 51), ('M', 51), ('L', 51),
+('S', 52), ('M', 52), ('L', 52), ('XL', 52), ('XXL', 52),
+('S', 53), ('M', 53), ('L', 53), ('XL', 53), ('XXL', 53);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -341,7 +390,12 @@ VALUES
 (1, 27), (2, 27),
 (3, 31), (2, 31),
 (6, 35), (7, 35),
-(2, 37), (8, 37);
+(2, 37), (8, 37),
+(4, 39), (2,39), (6,39), (3, 39),
+(3, 42), (4, 42),
+(9, 43), (2, 43),
+(10, 48), (6, 48),
+(6, 49), (3, 48);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -405,7 +459,22 @@ VALUES
 ('fr', 35, 'Legging Réversible YOGA', 'Envie de changer de legging entre 2 séances de yoga ? Nos yogis l\'ont conçu réversible (uni / imprimé) sans oublier ses autres qualités : opaque, respirant, et maintien de la sangle abdominale !'), ('en', 35, 'YOGA Reversible Legging', 'Want to change leggings between 2 yoga sessions? Our yogis have designed reversible (plain / printed) without forgetting its other qualities: opaque, breathable, and maintaining the abdominal strap!'),
 ('fr', 36, 'Short Kayak', 'Ce short à la coupe allongée dans le dos permet d’avoir le bas du dos couvert même en position assise. La souplesse du néoprène assure un confort optimal même pour une longue durée de pratique'), ('en', 36, 'Kayak Shorts', 'These shorts with the elongated cut in the back allows to have the lower back covered even in sitting position. The softness of the neoprene ensures optimal comfort even for a long period of practice'),
 ('fr', 37, 'SHORTY Débardeur KAYAK', 'Ce modèle est conçu pour les sports de pagaie. Il libère les épaules pour faciliter la rame, apporter la thermicité nécessaire en mi saison et disposer d\'une poche zippée.'), ('en', 37, 'Shortly KAYAK Tank', 'This model is designed for paddle sports. It frees the shoulders to facilitate paddling, provide the necessary warmth in mid season and have a zipped pocket.'),
-('fr', 38, 'Sac de sport Wilson', 'Ce sac de tennis Wilson FEDERER rouge a la particularité d\'être très léger et propose un design épuré et une bonne protection de vos raquettes et de votre matériel. Il est aussi facile à transporter.'), ('en', 38, 'Wilson sports bag', 'This Wilson FEDERER red tennis bag has the distinction of being very light and offers a clean design and good protection of your rackets and your equipment. It is also easy to carry.');
+('fr', 38, 'Sac de sport Wilson', 'Ce sac de tennis Wilson FEDERER rouge a la particularité d\'être très léger et propose un design épuré et une bonne protection de vos raquettes et de votre matériel. Il est aussi facile à transporter.'), ('en', 38, 'Wilson sports bag', 'This Wilson FEDERER red tennis bag has the distinction of being very light and offers a clean design and good protection of your rackets and your equipment. It is also easy to carry.'),
+('fr', 39, 'Chaussures de tennis homme', 'Chaussure de tennis conçue pour le joueur Débutant, apportant un maximum de confort grâce à sa tige en PU synthétique souple et mesh, et de la résistance sur tout type de terrain grâce à sa semelle.'), ('en', 39, 'Men\'s tennis shoes', 'Tennis shoe designed for the beginner player, providing maximum comfort thanks to its flexible synthetic PU and mesh upper, and resistance on any type of terrain thanks to its sole.'),
+('fr', 40, 'Lunettes de natation', 'Lunettes d\'entrainement polyvalentes issues de la technologie Speedo BioFUSE offrant confort maximal, parfaite ergonomie et visibilité.'), ('en', 40, 'Swimming goggles', 'Versatile training goggles from Speedo BioFUSE technology offering maximum comfort, perfect ergonomics and visibility.'),
+('fr', 41, 'Bonnet de natation', 'Le bonnet en néoprène pour garder la tête au chaud pendant les sessions de natation en eau libre.'), ('en', 41, 'Swimming cap', 'The neoprene cap to keep your head warm during open water swimming sessions.'),
+('fr', 42, 'Chausette de football', 'Pour accompagner les premiers pas de votre enfant sur les terrains de foot, nous avons développé ces chaussettes de football F100 dont le tissage aéré permet au pied de respirer.'), ('en', 42, 'Football sock', 'To accompany the first steps of your child on the football field, we have developed these football socks F100 whose airy weave allows the foot to breathe.'),
+('fr', 43, 'Gant de gardien', 'Vous recherchez un gant résistant ? Nous avons développé le gant First avec un revêtement en latex synthétique pour qu\'il s\'abîme moins vite lors des plongeons.'), ('en', 43, 'Guardian\'s glove', 'Looking for a resistant glove? We have developed the First glove with a synthetic latex coating so that it does not go down as quickly as possible when diving.'),
+('fr', 44, 'Pattes d\'ours', 'Le parfait accessoire pour le travail des combinaisons de coups ( crochet , direct , uppercut) . Développez votre vitesse et votre précision !'), ('en', 44, 'Bear paws', 'The perfect accessory for working combinations of strokes (hook, direct, uppercut). Develop your speed and accuracy!'),
+('fr', 45, 'Sac de frappe', 'Le sac de frappe idéal pour le débutant en boxe anglaise. Sa toile très résistante et ses sangles d’attache permettent de débuter la boxe dans les meilleures conditions sans se blesser.'), ('en', 45, 'Punching bag', 'The ideal punching bag for the beginner in boxing. Its highly resistant canvas and tether straps allow you to start boxing in the best conditions without hurting yourself.'),
+('fr', 46, 'Tente trek', 'La plus compacte et légère des tentes de bivouac Quechua pour 3 personnes, montage et démontage rapides. 2 portes. Grande abside frontale (espace de rangement). Ventilation facile et efficace.'), ('en', 46, 'Trekking tent', 'The most compact and lightweight Quechua bivouac tents for 3 people, quick assembly and disassembly. 2 doors. Large frontal apse (storage space). Easy and efficient ventilation.'),
+('fr', 47, 'Sac à dos trekking', 'Le sac à dos conçu pour prévenir le risque de pickpocket avec son large zip cadenassable, placé près du dos. Le chapeau se transforme en besace détachable pour amener partout avec vous vos documents.'), ('en', 47, 'Trekking backpack', 'The backpack designed to prevent the risk of pickpocket with its large zip lockable, placed near the back. The hat is transformed into a detachable bag to bring with you your documents everywhere.'),
+('fr', 48, 'Casque VTT', 'Ce casque VTT 500 s\'adapte et se laisse oublier grâce à ses mousses intérieures pour plus de confort, ses 21 aérations et sa molette de réglage. Conforme à la norme EN 1078 pour les casques.'), ('en', 48, 'MTB helmet', 'This MTB 500 helmet fits and can be forgotten thanks to its inner foams for comfort, its 21 vents and its adjustment wheel. Complies with the EN 1078 standard for helmets.'),
+('fr', 49, 'Lunettes de Vélo', 'Grâce au système de changement rapide de verres et les 4 verres fournies vous pourrez rouler par tous les temps avec la ROADR 900 PACK. Mono écran très large pour un excellent champ de vision.'), ('en', 49, 'Cycling Glasses', 'Thanks to the quick lens change system and the 4 lenses provided you can ride in any weather with the ROADR 900 PACK. Mono very wide screen for an excellent field of vision.'),
+('fr', 50, 'Short course', 'Une véritable seconde peau que vous finirez par oublier. Les irritations ne seront plus qu\'un mauvais souvenir avec ce cuissard de running innovant qui n\'a pas de couture à l\'entrejambe.'), ('en', 50, 'Running shorts', 'A real second skin that you will end up forgetting. The irritation will be a bad memory with this innovative running shorts that has no seam in the crotch.'),
+('fr', 51, 'Veste de jogging', 'Une veste chaude et respirante grâce à ses empiècements sous les bras. Deux poches zippées pour emmener vos effets personnels.'), ('en', 51, 'Jogging jacket', 'A warm and breathable jacket thanks to its underarm panels. Two zipped pockets to take your belongings.'),
+('fr', 52, 'Veste de camouflage', 'Veste imperméable, respirante et chaude. Tissu silencieux et résistant. Veste idéale pour les sorties en fin de saison, de 10° à 0°C en statique et jusqu\'à -5 / -10°C en situation active.'), ('en', 52, 'Camouflage jacket', 'Waterproof jacket, breathable and warm. Silent and resistant fabric. Ideal jacket for late-season outings, from 10 ° to 0 ° C in static and up to -5 / -10 ° C in active situation.'),
+('fr', 53, 'Pantalon de camouflage', 'Ce pantalon de combinaison de chasse arbore le nouveau camouflage exclusif Cressi. Il apporte mimétisme, discrétion et confort sous l\'eau, avec sa coupe préformée et ses renforts sur les genoux.'), ('en', 53, 'Camouflage trousers', 'These hunting overalls sport the new Cressi exclusive camouflage. It brings mimicry, discretion and comfort under water, with its preformed cut and reinforcements on the knees.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
