@@ -223,7 +223,14 @@ VALUES
 (null, 29.99, 1),
 (null, 59.99, 1),
 (null, 44.99, 1),
-(null, 7.99, 1);
+(null, 7.99, 1),
+(null, 249.99, 11),
+(null, 109.99, 11),
+(null, 4.99, 9),
+(null, 29.99, 9),
+(null, 14.99, 10),
+(null, 23.99, 10),
+(null, 59.99, 8);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -266,7 +273,16 @@ VALUES
 ('/images/articles/barreDeTraction.jpg', 29),
 ('/images/articles/barresParalleles.jpg', 30),
 ('/images/articles/DebardeurCrossTrainingBlanc.jpg', 31),
-('/images/articles/DebardeurCrossTrainingBleu.jpg', 31);
+('/images/articles/DebardeurCrossTrainingBleu.jpg', 31),
+('/images/articles/vesteAllstarEcostarHomme.jpg', 32),
+('/images/articles/chaussuresAdidaDartagnan.jpg', 33),
+('/images/articles/SangleYogaEnCotonÉcru.jpg', 34),
+('/images/articles/LeggingRéversibleYOGAFemmeNoir.jpg', 35),
+('/images/articles/LeggingRéversibleYOGAFemmeOlive.jpg', 35),
+('/images/articles/ShortKayak.jpg', 36),
+('/images/articles/ShortyDébardeurFemmeNopreneBleu.jpg', 37),
+('/images/articles/ShortyDébardeurFemmeNopreneGris.jpg', 37),
+('/images/articles/sacSportRaquetteWilson.jpg', 38);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -276,7 +292,7 @@ VALUES
 INSERT INTO `dbequipementssportifs`.`couleur`
 (`id`)
 VALUES
-(null), (null), (null), (null), (null), (null);
+(null), (null), (null), (null), (null), (null), (null), (null);
 
 INSERT INTO `dbequipementssportifs`.`TranslationCouleur`
 (`langageID_FK`,
@@ -288,7 +304,9 @@ values
 ('fr', 3, 'Blanc'), ('en', 3, 'White'),
 ('fr', 4, 'Bleu foncé'), ('en', 4, 'Dark blue'),
 ('fr', 5, 'Rose'), ('en', 5, 'Pink'),
-('fr', 6, 'Noir'), ('en', 6, 'Black');
+('fr', 6, 'Noir'), ('en', 6, 'Black'),
+('fr', 7, 'Olive'), ('en', 7, 'Olive'),
+('fr', 8, 'Gris'), ('en', 8, 'Grey');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
 (`taille_fk`,
@@ -304,7 +322,12 @@ VALUES
 ('S', 22), ('M', 22),
 ('S', 27), ('M', 27),
 ('S', 30), ('M', 30), ('L', 30),
-('S', 31), ('M', 31), ('L', 31);
+('S', 31), ('M', 31), ('L', 31),
+('43', 32), ('44', 32), ('45', 32),
+('38', 33), ('39', 33), ('40', 33),
+('S', 35), ('M', 35), ('L', 35),
+('S', 36), ('M', 36), ('L', 36),
+('S', 37), ('M', 37), ('L', 37);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -316,7 +339,9 @@ VALUES
 (3, 11), (1, 11),
 (5, 26), (6, 26),
 (1, 27), (2, 27),
-(3, 31), (2, 31);
+(3, 31), (2, 31),
+(6, 35), (7, 35),
+(2, 37), (8, 37);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -373,7 +398,14 @@ VALUES
 ('fr', 28, 'Tapis Domyos', 'Tapis de protection à mettre sous votre matériel de fitness cardio pour protèger efficacement votre sol et diminuer le bruit lors de votre pratique.'), ('en', 28, 'Domyos mat', 'Protective mats to put under your cardio fitness equipment to effectively protect your floor and reduce noise during your practice.'),
 ('fr', 29, 'Barre de traction', 'Conçu pour se muscler le haut du corps. Variez l\'écartement et la position des mains pour les tractions en pronation ou en supination, prises larges, serrés et marteau. Pour une stabilité maximum, ancrez le produit sur un mur porteur.'), ('en', 29, 'Pull up bar', 'Designed to build your upper body. Vary the spacing and position of the hands for pronation or supine pulls, wide, tight grips and hammer. For maximum stability, anchor the product on a load-bearing wall.'),
 ('fr', 30, 'Barres parallèles', 'Station d\'entraînement : nomade, compact et complète qui permet de travailler l\'ensemble des muscles au poids, en statique ou en dynamique.'), ('en', 30, 'Parallel bars', 'Training station: nomadic, compact and complete that allows all muscles to work on weight, static or dynamic.'),
-('fr', 31, 'Débardeur cross training', 'Débardeur femme de Crosstraining ultra léger et résistant. Il vous permettra d\'être en confort lors de la réalisation de vos WODs et de vos entraînements.'), ('en', 31, 'cross training tank top', 'Crosstraining women\'s tank top ultra light and resistant. It will allow you to be comfortable during the realization of your WODs and your training.');
+('fr', 31, 'Débardeur cross training', 'Débardeur femme de Crosstraining ultra léger et résistant. Il vous permettra d\'être en confort lors de la réalisation de vos WODs et de vos entraînements.'), ('en', 31, 'cross training tank top', 'Crosstraining women\'s tank top ultra light and resistant. It will allow you to be comfortable during the realization of your WODs and your training.'),
+('fr', 32, 'Veste Ecostar', 'La veste "Ecostar" FIE 800N vous apportera tout le confort dont vous aurez besoin lors de vos assauts à l\'entrainement ou en compétition, cette veste alliant souplesse et résistance est totalement élastiss. Composition 80% Polyamide 20% Polyester. Lavage Facile'), ('en', 32, 'jacket Ecostar', 'The jacket "Ecostar" FIE 800N will bring you all the comfort that you will need during your assaults in training or in competition, this jacket combining flexibility and resistance is fully elastiss. Composition 80% Polyamide 20% Polyester. Easy wash'),
+('fr', 33, 'CHAUSSURES ADIDAS DARTAGNAN IV', 'Une nouvelle version des chaussures d\'escrime classiques avec un design léger et flexible. Allège la chaussure, la semelle extérieure présente une haute résistance à l’usure.'), ('en', 33, 'SHOES ADIDAS DARTAGNAN IV', 'A new version of classic fencing shoes with a lightweight and flexible design. Lighten the shoe, the outsole has a high resistance to wear.'),
+('fr', 34, 'Sangle Yoga en coton écru', 'Conçu pour la pratique du yoga. Une aide précieuse à la recherche de souplesse ! Taille : 2,5 mètres - largeur 3,5 cm.'), ('en', 34, 'Yoga strap in ecru cotton', 'Designed for yoga practice. A precious help in search of flexibility! Size: 2.5 meters - width 3.5 cm.'),
+('fr', 35, 'Legging Réversible YOGA', 'Envie de changer de legging entre 2 séances de yoga ? Nos yogis l\'ont conçu réversible (uni / imprimé) sans oublier ses autres qualités : opaque, respirant, et maintien de la sangle abdominale !'), ('en', 35, 'YOGA Reversible Legging', 'Want to change leggings between 2 yoga sessions? Our yogis have designed reversible (plain / printed) without forgetting its other qualities: opaque, breathable, and maintaining the abdominal strap!'),
+('fr', 36, 'Short Kayak', 'Ce short à la coupe allongée dans le dos permet d’avoir le bas du dos couvert même en position assise. La souplesse du néoprène assure un confort optimal même pour une longue durée de pratique'), ('en', 36, 'Kayak Shorts', 'These shorts with the elongated cut in the back allows to have the lower back covered even in sitting position. The softness of the neoprene ensures optimal comfort even for a long period of practice'),
+('fr', 37, 'SHORTY Débardeur KAYAK', 'Ce modèle est conçu pour les sports de pagaie. Il libère les épaules pour faciliter la rame, apporter la thermicité nécessaire en mi saison et disposer d\'une poche zippée.'), ('en', 37, 'Shortly KAYAK Tank', 'This model is designed for paddle sports. It frees the shoulders to facilitate paddling, provide the necessary warmth in mid season and have a zipped pocket.'),
+('fr', 38, 'Sac de sport Wilson', 'Ce sac de tennis Wilson FEDERER rouge a la particularité d\'être très léger et propose un design épuré et une bonne protection de vos raquettes et de votre matériel. Il est aussi facile à transporter.'), ('en', 38, 'Wilson sports bag', 'This Wilson FEDERER red tennis bag has the distinction of being very light and offers a clean design and good protection of your rackets and your equipment. It is also easy to carry.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
