@@ -220,9 +220,10 @@ VALUES
 (null, 4.99, 12),
 (null, 49.99, 4),
 (null, 39.99, 6),
-(null, 30.00, 1),
-(null, 60.00, 1),
-(null, 45.00, 1);
+(null, 29.99, 1),
+(null, 59.99, 1),
+(null, 44.99, 1),
+(null, 7.99, 1);
 
 INSERT INTO `dbequipementssportifs`.`image`
 (`url`,
@@ -263,7 +264,9 @@ VALUES
 ('/images/articles/gantsBoxeBleu.jpg', 27),
 ('/images/articles/tapisDomyosNoir.jpg', 28),
 ('/images/articles/barreDeTraction.jpg', 29),
-('/images/articles/barresParalleles.jpg', 30);
+('/images/articles/barresParalleles.jpg', 30),
+('/images/articles/DebardeurCrossTrainingBlanc.jpg', 31),
+('/images/articles/DebardeurCrossTrainingBleu.jpg', 31);
 
 INSERT INTO `dbequipementssportifs`.`taille`
 (`tailleArticle`)
@@ -300,7 +303,8 @@ VALUES
 ('S', 14), ('M', 14), ('L', 14),
 ('S', 22), ('M', 22),
 ('S', 27), ('M', 27),
-('S', 30), ('M', 30), ('L', 30);
+('S', 30), ('M', 30), ('L', 30),
+('S', 31), ('M', 31), ('L', 31);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -311,7 +315,8 @@ VALUES
 (1, 5), (3, 5),
 (3, 11), (1, 11),
 (5, 26), (6, 26),
-(1, 27), (2, 27);
+(1, 27), (2, 27),
+(3, 31), (2, 31);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -367,7 +372,8 @@ VALUES
 ('fr', 27, 'Gants de boxe', 'Conçu pour le boxeur expert recherchant un gant en cuir naturel. Le gant en cuir qui résiste aux entraînements intensifs. '), ('en', 27, 'Boxing gloves', 'Designed for the expert boxer looking for a natural leather glove. The leather glove that resists intensive training.'),
 ('fr', 28, 'Tapis Domyos', 'Tapis de protection à mettre sous votre matériel de fitness cardio pour protèger efficacement votre sol et diminuer le bruit lors de votre pratique.'), ('en', 28, 'Domyos mat', 'Protective mats to put under your cardio fitness equipment to effectively protect your floor and reduce noise during your practice.'),
 ('fr', 29, 'Barre de traction', 'Conçu pour se muscler le haut du corps. Variez l\'écartement et la position des mains pour les tractions en pronation ou en supination, prises larges, serrés et marteau. Pour une stabilité maximum, ancrez le produit sur un mur porteur.'), ('en', 29, 'Pull up bar', 'Designed to build your upper body. Vary the spacing and position of the hands for pronation or supine pulls, wide, tight grips and hammer. For maximum stability, anchor the product on a load-bearing wall.'),
-('fr', 30, 'Barres parallèles', 'Station d\'entraînement : nomade, compact et complète qui permet de travailler l\'ensemble des muscles au poids, en statique ou en dynamique.'), ('en', 30, 'Parallel bars', 'Training station: nomadic, compact and complete that allows all muscles to work on weight, static or dynamic.');
+('fr', 30, 'Barres parallèles', 'Station d\'entraînement : nomade, compact et complète qui permet de travailler l\'ensemble des muscles au poids, en statique ou en dynamique.'), ('en', 30, 'Parallel bars', 'Training station: nomadic, compact and complete that allows all muscles to work on weight, static or dynamic.'),
+('fr', 31, 'Débardeur cross training', 'Débardeur femme de Crosstraining ultra léger et résistant. Il vous permettra d\'être en confort lors de la réalisation de vos WODs et de vos entraînements.'), ('en', 31, 'cross training tank top', 'Crosstraining women\'s tank top ultra light and resistant. It will allow you to be comfortable during the realization of your WODs and your training.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
 (`quantite`,
