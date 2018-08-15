@@ -30,7 +30,8 @@ CREATE TABLE `client` (
   `numtelephone` int(13) DEFAULT NULL,
   `dateNaissance` date NOT NULL,
   `isMale` tinyint(1) NOT NULL,
-  PRIMARY KEY (`username`)
+  PRIMARY KEY (`username`),
+  check (`codePostal` > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `categoriearticle` (
@@ -134,7 +135,7 @@ CREATE TABLE `lignecommande` (
   CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `commande` (`numTicket`),
   CONSTRAINT `fk_taille_ligneCommande` FOREIGN KEY (`taille_fk`) REFERENCES `taille` (`tailleArticle`),
   CONSTRAINT `fk_couleur_ligneCommande` FOREIGN KEY (`couleur_fk`) REFERENCES `couleur` (`ID`),
-  check (`quantite` >= 0),
+  check (`quantite` > 0),
   check (`prixReel` >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

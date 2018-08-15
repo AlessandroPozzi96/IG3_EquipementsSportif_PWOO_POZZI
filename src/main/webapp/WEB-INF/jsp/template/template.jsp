@@ -6,7 +6,7 @@
 <html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
-    <title>${title}</title>
+    <title>EquipementsSportif</title>
 
     <link rel="icon" href="<spring:url value='/images/haltere.png' />">
     <link type="text/css" href="<spring:url value='/css/style.css' />" rel="Stylesheet">

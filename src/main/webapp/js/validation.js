@@ -3,7 +3,7 @@ login = document.getElementById("login");
 password = document.getElementById("password");
 loginError = document.getElementById("loginError");
 passwordError = document.getElementById("passwordError");
-h1 = login.parentElement.previousElementSibling;
+h1 = document.getElementById("h1");
 
 function getMessage(champ) {
     lang = "fr";
@@ -36,10 +36,12 @@ function loginValide ()
 {
     if (login.value.length < 3 || login.value.length > 50) {
         loginError.innerHTML = getMessage("login");
+        return false;
     }
     else
     {
         loginError.innerHTML = "";
+        return true;
     }
 }
 
@@ -48,9 +50,11 @@ function passwordValide() {
     if (password.value.length < 6 || password.value.length > 32)
     {
         passwordError.innerHTML = getMessage("password");
+        return false;
     }
     else
     {
         passwordError.innerHTML = "";
+        return true;
     }
 }

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<h1 class="display-4"><spring:message code="signin"/></h1>
+<h1 id="h1" class="display-4"><spring:message code="signin"/></h1>
 <security:authorize access="!isAuthenticated()">
     <form:form id="formLogin"
                method="POST"
@@ -17,7 +17,7 @@
             <form:errors id="passwordError" path="password" cssClass="has-error"></form:errors>
         <span id="passwordError" class="has-error"></span>
         </br>
-        <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>
+        <form:button onclick="res = loginValide(); res = passwordValide(); return res;" class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>
         <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/></form:button>
     </form:form>
 </security:authorize>
