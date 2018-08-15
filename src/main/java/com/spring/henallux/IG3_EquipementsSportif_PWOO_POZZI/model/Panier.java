@@ -138,11 +138,13 @@ public class Panier implements Serializable {
             jsonEncode = URLEncoder.encode(json, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             jsonEncode = json;
-            System.out.println("ERREUR ENCODAGE JSON");
+            System.out.println("ERREUR ENCODAGE URL JSON");
         }
 
         return jsonEncode;
     }
+    //Pourquoi encoder en Json puis encore l'encoder en UTF-8 ?
+    //Parce que sinon uniquement au format Json le serveur TomCat renvoyait une erreur à cause des caractères spéciaux !
 
     public Article jsonToArticle(String json) {
         String jsonDecode = "";
@@ -150,7 +152,7 @@ public class Panier implements Serializable {
             jsonDecode = URLDecoder.decode(json, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             jsonDecode = json;
-            System.out.println("ERREUR DECODE JSON");
+            System.out.println("ERREUR DECODAGE URL JSON");
         }
         Article article = gson.fromJson(jsonDecode, Article.class);
         return article;

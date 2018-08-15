@@ -75,5 +75,6 @@
             </footer>
         </div>
     </div>
+    <script src="<spring:url value='/js/validation.js' />" ></script>
 </body>
 </html>

@@ -8,12 +8,14 @@
                method="POST"
                action="${contextPath}/login"
                modelAttribute="userEntity">
-            <form:input type="text" path="username" class="form-control" placeholder="Ex: DarkDragon03"
+            <form:input id="login" type="text" path="username" onchange="loginValide();" class="form-control" placeholder="Ex: DarkDragon03"
                         autofocus="true"></form:input>
-            <form:errors path="username" cssClass="has-error"></form:errors>
+            <form:errors id="loginError" path="username" cssClass="has-error"></form:errors>
+        <span id="loginError" class="has-error"></span>
         </br>
-            <form:input type="password" path="password" class="form-control" placeholder="Ex: ******"></form:input>
-            <form:errors path="password" cssClass="has-error"></form:errors>
+            <form:input id="password" type="password" path="password" onchange="passwordValide();" class="form-control" placeholder="Ex: MonMDP_Tr0pD4re!"></form:input>
+            <form:errors id="passwordError" path="password" cssClass="has-error"></form:errors>
+        <span id="passwordError" class="has-error"></span>
         </br>
         <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>
         <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/></form:button>
