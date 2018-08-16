@@ -257,13 +257,15 @@ VALUES
 ('/images/articles/benchPress.jpg', 1),
 ('/images/articles/basicbenchPress.jpg', 3),
 ('/images/articles/chaussureCourse.jpg', 4),
-('/images/articles/vtt.png', 5),
+('/images/articles/vttNoir.png', 5),
+('/images/articles/vttBlanc.jpg', 5),
 ('/images/articles/veloRoute.png', 6),
 ('/images/articles/chaussureMarche.jpg', 7),
 ('/images/articles/balle.jpg', 8),
 ('/images/articles/chaussureCrampons.jpg', 9),
-('/images/articles/casque.jpg', 10),
-('/images/articles/bandesPoignet.jpg', 11),
+('/images/articles/casqueBoxeNoir.jpg', 10),
+('/images/articles/casqueBoxeRouge.jpg', 10),
+('/images/articles/bandesBoxe.jpg', 11),
 ('/images/articles/veloRouteV2.jpg', 6),
 ('/images/articles/haltere20Kg.jpg', 12),
 ('/images/articles/maillotHomme.jpg', 13),
@@ -384,9 +386,9 @@ INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 `codeBarre_fk`)
 VALUES
 (4, 2), (2, 2),
-(2, 10), (3, 10),
-(1, 5), (3, 5),
-(3, 11), (1, 11),
+(1, 10), (6, 10),
+(6, 5), (3, 5),
+(1, 11), (2, 11), (6, 11),
 (5, 26), (6, 26),
 (1, 27), (2, 27),
 (3, 31), (2, 31),
@@ -396,7 +398,7 @@ VALUES
 (3, 42), (4, 42),
 (9, 43), (2, 43),
 (10, 48), (6, 48),
-(6, 49), (3, 48);
+(6, 49), (3, 49);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`
@@ -484,4 +486,6 @@ INSERT INTO `dbequipementssportifs`.`lignecommande`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
+
+
 

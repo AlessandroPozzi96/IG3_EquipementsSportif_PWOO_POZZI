@@ -8,13 +8,13 @@ import javax.validation.constraints.Size;
 public class TypeArticle {
     @NotNull
     @Min(1)
-    @Max(Integer.MAX_VALUE)
+    @Max(999999999)
     private Integer codeBarre;
     @NotNull
     private Double prix;
     @NotNull
     @Min(1)
-    @Max(Integer.MAX_VALUE)
+    @Max(999999999)
     private Integer id_categorie_fk;
 
     public TypeArticle() {
