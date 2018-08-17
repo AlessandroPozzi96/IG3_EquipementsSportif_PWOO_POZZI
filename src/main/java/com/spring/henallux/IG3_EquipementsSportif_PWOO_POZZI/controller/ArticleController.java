@@ -62,7 +62,7 @@ public class ArticleController {
             Article article = new Article(translationArticle.getLibelle(), cb, typeArticle.getPrix(), panier.getTaille(), panier.getCouleur());
             Integer articleExiste = panier.getPanierHashMap().get(article);
             if (articleExiste != null) {
-                panier.addAchatPanier(article, articleExiste++);
+                panier.addAchatPanier(article, ++articleExiste);
             }
             else
             {
