@@ -24,7 +24,7 @@
             <img class="first-slide" src="<spring:url value='/images/blessure.jpg' />" alt="First slide">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1 class="text-white bg-dark"><spring:message code="riskOfInjury"/> </h1>
+                    <h1 class="text-white bg-secondary"><spring:message code="riskOfInjury"/> </h1>
 
                     <p><a class="btn btn-lg btn-primary" href="http://localhost:8082/equipementsSportif/article?codeBarre=4" role="button"><spring:message code="buyShoes" /> </a></p>
                 </div>
@@ -34,12 +34,12 @@
             <img class="second-slide" src="<spring:url value='/images/ocean.jpg' />" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1 class="text-dark"><spring:message code="promotion"/> </h1>
+                    <h1 class="text-white"><spring:message code="promotion"/> </h1>
                     <p class=""><spring:message code="2SameArticles"/> </p>
                     <p class=""><spring:message code="3SameArticles"/></p>
                     <p class=""><spring:message code="4SameArticles"/></p>
                     <p class=""><spring:message code="5SameArticles"/></p>
-                    <p class="text-white bg-dark"><spring:message code="5AndMoreSameArticles"/></p>
+                    <p class="text-white"><spring:message code="5AndMoreSameArticles"/></p>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <img class="third-slide" src="<spring:url value='/images/ringBoxe.jpg' />" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption text-right">
-                    <p class="text-white bg-dark"><spring:message code="citation"/> </p>
+                    <p class="text-white bg-secondary"><spring:message code="citation"/> </p>
                     <p><a class="btn btn-lg btn-primary" href="http://localhost:8082/equipementsSportif/articles?id=6" role="button"><spring:message code="startNow"/> </a></p>
                 </div>
             </div>

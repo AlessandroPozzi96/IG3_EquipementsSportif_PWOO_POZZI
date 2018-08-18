@@ -13,6 +13,8 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+//Inspiration du projet GitHub de l'utilisateur Masadani pour payer facilement avec PayPal
+//https://github.com/masasdani/paypal-springboot
 @Service
 public class PaypalService {
 
