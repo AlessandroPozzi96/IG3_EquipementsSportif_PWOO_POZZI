@@ -24,11 +24,9 @@ public class Panier implements Serializable {
     private String taille = "";
     private String couleur = "";
     private Gson gson = new Gson();
-    private Boolean payementValide;
 
     public Panier() {
         panierHashMap = new HashMap<>();
-        payementValide = false;
     }
 
     public HashMap<Article, Integer> getPanierHashMap() {
@@ -154,13 +152,5 @@ public class Panier implements Serializable {
             description += panierEntry.getKey().toString() + " Quantité -> " + panierEntry.getValue();
         }
         return description;
-    }
-
-    public Boolean getPayementValide() {
-        return payementValide;
-    }
-
-    public void setPayementValide(Boolean payementValide) {
-        this.payementValide = payementValide;
     }
 }
