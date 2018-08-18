@@ -81,11 +81,11 @@
         </br>
         <spring:bind path="Male">
             <form:label path="Male"><spring:message code="male"/></form:label>
-            <form:radiobutton path="Male" value="true" />
+            <form:radiobutton path="Male" value="true" checked="checked"/>
             <form:label path="Male"><spring:message code="female"/></form:label>
             <form:radiobutton path="Male" value="false" />
-            <form:errors path="Male" cssClass="has-error"></form:errors>
         </spring:bind>
+        <form:errors path="Male" cssClass="has-error"></form:errors>
     </div>
     </br>
     <form:button class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="saveUser"/> </form:button>

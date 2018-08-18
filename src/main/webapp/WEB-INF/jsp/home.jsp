@@ -47,7 +47,7 @@
             <img class="third-slide" src="<spring:url value='/images/ringBoxe.jpg' />" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption text-right">
-                    <p class="text-white bg-secondary"><spring:message code="citation"/> </p>
+                    <p class="text-white bg-secondary"><spring:message code="citation"/> Julien Lorcy</p>
                     <p><a class="btn btn-lg btn-primary" href="http://localhost:8082/equipementsSportif/articles?id=6" role="button"><spring:message code="startNow"/> </a></p>
                 </div>
             </div>
