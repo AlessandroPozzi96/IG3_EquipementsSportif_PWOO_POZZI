@@ -58,3 +58,8 @@ function passwordValide() {
         return true;
     }
 }
+
+function affichageAlerte (message)
+{
+    alert(message);
+}

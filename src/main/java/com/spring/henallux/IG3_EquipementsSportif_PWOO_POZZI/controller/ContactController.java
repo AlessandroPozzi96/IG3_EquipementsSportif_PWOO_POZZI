@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/contact")
 public class ContactController {
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home() {
         return "integrated:contact";
     }
 }

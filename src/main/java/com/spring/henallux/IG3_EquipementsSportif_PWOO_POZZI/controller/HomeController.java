@@ -4,17 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/")
-//@SessionAttributes({Constants.NB_ARTICLES})
 public class HomeController {
-/*    @ModelAttribute(Constants.NB_ARTICLES)
-    public Panier getNbArticles() {
-        return new Panier();
-    }*/
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home() {
         return "integrated:home";
     }
 }

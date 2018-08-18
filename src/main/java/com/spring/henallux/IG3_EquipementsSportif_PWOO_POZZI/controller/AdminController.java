@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home() {
         return "integrated:admin";
     }
 

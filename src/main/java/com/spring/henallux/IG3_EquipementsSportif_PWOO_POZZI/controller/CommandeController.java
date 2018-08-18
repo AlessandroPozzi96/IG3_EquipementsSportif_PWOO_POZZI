@@ -56,7 +56,6 @@ public class CommandeController {
         //On passe la méthode de calcul de promotion dans le model
         promotion = new Promotion();
         model.addAttribute("promotion", promotion);
-
         return "integrated:commande";
     }
 
@@ -138,7 +137,7 @@ public class CommandeController {
                 //On vide le panier
                 panier.viderPanier();
                 System.out.println("PAYPAL : Payement réussi");
-                return "integrated:home";
+                return "redirect:/";
             }
         } catch (PayPalRESTException e) {
             log.error(e.getMessage());

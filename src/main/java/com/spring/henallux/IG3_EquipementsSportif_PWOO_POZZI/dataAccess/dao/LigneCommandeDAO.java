@@ -26,9 +26,9 @@ public class LigneCommandeDAO
     }
 
     public void saveLigneCommande(LigneCommande ligneCommande) {
+        LigneCommandeEntity ligneCommandeEntity = providerConverter.ligneCommandeModelToLigneCommandeEntity(ligneCommande);
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        LigneCommandeEntity ligneCommandeEntity = providerConverter.ligneCommandeModelToLigneCommandeEntity(ligneCommande);
         //ligneCommandeRepository.save(ligneCommandeEntity);
         session.save(ligneCommandeEntity);
         session.getTransaction().commit();

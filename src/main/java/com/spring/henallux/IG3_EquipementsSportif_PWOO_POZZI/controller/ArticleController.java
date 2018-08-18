@@ -68,13 +68,13 @@ public class ArticleController {
             {
                 panier.addAchatPanier(article, 1);
             }
-            System.out.println("ArticleController : Ok → DANS LE TRY ");
+            System.out.println("ArticleController : OK → DANS LE TRY ");
         } catch (ModelException e) {
             model.addAttribute("error", e.getMessage());
-            System.out.println("ArticleController : Erreur → DANS LE CATCH");
+            System.out.println("ArticleController : KO → DANS LE CATCH !");
             return "integrated:error";
         }
-        System.out.println("ArticleController : Nb panier totale commander : " + panier.getNbArticlesPanier());
+        System.out.println("ArticleController : Nb articles panier : " + panier.getNbArticlesPanier());
         return "redirect:article?codeBarre=" + cb;
     }
 

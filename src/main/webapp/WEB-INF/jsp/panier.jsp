@@ -26,8 +26,7 @@
                                modelAttribute="panier">
                         <td><c:out value="${article.key.codeBarre}" /></td>
                         <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
-                        <td><form:input type="number" value="${article.value}" min="1" path="nbArticles" class="form-control" placeholder="Quantité" disabled="true"/>
-                            <form:errors path="nbArticles" cssClass="has-error"></form:errors></td>
+                        <td><input type="number" disabled="true" min="1" class="form-control" value="${article.value}"></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
                         <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
                         <td>
@@ -45,8 +44,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><spring:message code="withoutPromotions"/> : ${panier.prixPanier}€</td>
-                <td><spring:message code="withPromotions"/> : ${promotion.calculPromotion(panier)}€</td>
+                <td><spring:message code="withoutPromotions"/>  ${panier.prixPanier}€</td>
+                <td><spring:message code="withPromotions"/>  ${promotion.calculPromotion(panier)}€</td>
             </tr>
             </tfoot>
         </table>

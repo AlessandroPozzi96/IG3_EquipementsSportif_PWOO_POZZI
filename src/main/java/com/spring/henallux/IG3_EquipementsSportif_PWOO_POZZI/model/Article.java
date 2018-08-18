@@ -2,6 +2,8 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Article {
@@ -10,11 +12,10 @@ public class Article {
     private Double prixUnitaire;
     private String taille;
     private String couleur;
-    //Penser a ajouter plus d'infos comme le code barre.
 
     public Article(String libelle, Integer codeBarre, Double prixUnitaire, String taille, String couleur) throws ModelException{
-        this.taille = taille;
-        this.couleur = couleur;
+        setTaille(taille);
+        setCouleur(couleur);
         setLibelle(libelle);
         setCodeBarre(codeBarre);
         setPrixUnitaire(prixUnitaire);
@@ -57,16 +58,22 @@ public class Article {
         return taille;
     }
 
-    public void setTaille(String taille) {
+    public void setTaille(String taille) throws ModelException{
         this.taille = taille;
+        if (taille == null) {
+            throw new ModelException("Article", "Taille");
+        }
     }
 
     public String getCouleur() {
         return couleur;
     }
 
-    public void setCouleur(String couleur) {
+    public void setCouleur(String couleur) throws ModelException {
         this.couleur = couleur;
+        if (couleur == null) {
+            throw new ModelException("Article", "Couleur");
+        }
     }
 
     @Override

@@ -28,16 +28,16 @@ public class CommandeDAO {
     }
 
     public void saveCommande(Commande commande, UserEntity userEntity) {
+        CommandeEntity commandeEntity = providerConverter.commandeModelToCommandeEntity(commande, userEntity);
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-
-        CommandeEntity commandeEntity = providerConverter.commandeModelToCommandeEntity(commande, userEntity);
         session.save(commandeEntity);
         //commandeRepository.save(commandeEntity);
         session.getTransaction().commit();
     }
 
     public Integer findLastNumTicket(String username) {
+        //Pas réussi à faire un top 1 via Hibernate donc le max est recherché manuellement
         List<CommandeEntity> panierEntities = commandeRepository.findAllByUserEntityUsername(username);
         Integer numTicketMax = 0;
         for (CommandeEntity entity : panierEntities) {

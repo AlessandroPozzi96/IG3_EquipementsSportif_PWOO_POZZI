@@ -26,7 +26,7 @@ public class CatalogueController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie) {
+    public String home(Model model) {
         categorieArticles = categorieArticleDAO.getAllCategories();
         model.addAttribute("categoriesArticles", categorieArticles);
         model.addAttribute("translationCategorieDAO", translationCategorieDAO);

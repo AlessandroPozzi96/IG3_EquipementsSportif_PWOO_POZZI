@@ -9,7 +9,6 @@
 <spring:url value="" var="localeEn">
     <spring:param name="locale" value="en" />
 </spring:url>
-
     <h1 class="display-4"><spring:message code="homeMessage"/></h1>
 <br>
 

@@ -21,16 +21,14 @@ import java.util.Map;
 public class Panier implements Serializable {
     //Clé : article et valeur : quantite
     private HashMap<Article, Integer> panierHashMap;
-    @NotNull
-    @Min(1)
-    @Max(Integer.MAX_VALUE)
-    private Integer nbArticles = 1;
     private String taille = "";
     private String couleur = "";
     private Gson gson = new Gson();
+    private Boolean payementValide;
 
     public Panier() {
         panierHashMap = new HashMap<>();
+        payementValide = false;
     }
 
     public HashMap<Article, Integer> getPanierHashMap() {
@@ -87,7 +85,6 @@ public class Panier implements Serializable {
                 System.out.println("CLASSE PANIER : ERREUR ARTICLE INTROUVABLE !");
             }
         }
-        setNbArticles(1);
     }
 
     public void removeArticlesPanier(Article article) {
@@ -105,14 +102,6 @@ public class Panier implements Serializable {
 
     public void viderPanier() {
         panierHashMap.clear();
-    }
-
-    public Integer getNbArticles() {
-        return nbArticles;
-    }
-
-    public void setNbArticles(Integer nbArticles) {
-        this.nbArticles = nbArticles;
     }
 
     public String getTaille() {
@@ -165,5 +154,13 @@ public class Panier implements Serializable {
             description += panierEntry.getKey().toString() + " Quantité -> " + panierEntry.getValue();
         }
         return description;
+    }
+
+    public Boolean getPayementValide() {
+        return payementValide;
+    }
+
+    public void setPayementValide(Boolean payementValide) {
+        this.payementValide = payementValide;
     }
 }
