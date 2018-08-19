@@ -26,7 +26,7 @@
                                modelAttribute="panier">
                         <td><c:out value="${article.key.codeBarre}" /></td>
                         <td><c:out value="${article.key.libelle} ${article.key.taille} ${article.key.couleur}" /></td>
-                        <td><input type="number" disabled="true" min="1" class="form-control" value="${article.value}"></td>
+                        <td><input type="number" disabled="true" min="1" max="999999999" class="form-control" value="${article.value}"></td>
                         <td><c:out value="${article.key.prixUnitaire}" /></td>
                         <td><c:out value="${panier.getPrixArticle(article.key)}" />€</td>
                         <td>

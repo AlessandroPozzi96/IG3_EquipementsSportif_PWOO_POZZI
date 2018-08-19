@@ -17,7 +17,7 @@
             <form:errors id="passwordError" path="password" cssClass="has-error"></form:errors>
         <span id="passwordError" class="has-error"></span>
         </br>
-        <form:button onclick="res = loginValide(); res = passwordValide(); return res;" class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>
+        <form:button onclick="return (loginValide() && passwordValide());" class="btn btn-lg btn-primary btn-block" type="submit"><spring:message code="login"/></form:button>
         <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/></form:button>
     </form:form>
 </security:authorize>
