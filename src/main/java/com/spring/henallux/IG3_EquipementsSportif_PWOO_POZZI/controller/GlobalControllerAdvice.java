@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes({Constants.PANIER})
 public class GlobalControllerAdvice {
     //Controller qui va diffuser le même model attribute dans toute les autres controller afin que le nombre de panier soit mis à jour dans la bannière
-    private Panier panier = new Panier();
+    //Le panier est recréé pour chaque naviguateurs
         @ModelAttribute(Constants.PANIER)
     public Panier getNbArticles() {
-       return panier;
+        Panier panier = new Panier();
+        return panier;
     }
 }
