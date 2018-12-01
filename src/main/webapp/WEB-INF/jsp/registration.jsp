@@ -41,7 +41,7 @@
 
        <div class="form-group">
            <form:label path="mail"><spring:message code="mail"/></form:label>
-           <form:input type="email" path="mail" class="form-control" placeholder="Ex: mickelSnow@hotmail.com"></form:input>
+           <form:input type="text" path="mail" class="form-control" placeholder="Ex: mickelSnow@hotmail.com"></form:input>
            <form:errors path="mail" cssClass="has-error"></form:errors>
        </div>
 
@@ -66,7 +66,7 @@
     <div class="form-group">
         <form:label path="numTelephone"><spring:message code="numberphone"/></form:label>
         <form:label path="numTelephone"><spring:message code="notMandatory"/></form:label>
-        <form:input type="tel" path="numTelephone" size="13" minLength="9" maxLength="14"  class="form-control"
+        <form:input type="number" path="numTelephone" size="13" minLength="9" maxLength="14"  class="form-control"
                     placeholder="Ex: 0475118526"></form:input>
         <form:errors path="numTelephone" cssClass="has-error"></form:errors>
     </div>

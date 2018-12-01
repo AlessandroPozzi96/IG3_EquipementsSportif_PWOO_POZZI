@@ -1,6 +1,8 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model;
 
 import org.hibernate.annotations.SQLInsert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Basic;
