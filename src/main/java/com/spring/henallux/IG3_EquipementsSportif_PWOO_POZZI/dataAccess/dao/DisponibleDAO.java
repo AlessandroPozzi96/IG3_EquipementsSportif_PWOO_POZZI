@@ -32,7 +32,7 @@ public class DisponibleDAO {
     }
 
     public ArrayList<Disponible> findAllByCodeBarre(Integer codeBarre) {
-        List<DisponibleEntity> disponibleEntities = disponibleRepository.findAllByCodeBarre(codeBarre);
+        List<DisponibleEntity> disponibleEntities = disponibleRepository.findAllByTypeArticleEntity_CodeBarre(codeBarre);
         ArrayList<Disponible> disponibleArrayList = new ArrayList<>();
         for (DisponibleEntity entity : disponibleEntities) {
             Disponible disponible = providerConverter.disponibleEntityToDisponibleModel(entity);

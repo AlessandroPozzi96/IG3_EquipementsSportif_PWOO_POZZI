@@ -80,12 +80,13 @@ CREATE TABLE `image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Disponible` (
+  `Id`	int(9) NOT NULL AUTO_INCREMENT,
   `taille_fk`		varchar(4) not null,
   `codeBarre_fk`	INT(9) not null,
-  PRIMARY KEY (`taille_fk`, `codeBarre_fk`),
+  PRIMARY KEY (`Id`),
   CONSTRAINT `fk_taille` FOREIGN KEY (`taille_fk`) REFERENCES `Taille` (`tailleArticle`),
   CONSTRAINT `fk_codeBarre_Dispo` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `DisponibleEnCouleur` (
   `couleur_fk`		INT(9) not null,
@@ -351,35 +352,36 @@ values
 ('fr', 10, 'Jaune'), ('en', 10, 'Jaune');
 
 INSERT INTO `dbequipementssportifs`.`disponible`
-(`taille_fk`,
+(`Id`,
+`taille_fk`,
 `codeBarre_fk`)
 VALUES
-('S', 2), ('M', 2), ('L', 2),
-('38', 9),('39', 9),('40', 9),('41', 9),('42', 9), ('43', 9), ('44', 9), ('45', 9),
-('38', 4),('39', 4),('40', 4),('41', 4),('42', 4), ('43', 4), ('44', 4), ('45', 4),
-('S', 10), ('M', 10), ('L', 10),
-('38', 7),('39', 7),('40', 7),('41', 7),('42', 7), ('43', 7), ('44', 7), ('45', 7),
-('S', 13), ('M', 13), ('L', 13),
-('S', 14), ('M', 14), ('L', 14),
-('S', 22), ('M', 22),
-('S', 27), ('M', 27),
-('S', 30), ('M', 30), ('L', 30),
-('S', 31), ('M', 31), ('L', 31),
-('43', 32), ('44', 32), ('45', 32),
-('38', 33), ('39', 33), ('40', 33),
-('S', 35), ('M', 35), ('L', 35),
-('S', 36), ('M', 36), ('L', 36),
-('S', 37), ('M', 37), ('L', 37),
-('38', 39), ('39', 39), ('40', 39), ('41', 39), ('42', 39), ('43', 39), ('44', 39), ('45', 39),
-('M', 41), ('L', 41),
-('S', 42), ('M', 42), ('L', 42),
-('S', 43), ('M', 43), ('L', 43),
-('S', 47), ('M', 47), ('L', 47),
-('M', 48), ('L', 48),
-('S', 50), ('M', 50), ('L', 50),
-('S', 51), ('M', 51), ('L', 51),
-('S', 52), ('M', 52), ('L', 52), ('XL', 52), ('XXL', 52),
-('S', 53), ('M', 53), ('L', 53), ('XL', 53), ('XXL', 53);
+(null, 'S', 2), (null,'M', 2), (null,'L', 2),
+(null,'38', 9),(null,'39', 9),(null,'40', 9),(null,'41', 9),(null,'42', 9), (null,'43', 9), (null,'44', 9), (null,'45', 9),
+(null,'38', 4),(null,'39', 4),(null,'40', 4),(null,'41', 4),(null,'42', 4), (null,'43', 4), (null,'44', 4), (null,'45', 4),
+(null,'S', 10), (null,'M', 10), (null,'L', 10),
+(null,'38', 7),(null,'39', 7),(null,'40', 7),(null,'41', 7),(null,'42', 7), (null,'43', 7), (null,'44', 7), (null,'45', 7),
+(null,'S', 13), (null,'M', 13), (null,'L', 13),
+(null,'S', 14), (null,'M', 14), (null,'L', 14),
+(null,'S', 22), (null,'M', 22),
+(null,'S', 27), (null,'M', 27),
+(null,'S', 30), (null,'M', 30), (null,'L', 30),
+(null,'S', 31), (null,'M', 31), (null,'L', 31),
+(null,'43', 32), (null,'44', 32), (null,'45', 32),
+(null,'38', 33), (null,'39', 33), (null,'40', 33),
+(null,'S', 35), (null,'M', 35), (null,'L', 35),
+(null,'S', 36), (null,'M', 36), (null,'L', 36),
+(null,'S', 37), (null,'M', 37), (null,'L', 37),
+(null,'38', 39), (null,'39', 39), (null,'40', 39), (null,'41', 39), (null,'42', 39), (null,'43', 39), (null,'44', 39), (null,'45', 39),
+(null,'M', 41), (null,'L', 41),
+(null,'S', 42), (null,'M', 42), (null,'L', 42),
+(null,'S', 43), (null,'M', 43), (null,'L', 43),
+(null,'S', 47), (null,'M', 47), (null,'L', 47),
+(null,'M', 48), (null,'L', 48),
+(null,'S', 50), (null,'M', 50), (null,'L', 50),
+(null,'S', 51), (null,'M', 51), (null,'L', 51),
+(null,'S', 52), (null,'M', 52), (null,'L', 52), (null,'XL', 52), (null,'XXL', 52),
+(null,'S', 53), (null,'M', 53), (null,'L', 53), (null,'XL', 53), (null,'XXL', 53);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
 (`couleur_fk`,
@@ -486,6 +488,5 @@ INSERT INTO `dbequipementssportifs`.`lignecommande`
 `numTicket_fk`)
 VALUES
 (20, 130.99, 1, 1);
-
 
 

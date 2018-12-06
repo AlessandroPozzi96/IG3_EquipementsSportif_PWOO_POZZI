@@ -21,6 +21,9 @@ public class TypeArticleEntity {
     @OneToMany(mappedBy = "articleEntity", fetch = FetchType.LAZY)
     private Collection<ImageEntity> imageEntities;
 
+    @OneToMany(mappedBy = "typeArticleEntity")
+    private Collection<DisponibleEntity> disponibleEntities;
+
     public Integer getCodeBarre() {
         return codeBarre;
     }
@@ -43,5 +46,21 @@ public class TypeArticleEntity {
 
     public void setCategorieArticleEntity(CategorieArticleEntity categorieArticleEntity) {
         this.categorieArticleEntity = categorieArticleEntity;
+    }
+
+    public Collection<ImageEntity> getImageEntities() {
+        return imageEntities;
+    }
+
+    public void setImageEntities(Collection<ImageEntity> imageEntities) {
+        this.imageEntities = imageEntities;
+    }
+
+    public Collection<DisponibleEntity> getDisponibleEntities() {
+        return disponibleEntities;
+    }
+
+    public void setDisponibleEntities(Collection<DisponibleEntity> disponibleEntities) {
+        this.disponibleEntities = disponibleEntities;
     }
 }

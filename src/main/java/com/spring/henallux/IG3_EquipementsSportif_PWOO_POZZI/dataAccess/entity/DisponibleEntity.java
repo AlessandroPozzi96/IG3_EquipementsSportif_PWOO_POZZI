@@ -5,19 +5,41 @@ import java.io.Serializable;
 @Entity
 @Table(name = "DISPONIBLE")
 public class DisponibleEntity {
-    @EmbeddedId
-    @JoinColumns({
-            @JoinColumn(name = "TAILLE_FK", referencedColumnName = "TAILLEARTICLE"),
-            @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
-    })
-    private DisponiblePK disponiblePK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
+    private Integer Id;
 
-    public DisponiblePK getDisponiblePK() {
-        return disponiblePK;
+    @JoinColumn(name = "TAILLE_FK", referencedColumnName = "TAILLEARTICLE")
+    @ManyToOne
+    private TailleEntity tailleEntity;
+
+    @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
+    @ManyToOne
+    private TypeArticleEntity typeArticleEntity;
+
+    public Integer getId() {
+        return Id;
     }
 
-    public void setDisponiblePK(DisponiblePK disponiblePK) {
-        this.disponiblePK = disponiblePK;
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public TailleEntity getTailleEntity() {
+        return tailleEntity;
+    }
+
+    public void setTailleEntity(TailleEntity tailleEntity) {
+        this.tailleEntity = tailleEntity;
+    }
+
+    public TypeArticleEntity getTypeArticleEntity() {
+        return typeArticleEntity;
+    }
+
+    public void setTypeArticleEntity(TypeArticleEntity typeArticleEntity) {
+        this.typeArticleEntity = typeArticleEntity;
     }
 }
 

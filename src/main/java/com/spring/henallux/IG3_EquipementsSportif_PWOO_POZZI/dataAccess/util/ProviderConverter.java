@@ -130,8 +130,9 @@ public class ProviderConverter {
 
     public Disponible disponibleEntityToDisponibleModel(DisponibleEntity disponibleEntity) {
         Disponible disponible = new Disponible();
-        disponible.setCodeBarre_fk(disponibleEntity.getDisponiblePK().getCodeBarre_fk());
-        disponible.setTaille_fk(disponibleEntity.getDisponiblePK().getTaille_fk());
+        disponible.setId(disponibleEntity.getId());
+        disponible.setTaille_fk(disponibleEntity.getTailleEntity().getTailleArticle());
+        disponible.setCodeBarre_fk(disponibleEntity.getTypeArticleEntity().getCodeBarre());
 
         return disponible;
     }

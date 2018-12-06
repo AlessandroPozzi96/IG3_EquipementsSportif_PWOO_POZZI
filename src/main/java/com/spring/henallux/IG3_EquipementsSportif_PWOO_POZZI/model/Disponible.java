@@ -7,6 +7,10 @@ import javax.validation.constraints.Size;
 
 public class Disponible {
     @NotNull
+    @Min(1)
+    @Max(999999999)
+    private Integer Id;
+    @NotNull
     @Size(min = 1, max = 4)
     private String taille_fk;
 
@@ -16,6 +20,14 @@ public class Disponible {
     private Integer codeBarre_fk;
 
     public Disponible() {
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getTaille_fk() {
