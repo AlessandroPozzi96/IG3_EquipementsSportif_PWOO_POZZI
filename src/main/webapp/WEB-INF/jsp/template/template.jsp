@@ -17,6 +17,14 @@
 
 </head>
 <body>
+    <spring:url value="" var="localeFr">
+        <spring:param name="locale" value="fr" />
+    </spring:url>
+    <spring:url value="" var="localeEn">
+        <spring:param name="locale" value="en" />
+    </spring:url>
+
+
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto"><a class="p-2 text-dark" href="<spring:url value='/' />">EquipementsSportifs</a></h5>
         <security:authorize access="hasRole('USER')">
@@ -44,6 +52,9 @@
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <div class="container">
             <tiles:insertAttribute name = "main-content" />
+
+            <p class="lead lg-auto-2"><a href="${localeFr}">FR</a> | <a href="${localeEn}">EN</a></p>
+
             <footer class="pt-4 my-md-5 pt-md-5 border-top">
                 <div class="row">
                     <div class="col-6 col-md">
