@@ -1,6 +1,13 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="include/importTags.jsp"%>
 <spring:message code='lang' var="lang"/>
+
+<spring:url value="id=1" var="localeFr">
+    <spring:param name="locale" value="fr" />
+</spring:url>
+<spring:url value="" var="localeEn">
+    <spring:param name="locale" value="en" />
+</spring:url>
 <h1 class="display-4">Articles</h1>
 
 <div class="row" >
@@ -17,3 +24,6 @@
 </div>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>
+
+<p>TEST Récupérer url courante et ajouter en l'id et la langue choisie</p>
+<p class="lead lg-auto-2"><a href="http://localhost:8082/equipementsSportif/articles?id=1&locale=fr"/>FR</a> | <a href="${localeEn}">EN</a></p>

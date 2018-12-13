@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 @Controller
@@ -30,12 +31,17 @@ public class ArticlesController {
     }
 
     @RequestMapping(method = RequestMethod.GET, params = "id")
-    public String home(@RequestParam(required = true, defaultValue = "1") Integer id, Model model) {
+    public String home(@RequestParam(required = true, defaultValue = "1") Integer id, Model model, HttpServletRequest request){
         typeArticles = typeArticleDAO.findByCategorieArticleEntityId(id);
         model.addAttribute("articles", typeArticles);
         model.addAttribute("imageDAO", imageDAO);
         model.addAttribute("translationArticleDAO", translationArticleDAO);
 
+        model.addAttribute("urlCourante", makeUrl(request));
         return "integrated:articles";
+    }
+    public static String makeUrl(HttpServletRequest request)
+    {
+        return request.getRequestURL().toString() + "?" + request.getQueryString();
     }
 }
