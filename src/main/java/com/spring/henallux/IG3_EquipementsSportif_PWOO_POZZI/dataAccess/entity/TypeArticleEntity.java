@@ -27,6 +27,9 @@ public class TypeArticleEntity {
     @OneToMany(mappedBy = "typeArticleEntity")
     private Collection<DisponibleEnCouleurEntity> disponibleEnCouleurEntities;
 
+    @OneToMany(mappedBy = "typeArticleEntity")
+    private Collection<LigneCommandeEntity> ligneCommandeEntities;
+
     public Integer getCodeBarre() {
         return codeBarre;
     }
@@ -73,5 +76,13 @@ public class TypeArticleEntity {
 
     public void setDisponibleEnCouleurEntities(Collection<DisponibleEnCouleurEntity> disponibleEnCouleurEntities) {
         this.disponibleEnCouleurEntities = disponibleEnCouleurEntities;
+    }
+
+    public Collection<LigneCommandeEntity> getLigneCommandeEntities() {
+        return ligneCommandeEntities;
+    }
+
+    public void setLigneCommandeEntities(Collection<LigneCommandeEntity> ligneCommandeEntities) {
+        this.ligneCommandeEntities = ligneCommandeEntities;
     }
 }

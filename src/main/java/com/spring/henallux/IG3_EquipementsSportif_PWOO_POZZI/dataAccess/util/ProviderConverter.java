@@ -201,11 +201,15 @@ public class ProviderConverter {
         ligneCommandeEntity.setQuantite(ligneCommande.getQuantite());
         ligneCommandeEntity.setTaille_fk(ligneCommande.getTaille_fk());
         ligneCommandeEntity.setCouleur_fk(ligneCommande.getCouleur_fk());
+        ligneCommandeEntity.setId(ligneCommande.getId());
 
-        LigneCommandePK ligneCommandePK = new LigneCommandePK();
-        ligneCommandePK.setCodeBarre_fk(ligneCommande.getCodeBarre_fk());
-        ligneCommandePK.setNumTicket_fk(ligneCommande.getNumTicket_fk());
-        ligneCommandeEntity.setLigneCommandePK(ligneCommandePK);
+        TypeArticleEntity typeArticleEntity = new TypeArticleEntity();
+        typeArticleEntity.setCodeBarre(ligneCommande.getCodeBarre_fk());
+        ligneCommandeEntity.setTypeArticleEntity(typeArticleEntity);
+
+        CommandeEntity commandeEntity = new CommandeEntity();
+        commandeEntity.setNumTicket(ligneCommande.getNumTicket_fk());
+        ligneCommandeEntity.setCommandeEntity(commandeEntity);
 
         return ligneCommandeEntity;
     }

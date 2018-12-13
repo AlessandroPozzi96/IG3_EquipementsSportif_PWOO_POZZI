@@ -7,6 +7,10 @@ import javax.validation.constraints.Size;
 
 public class LigneCommande {
     @NotNull
+    @Max(999999999)
+    @Min(1)
+    private Integer Id;
+    @NotNull
     @Min(1)
     @Max(999999999)
     private Integer quantite;
@@ -76,5 +80,13 @@ public class LigneCommande {
 
     public void setCouleur_fk(Integer couleur_fk) {
         this.couleur_fk = couleur_fk;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 }

@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface CommandeRepository extends JpaRepository<CommandeEntity, String> {
+public interface CommandeRepository extends JpaRepository<CommandeEntity, Integer> {
     List<CommandeEntity> findAllByUserEntityUsername(String username);
 }

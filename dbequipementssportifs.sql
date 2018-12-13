@@ -126,20 +126,21 @@ CREATE TABLE `TranslationCouleur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `lignecommande` (
+  `Id` int(9) not null auto_increment,
   `quantite`		int(9) not null,
   `prixReel`		double not null,
   `codeBarre_fk`	int(9) not null,
   `numTicket_fk`	int(9) not null,
   `taille_fk`		varchar(4),
   `couleur_fk`		int(9),
-  PRIMARY KEY (`codeBarre_fk`, `numTicket_fk`),
+  PRIMARY KEY (`Id`),
   CONSTRAINT `fk_codeBarre_commande` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`),
   CONSTRAINT `fk_numTicket` FOREIGN KEY (`numTicket_fk`) REFERENCES `commande` (`numTicket`),
   CONSTRAINT `fk_taille_ligneCommande` FOREIGN KEY (`taille_fk`) REFERENCES `taille` (`tailleArticle`),
   CONSTRAINT `fk_couleur_ligneCommande` FOREIGN KEY (`couleur_fk`) REFERENCES `couleur` (`ID`),
   check (`quantite` > 0),
   check (`prixReel` >= 0)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB auto_increment=1 DEFAULT CHARSET=utf8;
 
 INSERT INTO `dbequipementssportifs`.`client`
 (`username`,
@@ -484,11 +485,12 @@ VALUES
 ('fr', 53, 'Pantalon de camouflage', 'Ce pantalon de combinaison de chasse arbore le nouveau camouflage exclusif Cressi. Il apporte mimétisme, discrétion et confort sous l\'eau, avec sa coupe préformée et ses renforts sur les genoux.'), ('en', 53, 'Camouflage trousers', 'These hunting overalls sport the new Cressi exclusive camouflage. It brings mimicry, discretion and comfort under water, with its preformed cut and reinforcements on the knees.');
 
 INSERT INTO `dbequipementssportifs`.`lignecommande`
-(`quantite`,
+(`Id`,
+`quantite`,
 `prixReel`,
 `codeBarre_fk`,
 `numTicket_fk`)
 VALUES
-(20, 130.99, 1, 1);
+(null, 20, 130.99, 1, 1);
 
 

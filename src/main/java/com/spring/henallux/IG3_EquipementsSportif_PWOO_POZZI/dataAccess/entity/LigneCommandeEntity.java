@@ -5,12 +5,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "LIGNECOMMANDE")
 public class LigneCommandeEntity {
-    @EmbeddedId
-    @JoinColumns({
-            @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE"),
-            @JoinColumn(name = "NUMTICKET_FK", referencedColumnName = "NUMTICKET")
-    })
-    private LigneCommandePK ligneCommandePK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
+    private Integer Id;
+    @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
+    @ManyToOne
+    private TypeArticleEntity typeArticleEntity;
+    @JoinColumn(name = "NUMTICKET_FK", referencedColumnName = "NUMTICKET")
+    @ManyToOne
+    private CommandeEntity commandeEntity;
     @Column(name = "QUANTITE")
     private Integer quantite;
     @Column(name = "PRIXREEL")
@@ -20,12 +24,12 @@ public class LigneCommandeEntity {
     @Column(name = "COULEUR_FK")
     private Integer couleur_fk;
 
-    public LigneCommandePK getLigneCommandePK() {
-        return ligneCommandePK;
+    public Integer getId() {
+        return Id;
     }
 
-    public void setLigneCommandePK(LigneCommandePK ligneCommandePK) {
-        this.ligneCommandePK = ligneCommandePK;
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public Integer getQuantite() {
@@ -58,5 +62,21 @@ public class LigneCommandeEntity {
 
     public void setCouleur_fk(Integer couleur_fk) {
         this.couleur_fk = couleur_fk;
+    }
+
+    public TypeArticleEntity getTypeArticleEntity() {
+        return typeArticleEntity;
+    }
+
+    public void setTypeArticleEntity(TypeArticleEntity typeArticleEntity) {
+        this.typeArticleEntity = typeArticleEntity;
+    }
+
+    public CommandeEntity getCommandeEntity() {
+        return commandeEntity;
+    }
+
+    public void setCommandeEntity(CommandeEntity commandeEntity) {
+        this.commandeEntity = commandeEntity;
     }
 }
