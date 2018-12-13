@@ -2,7 +2,7 @@
 <%@include file="include/importTags.jsp"%>
 <spring:message code='lang' var="lang"/>
 
-<spring:url value="id=1" var="localeFr">
+<spring:url value="" var="localeFr">
     <spring:param name="locale" value="fr" />
 </spring:url>
 <spring:url value="" var="localeEn">
@@ -25,5 +25,4 @@
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/catalogue"/>'><spring:message code="catalog"/></a></p>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>
 
-<p>TEST Récupérer url courante et ajouter en l'id et la langue choisie</p>
-<p class="lead lg-auto-2"><a href="http://localhost:8082/equipementsSportif/articles?id=1&locale=fr"/>FR</a> | <a href="${localeEn}">EN</a></p>
+<p class="lead lg-auto-2"><a href='<spring:url value="${urlCourante}?id=${id}&locale=fr"></spring:url>'/>FR</a> | <a href='<spring:url value="${urlCourante}?id=${id}&locale=en"></spring:url>'>EN</a></p>

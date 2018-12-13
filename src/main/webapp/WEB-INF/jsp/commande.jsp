@@ -2,6 +2,13 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
+<spring:url value="" var="localeFr">
+    <spring:param name="locale" value="fr" />
+</spring:url>
+<spring:url value="" var="localeEn">
+    <spring:param name="locale" value="en" />
+</spring:url>
+
 <h1 class="display-4"><spring:message code="order"/></h1>
 
 <h3 class="display-4"><spring:message code="summary"/> </h3>
@@ -43,5 +50,6 @@
     <p class="lead"><spring:message code="processPayement"/> </p>
     <button type="submit" class="btn-link"><img src='<spring:url value="/images/paypal.png"/>' class="img-thumbnail"></button>
 </form>
+<p class="lead lg-auto-2"><a href="${localeFr}">FR</a> | <a href="${localeEn}">EN</a></p>
 
 

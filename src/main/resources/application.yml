@@ -5,5 +5,5 @@ server:
     uri-encoding: UTF-8
 spring:
   datasource:
-    password: Pa456lOt
+    password: Pn783iOm
     url: jdbc:mysql://localhost:3306/dbequipementssportifs?useSSL=false&user=root

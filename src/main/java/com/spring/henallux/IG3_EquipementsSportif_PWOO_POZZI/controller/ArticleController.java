@@ -2,6 +2,7 @@ package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller;
 
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Constants;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.*;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.Util;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.exception.ModelException;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 
@@ -39,16 +41,24 @@ public class ArticleController {
     }
 
     @RequestMapping(method = RequestMethod.GET, params = {"codeBarre"})
-    public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie) {
+    public String home(@RequestParam(required = true, defaultValue = "1") Integer codeBarre, Model model, @CookieValue(value = "myLocaleCookie", required = true, defaultValue = "fr") String myLocaleCookie, HttpServletRequest request) {
         typeArticle = typeArticleDAO.findByCodeBarre(codeBarre);
         model.addAttribute("article", typeArticle);
         model.addAttribute("images", imageDAO.findByArticleEntityCodeBarre(codeBarre));
         cb = codeBarre;
         model.addAttribute("tailles", disponibleDAO.findAllByCodeBarre(cb));
-        ArrayList<TranslationCouleur> couleurs = obtentionCouleurs(disponibleEnCouleurDAO.findAllByCodeBarre(cb), myLocaleCookie);
-        model.addAttribute("couleurs", couleurs);
+        //retirer
+        //ArrayList<TranslationCouleur> couleurs = obtentionCouleurs(disponibleEnCouleurDAO.findAllByCodeBarre(cb), myLocaleCookie);
+        //model.addAttribute("couleurs", couleurs);
+        //retiter
         translationArticle = translationArticleDAO.findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(cb, myLocaleCookie);
         model.addAttribute("translationArticle", translationArticle);
+
+        model.addAttribute("translationArticleDAO",translationArticleDAO);
+        model.addAttribute("disponibleEnCouleurDAO", disponibleEnCouleurDAO);
+        model.addAttribute("couleurClass", new Couleur());
+        model.addAttribute("urlCourante", Util.makeUrl(request));
+
         return "integrated:article";
     }
 
@@ -78,17 +88,23 @@ public class ArticleController {
         return "redirect:article?codeBarre=" + cb;
     }
 
-    public ArrayList<TranslationCouleur> obtentionCouleurs(ArrayList<DisponibleEnCouleur> disponibleEnCouleurs, String lang) {
-        ArrayList<TranslationCouleur> couleurs = new ArrayList<>();
-        for (DisponibleEnCouleur disponibleEnCouleur : disponibleEnCouleurs) {
-            translationCouleur = translationCouleurDAO.findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(disponibleEnCouleur.getCouleur_fk(), lang);
-            couleurs.add(translationCouleur);
-        }
-        return couleurs;
-    }
+
 
     @ModelAttribute(Constants.PANIER)
     public Panier getNbArticles() {
         return new Panier();
+    }
+
+    //class ObtentionCouleur
+    public class Couleur
+    {
+        public ArrayList<TranslationCouleur> obtentionCouleurs(ArrayList<DisponibleEnCouleur> disponibleEnCouleurs, String lang, TranslationCouleurDAO translationCouleurDAO) {
+            ArrayList<TranslationCouleur> couleurs = new ArrayList<>();
+            for (DisponibleEnCouleur disponibleEnCouleur : disponibleEnCouleurs) {
+                translationCouleur = translationCouleurDAO.findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(disponibleEnCouleur.getCouleur_fk(), lang);
+                couleurs.add(translationCouleur);
+            }
+            return couleurs;
+        }
     }
 }

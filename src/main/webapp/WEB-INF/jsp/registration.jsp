@@ -91,3 +91,12 @@
     <form:button class="btn btn-lg btn-primary btn-block" type="reset"><spring:message code="reset"/> </form:button>
 </form:form>
 <p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'><spring:message code="backToHome"/> </a></p>
+
+<p class="lead lg-auto-2"><a href="${localeFr}">FR</a> | <a href="${localeEn}">EN</a></p>
+
+<spring:url value="" var="localeFr">
+    <spring:param name="locale" value="fr" />
+</spring:url>
+<spring:url value="" var="localeEn">
+    <spring:param name="locale" value="en" />
+</spring:url>

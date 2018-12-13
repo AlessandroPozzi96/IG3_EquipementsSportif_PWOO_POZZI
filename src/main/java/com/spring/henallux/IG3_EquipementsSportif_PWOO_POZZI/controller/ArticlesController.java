@@ -4,6 +4,7 @@ import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.Imag
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TranslationArticleDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.dao.TypeArticleDAO;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.repository.TranslationArticleRepository;
+import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.util.Util;
 import com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.TypeArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,12 +37,9 @@ public class ArticlesController {
         model.addAttribute("articles", typeArticles);
         model.addAttribute("imageDAO", imageDAO);
         model.addAttribute("translationArticleDAO", translationArticleDAO);
-
-        model.addAttribute("urlCourante", makeUrl(request));
+        model.addAttribute("id", id);
+        model.addAttribute("urlCourante", Util.makeUrl(request));
         return "integrated:articles";
     }
-    public static String makeUrl(HttpServletRequest request)
-    {
-        return request.getRequestURL().toString() + "?" + request.getQueryString();
-    }
+
 }
