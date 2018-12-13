@@ -86,4 +86,9 @@ public class ArticleController {
         }
         return couleurs;
     }
+
+    @ModelAttribute(Constants.PANIER)
+    public Panier getNbArticles() {
+        return new Panier();
+    }
 }

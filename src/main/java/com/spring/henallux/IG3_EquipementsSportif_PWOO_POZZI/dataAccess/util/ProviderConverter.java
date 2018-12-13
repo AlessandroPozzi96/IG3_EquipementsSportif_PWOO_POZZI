@@ -139,8 +139,9 @@ public class ProviderConverter {
 
     public DisponibleEnCouleur disponibleEnCouleurEntityToDisponibleEnCouleurModel(DisponibleEnCouleurEntity disponibleEnCouleurEntity) {
         DisponibleEnCouleur disponibleEnCouleur = new DisponibleEnCouleur();
-        disponibleEnCouleur.setCodeBarre_fk(disponibleEnCouleurEntity.getDisponibleEnCouleurPK().getCodeBarre_fk());
-        disponibleEnCouleur.setCouleur_fk(disponibleEnCouleurEntity.getDisponibleEnCouleurPK().getCouleur_fk());
+        disponibleEnCouleur.setId(disponibleEnCouleurEntity.getId());
+        disponibleEnCouleur.setCodeBarre_fk(disponibleEnCouleurEntity.getTypeArticleEntity().getCodeBarre());
+        disponibleEnCouleur.setCouleur_fk(disponibleEnCouleurEntity.getCouleurEntity().getId());
 
         return disponibleEnCouleur;
     }

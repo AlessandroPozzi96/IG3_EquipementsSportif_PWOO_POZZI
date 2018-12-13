@@ -9,6 +9,10 @@ public class DisponibleEnCouleur {
     @NotNull
     @Min(1)
     @Max(999999999)
+    private Integer Id;
+    @NotNull
+    @Min(1)
+    @Max(999999999)
     private Integer couleur_fk;
 
     @NotNull
@@ -17,6 +21,14 @@ public class DisponibleEnCouleur {
     private Integer codeBarre_fk;
 
     public DisponibleEnCouleur() {
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public Integer getCouleur_fk() {

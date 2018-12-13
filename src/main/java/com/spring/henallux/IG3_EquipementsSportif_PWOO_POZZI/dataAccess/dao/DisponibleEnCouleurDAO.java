@@ -22,7 +22,7 @@ public class DisponibleEnCouleurDAO {
     }
 
     public ArrayList<DisponibleEnCouleur> findAllByCodeBarre(Integer codeBarre) {
-        List<DisponibleEnCouleurEntity> disponibleEntities = disponibleEnCouleurRepository.findAllByCodeBarre(codeBarre);
+        List<DisponibleEnCouleurEntity> disponibleEntities = disponibleEnCouleurRepository.findAllByTypeArticleEntity_CodeBarre(codeBarre);
         ArrayList<DisponibleEnCouleur> disponibleArrayList = new ArrayList<>();
         for (DisponibleEnCouleurEntity entity : disponibleEntities) {
             DisponibleEnCouleur disponibleEnCouleur = providerConverter.disponibleEnCouleurEntityToDisponibleEnCouleurModel(entity);

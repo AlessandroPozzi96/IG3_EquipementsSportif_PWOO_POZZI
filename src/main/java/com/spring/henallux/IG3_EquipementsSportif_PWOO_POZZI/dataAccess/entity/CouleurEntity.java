@@ -1,6 +1,7 @@
 package com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.dataAccess.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "COULEUR")
@@ -9,6 +10,9 @@ public class CouleurEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
+
+    @OneToMany(mappedBy = "couleurEntity")
+    private Collection<DisponibleEnCouleurEntity> disponibleEnCouleurEntities;
 
     public Integer getId() {
         return id;

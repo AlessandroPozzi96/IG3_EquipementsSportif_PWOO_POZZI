@@ -59,4 +59,9 @@ public class PanierController {
             return "redirect:panier";
         }
     }
+
+    @ModelAttribute(Constants.PANIER)
+    public Panier getNbArticles() {
+        return new Panier();
+    }
 }

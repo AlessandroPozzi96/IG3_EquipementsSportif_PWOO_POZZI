@@ -145,4 +145,9 @@ public class CommandeController {
         System.out.println("PAYPAL : Payement échoué");
         return "redirect:/commande";
     }
+
+    @ModelAttribute(Constants.PANIER)
+    public Panier getNbArticles() {
+        return new Panier();
+    }
 }

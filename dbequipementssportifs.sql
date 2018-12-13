@@ -89,12 +89,13 @@ CREATE TABLE `Disponible` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `DisponibleEnCouleur` (
+  `Id`	int(9) not null AUTO_INCREMENT,
   `couleur_fk`		INT(9) not null,
   `codeBarre_fk`	INT(9) not null,
-  PRIMARY KEY (`couleur_fk`, `codeBarre_fk`),
+  PRIMARY KEY (`Id`),
   CONSTRAINT `fk_couleur` FOREIGN KEY (`couleur_fk`) REFERENCES `Couleur` (`id`),
   CONSTRAINT `fk_codeBarre_DispoCouleur` FOREIGN KEY (`codeBarre_fk`) REFERENCES `typearticle` (`codeBarre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB auto_increment=1 default CHARSET=utf8;
 
 CREATE TABLE `TranslationArticle` (
 	`langageID_FK`	varchar(6) not null,
@@ -384,23 +385,24 @@ VALUES
 (null,'S', 53), (null,'M', 53), (null,'L', 53), (null,'XL', 53), (null,'XXL', 53);
 
 INSERT INTO `dbequipementssportifs`.`disponibleencouleur`
-(`couleur_fk`,
+(`Id`,
+`couleur_fk`,
 `codeBarre_fk`)
 VALUES
-(4, 2), (2, 2),
-(1, 10), (6, 10),
-(6, 5), (3, 5),
-(1, 11), (2, 11), (6, 11),
-(5, 26), (6, 26),
-(1, 27), (2, 27),
-(3, 31), (2, 31),
-(6, 35), (7, 35),
-(2, 37), (8, 37),
-(4, 39), (2,39), (6,39), (3, 39),
-(3, 42), (4, 42),
-(9, 43), (2, 43),
-(10, 48), (6, 48),
-(6, 49), (3, 49);
+(null, 4, 2), (null, 2, 2),
+(null, 1, 10), (null, 6, 10),
+(null, 6, 5), (null, 3, 5),
+(null, 1, 11), (null, 2, 11), (null, 6, 11),
+(null, 5, 26), (null, 6, 26),
+(null, 1, 27), (null, 2, 27),
+(null, 3, 31), (null, 2, 31),
+(null, 6, 35), (null, 7, 35),
+(null, 2, 37), (null, 8, 37),
+(null, 4, 39), (null, 2,39), (null, 6,39), (null, 3, 39),
+(null, 3, 42), (null, 4, 42),
+(null, 9, 43), (null, 2, 43),
+(null, 10, 48), (null, 6, 48),
+(null, 6, 49), (null, 3, 49);
 
 
 INSERT INTO `dbequipementssportifs`.`translationcategorie`

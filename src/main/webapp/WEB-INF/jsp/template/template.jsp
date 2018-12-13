@@ -34,7 +34,16 @@
                 <a class="p-2 text-dark" href="<spring:url value='/logout' />"><spring:message code="logout"/></a>
             </security:authorize>
         </nav>
-        <p class="lead"> ${panier.nbArticlesPanier} <spring:message code="caddyMessage"/> <a class="btn btn-outline-primary" href="<spring:url value='/panier' />"><spring:message code="caddy"/></a></p>
+        <p class="lead">
+            <c:choose>
+                <c:when test="${panier.nbArticlesPanier != null}">
+                    ${panier.nbArticlesPanier}
+                </c:when>
+                <c:otherwise>
+                    0
+                </c:otherwise>
+            </c:choose>
+        <spring:message code="caddyMessage"/> <a class="btn btn-outline-primary" href="<spring:url value='/panier' />"><spring:message code="caddy"/></a></p>
         <security:authorize access="isAnonymous()">
             <p class="lead">
                 <a class="btn btn-outline-primary" href="<spring:url value='/registration' />"><spring:message code="signup"/></a>

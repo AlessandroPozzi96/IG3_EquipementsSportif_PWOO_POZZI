@@ -5,18 +5,40 @@ import javax.persistence.*;
 @Entity
 @Table(name = "DISPONIBLEENCOULEUR")
 public class DisponibleEnCouleurEntity {
-    @EmbeddedId
-    @JoinColumns({
-            @JoinColumn(name = "COULEUR_FK", referencedColumnName = "ID"),
-            @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
-    })
-    private DisponibleEnCouleurPK disponibleEnCouleurPK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private Integer Id;
 
-    public DisponibleEnCouleurPK getDisponibleEnCouleurPK() {
-        return disponibleEnCouleurPK;
+    @JoinColumn(name = "COULEUR_FK", referencedColumnName = "ID")
+    @ManyToOne
+    private CouleurEntity couleurEntity;
+
+    @JoinColumn(name = "CODEBARRE_FK", referencedColumnName = "CODEBARRE")
+    @ManyToOne
+    private TypeArticleEntity typeArticleEntity;
+
+    public Integer getId() {
+        return Id;
     }
 
-    public void setDisponibleEnCouleurPK(DisponibleEnCouleurPK disponibleEnCouleurPK) {
-        this.disponibleEnCouleurPK = disponibleEnCouleurPK;
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public CouleurEntity getCouleurEntity() {
+        return couleurEntity;
+    }
+
+    public void setCouleurEntity(CouleurEntity couleurEntity) {
+        this.couleurEntity = couleurEntity;
+    }
+
+    public TypeArticleEntity getTypeArticleEntity() {
+        return typeArticleEntity;
+    }
+
+    public void setTypeArticleEntity(TypeArticleEntity typeArticleEntity) {
+        this.typeArticleEntity = typeArticleEntity;
     }
 }
