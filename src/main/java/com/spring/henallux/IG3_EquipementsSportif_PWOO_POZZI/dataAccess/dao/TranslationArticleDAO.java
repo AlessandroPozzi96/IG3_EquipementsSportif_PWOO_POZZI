@@ -19,7 +19,7 @@ public class TranslationArticleDAO {
     }
 
     public TranslationArticle findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(Integer codeBarre, String lang) {
-        TranslationArticleEntity translationArticleEntity = translationArticleRepository.findByTranslationArticlePK_CodeBarre_FKAndTranslationArticlePK_LangageID_FK(codeBarre, lang);
+        TranslationArticleEntity translationArticleEntity = translationArticleRepository.findByTypeArticleEntity_CodeBarreAndLangageEntity_LangageID(codeBarre, lang);
         TranslationArticle translationArticle = providerConverter.translationArticleEntityToTranslationArticleModel(translationArticleEntity);
 
         return translationArticle;

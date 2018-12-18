@@ -149,9 +149,10 @@ public class ProviderConverter {
     public TranslationCategorie translationCategorieEntityToTranslationCategorieModel(TranslationCategorieEntity translationCategorieEntity) {
         TranslationCategorie translationCategorie = new TranslationCategorie();
 
-        translationCategorie.setIdCategorie_FK(translationCategorieEntity.getTranslationCategoriePK().getIdCategorie_FK());
-        translationCategorie.setLangageID_FK(translationCategorieEntity.getTranslationCategoriePK().getLangageID_FK());
+        translationCategorie.setIdCategorie_FK(translationCategorieEntity.getCategorieArticleEntity().getId());
+        translationCategorie.setLangageID_FK(translationCategorieEntity.getLangageEntity().getLangageID());
         translationCategorie.setLibelle(translationCategorieEntity.getLibelle());
+        translationCategorie.setId(translationCategorieEntity.getId());
 
         return translationCategorie;
     }
@@ -159,10 +160,11 @@ public class ProviderConverter {
     public TranslationArticle translationArticleEntityToTranslationArticleModel(TranslationArticleEntity translationArticleEntity) {
         TranslationArticle translationArticle = new TranslationArticle();
 
-        translationArticle.setCodeBarre_FK(translationArticleEntity.getTranslationArticlePK().getCodeBarre_FK());
-        translationArticle.setLangageID_FK(translationArticleEntity.getTranslationArticlePK().getLangageID_FK());
+        translationArticle.setCodeBarre_FK(translationArticleEntity.getTypeArticleEntity().getCodeBarre());
+        translationArticle.setLangageID_FK(translationArticleEntity.getLangageEntity().getLangageID());
         translationArticle.setDescription(translationArticleEntity.getDescription());
         translationArticle.setLibelle(translationArticleEntity.getLibelle());
+        translationArticle.setId(translationArticleEntity.getId());
 
         return translationArticle;
     }
@@ -188,9 +190,10 @@ public class ProviderConverter {
 
     public TranslationCouleur translationCouleurEntityToTranslationCouleurModel(TranslationCouleurEntity translationCouleurEntity) {
         TranslationCouleur translationCouleur = new TranslationCouleur();
-        translationCouleur.setIdCouleur_FK(translationCouleurEntity.getTranslationCouleurPK().getIdCouleur_FK());
-        translationCouleur.setLangageID_FK(translationCouleurEntity.getTranslationCouleurPK().getLangageID_FK());
+        translationCouleur.setIdCouleur_FK(translationCouleurEntity.getCouleurEntity().getId());
+        translationCouleur.setLangageID_FK(translationCouleurEntity.getLangageEntity().getLangageID());
         translationCouleur.setLibelle(translationCouleurEntity.getLibelle());
+        translationCouleur.setId(translationCouleurEntity.getId());
 
         return translationCouleur;
     }

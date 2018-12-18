@@ -19,14 +19,14 @@ public class TranslationCouleurDAO {
     }
 
     public TranslationCouleur findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(Integer idCouleur, String langageID) {
-        TranslationCouleurEntity translationCouleurEntity = translationCouleurRepository.findByTranslationCouleurPK_IdCouleur_FKAndTranslationCouleurPK_LangageID_FK(idCouleur, langageID);
+        TranslationCouleurEntity translationCouleurEntity = translationCouleurRepository.findByCouleurEntity_IdAndLangageEntity_LangageID(idCouleur, langageID);
         TranslationCouleur translationCouleur = providerConverter.translationCouleurEntityToTranslationCouleurModel(translationCouleurEntity);
 
         return translationCouleur;
     }
 
     public TranslationCouleur findByLibelleAndAndTranslationCouleurPK_LangageID_FK(String libelle, String langageID) {
-        TranslationCouleurEntity translationCouleurEntity = translationCouleurRepository.findByLibelleAndAndTranslationCouleurPK_LangageID_FK(libelle, langageID);
+        TranslationCouleurEntity translationCouleurEntity = translationCouleurRepository.findByLibelleAndLangageEntity_LangageID(libelle, langageID);
         TranslationCouleur translationCouleur = providerConverter.translationCouleurEntityToTranslationCouleurModel(translationCouleurEntity);
 
         return translationCouleur;

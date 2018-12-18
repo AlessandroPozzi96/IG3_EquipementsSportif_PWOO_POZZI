@@ -14,6 +14,9 @@ public class CouleurEntity {
     @OneToMany(mappedBy = "couleurEntity")
     private Collection<DisponibleEnCouleurEntity> disponibleEnCouleurEntities;
 
+    @OneToMany(mappedBy = "couleurEntity")
+    private Collection<TranslationCouleurEntity> translationCouleurEntities;
+
     public Integer getId() {
         return id;
     }

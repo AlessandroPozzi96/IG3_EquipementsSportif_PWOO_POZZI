@@ -5,22 +5,43 @@ import javax.persistence.*;
 @Entity
 @Table(name = "TRANSLATIONCATEGORIE")
 public class TranslationCategorieEntity {
-    @EmbeddedId
-    @JoinColumns({
-            @JoinColumn(name = "LANGAGEID_FK", referencedColumnName = "LANGAGEID"),
-            @JoinColumn(name = "IDCATEGORIE_FK", referencedColumnName = "ID")
-    })
-    private TranslationCategoriePK translationCategoriePK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id")
+    private Integer Id;
+    @JoinColumn(name = "LANGAGEID_FK", referencedColumnName = "LANGAGEID")
+    @ManyToOne
+    private LangageEntity langageEntity;
+
+    @JoinColumn(name = "IDCATEGORIE_FK", referencedColumnName = "ID")
+    @ManyToOne
+    private CategorieArticleEntity categorieArticleEntity;
 
     @Column(name = "LIBELLE")
     private String libelle;
 
-    public TranslationCategoriePK getTranslationCategoriePK() {
-        return translationCategoriePK;
+    public LangageEntity getLangageEntity() {
+        return langageEntity;
     }
 
-    public void setTranslationCategoriePK(TranslationCategoriePK translationCategoriePK) {
-        this.translationCategoriePK = translationCategoriePK;
+    public void setLangageEntity(LangageEntity langageEntity) {
+        this.langageEntity = langageEntity;
+    }
+
+    public CategorieArticleEntity getCategorieArticleEntity() {
+        return categorieArticleEntity;
+    }
+
+    public void setCategorieArticleEntity(CategorieArticleEntity categorieArticleEntity) {
+        this.categorieArticleEntity = categorieArticleEntity;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getLibelle() {

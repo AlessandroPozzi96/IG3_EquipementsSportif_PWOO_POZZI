@@ -19,7 +19,7 @@ public class TranslationCategorieDAO {
     }
 
     public TranslationCategorie findByTranslationCategoriePK_IdCategorie_FKAndTranslationCategoriePK_LangageID_FK(Integer idCategorie, String langageID) {
-        TranslationCategorieEntity translationCategorieEntity = translationCategorieRepository.findByTranslationCategoriePK_IdCategorie_FKAndTranslationCategoriePK_LangageID_FK(idCategorie, langageID);
+        TranslationCategorieEntity translationCategorieEntity = translationCategorieRepository.findByCategorieArticleEntity_IdAndLangageEntity_LangageID(idCategorie, langageID);
         TranslationCategorie translationCategorie = providerConverter.translationCategorieEntityToTranslationCategorieModel(translationCategorieEntity);
 
         return translationCategorie;

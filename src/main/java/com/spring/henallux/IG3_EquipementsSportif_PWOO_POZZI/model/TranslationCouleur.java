@@ -7,6 +7,10 @@ import javax.validation.constraints.Size;
 
 public class TranslationCouleur {
     @NotNull
+    @Min(1)
+    @Max(999999999)
+    private Integer Id;
+    @NotNull
     @Size(min = 1, max = 6)
     private String langageID_FK;
     @NotNull
@@ -18,6 +22,14 @@ public class TranslationCouleur {
     private String libelle;
 
     public TranslationCouleur() {
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getLangageID_FK() {

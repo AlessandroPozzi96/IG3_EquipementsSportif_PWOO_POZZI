@@ -18,7 +18,7 @@ public class TypeArticleEntity {
     @ManyToOne
     private CategorieArticleEntity categorieArticleEntity;
 
-    @OneToMany(mappedBy = "articleEntity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "articleEntity")
     private Collection<ImageEntity> imageEntities;
 
     @OneToMany(mappedBy = "typeArticleEntity")
@@ -29,6 +29,9 @@ public class TypeArticleEntity {
 
     @OneToMany(mappedBy = "typeArticleEntity")
     private Collection<LigneCommandeEntity> ligneCommandeEntities;
+
+    @OneToMany(mappedBy = "typeArticleEntity")
+    private Collection<TranslationArticleEntity> translationArticleEntities;
 
     public Integer getCodeBarre() {
         return codeBarre;
@@ -84,5 +87,13 @@ public class TypeArticleEntity {
 
     public void setLigneCommandeEntities(Collection<LigneCommandeEntity> ligneCommandeEntities) {
         this.ligneCommandeEntities = ligneCommandeEntities;
+    }
+
+    public Collection<TranslationArticleEntity> getTranslationArticleEntities() {
+        return translationArticleEntities;
+    }
+
+    public void setTranslationArticleEntities(Collection<TranslationArticleEntity> translationArticleEntities) {
+        this.translationArticleEntities = translationArticleEntities;
     }
 }

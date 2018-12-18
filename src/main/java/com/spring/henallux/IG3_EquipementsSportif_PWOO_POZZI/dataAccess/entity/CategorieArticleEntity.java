@@ -17,6 +17,9 @@ public class CategorieArticleEntity {
     @OneToMany(mappedBy = "categorieArticleEntity", fetch = FetchType.LAZY)
     private Collection<TypeArticleEntity> typeArticleEntities;
 
+    @OneToMany(mappedBy = "categorieArticleEntity")
+    private Collection<TranslationCategorieEntity> categorieArticleEntities;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +42,13 @@ public class CategorieArticleEntity {
 
     public void setTypeArticleEntities(Collection<TypeArticleEntity> typeArticleEntities) {
         this.typeArticleEntities = typeArticleEntities;
+    }
+
+    public Collection<TranslationCategorieEntity> getCategorieArticleEntities() {
+        return categorieArticleEntities;
+    }
+
+    public void setCategorieArticleEntities(Collection<TranslationCategorieEntity> categorieArticleEntities) {
+        this.categorieArticleEntities = categorieArticleEntities;
     }
 }
