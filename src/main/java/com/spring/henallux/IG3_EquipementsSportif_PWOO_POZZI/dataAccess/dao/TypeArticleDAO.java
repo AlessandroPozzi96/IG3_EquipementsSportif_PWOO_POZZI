@@ -23,7 +23,7 @@ public class TypeArticleDAO {
     }
 
     public ArrayList<TypeArticle> findByCategorieArticleEntityId(Integer id) {
-        List<TypeArticleEntity> typeArticleEntities = typeArticleRepository.findByCategorieArticleEntityId(id);
+        List<TypeArticleEntity> typeArticleEntities = typeArticleRepository.findByCategorieArticleEntity_Id(id);
         ArrayList<TypeArticle> typeArticles = new ArrayList<>();
         for (TypeArticleEntity entity : typeArticleEntities) {
             TypeArticle typeArticle = providerConverter.typeArticleEntityToTypeArticleModel(entity);
