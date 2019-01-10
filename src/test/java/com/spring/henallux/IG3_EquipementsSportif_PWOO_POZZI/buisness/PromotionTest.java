@@ -36,17 +36,19 @@ public class PromotionTest {
     }
 
     @Test
-    public void calculPromotionArticle1() {
+    public void calculPromotionParArticle3() {
+
+        Assert.assertEquals(168, promotion.calculPromotionParArticle(articleBidon3,3), 0.01);
+    }
+
+    @Test
+    public void culPromotionParArticleBidon1()
+    {
         Assert.assertEquals(54.25, promotion.calculPromotionParArticle(articleBidon1,5), 0.01);
     }
-
     @Test
-    public void calculPromotionArticle2() {
+    public void culPromotionParArticleBidon2()
+    {
         Assert.assertEquals(77.01, promotion.calculPromotionParArticle(articleBidon2,2), 0.01);
-    }
-
-    @Test
-    public void calculPromotionArticle3() {
-        Assert.assertEquals(168, promotion.calculPromotionParArticle(articleBidon3,3), 0.01);
     }
 }
