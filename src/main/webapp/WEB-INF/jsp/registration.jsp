@@ -2,6 +2,13 @@
 <%@include file="include/importTags.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
+<spring:url value="" var="localeFr">
+    <spring:param name="locale" value="fr" />
+</spring:url>
+<spring:url value="" var="localeEn">
+    <spring:param name="locale" value="en" />
+</spring:url>
+
 <h1 class="display-4"><spring:message code="signup"/> </h1>
 </br>
 <form:form id="formUser"
@@ -93,10 +100,3 @@
 <p class="lead"><a class="badge badge-primary" href='<spring:url value="/"/>'><spring:message code="backToHome"/> </a></p>
 
 <p class="lead lg-auto-2"><a href="${localeFr}">FR</a> | <a href="${localeEn}">EN</a></p>
-
-<spring:url value="" var="localeFr">
-    <spring:param name="locale" value="fr" />
-</spring:url>
-<spring:url value="" var="localeEn">
-    <spring:param name="locale" value="en" />
-</spring:url>
