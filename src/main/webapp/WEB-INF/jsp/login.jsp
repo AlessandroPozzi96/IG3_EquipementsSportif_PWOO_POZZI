@@ -3,14 +3,6 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<spring:url value="" var="localeFr">
-    <spring:param name="locale" value="fr" />
-</spring:url>
-<spring:url value="" var="localeEn">
-    <spring:param name="locale" value="en" />
-</spring:url>
-
-
 <h1 id="h1" class="display-4"><spring:message code="signin"/></h1>
 <security:authorize access="!isAuthenticated()">
     <form:form id="formLogin"
@@ -35,5 +27,3 @@
     <p class="lead"><a class="badge badge-info"href='<spring:url value="/logout"/>'><spring:message code="logout"/></a></p>
 </security:authorize>
 <p class="lead"><a class="badge badge-info" href='<spring:url value="/"/>'><spring:message code="backToHome"/></a></p>
-
-<p class="lead lg-auto-2"><a href="${localeFr}">FR</a> | <a href="${localeEn}">EN</a></p>
