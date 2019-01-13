@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="64818ca8-add4-4926-8cb4-bfa9c4f206a6" name="Default" comment="Sup du chgt de langue dans login">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbequipementssportifs.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/Ig3EquipementsSportifPwooPozziApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/buisness/Promotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/MainConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/PaypalConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/PaypalPaymentIntent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/PaypalPaymentMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/TilesConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/WebSecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/AdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticlesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/CatalogueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/CommandeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/CompteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ContactController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ErrorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/PanierController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/RegistrationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/CategorieArticleDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/CommandeDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/DisponibleDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/DisponibleEnCouleurDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/ImageDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/LigneCommandeDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/TranslationArticleDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/TranslationCategorieDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/TranslationCouleurDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/TypeArticleDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/CategorieArticleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/CommandeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/CouleurEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/DisponibleEnCouleurEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/DisponibleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/ImageEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/LangageEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/LigneCommandeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TailleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TranslationArticleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TranslationCategorieEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TranslationCouleurEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TypeArticleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/CategorieArticleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/CommandeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/DisponibleEnCouleurRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/DisponibleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/ImageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/LigneCommandeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationArticleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationCategorieRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationCouleurRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TypeArticleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/ProviderConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/UserValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/exception/ModelException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Article.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/CategorieArticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Commande.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Couleur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Disponible.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/DisponibleEnCouleur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Langage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/LigneCommande.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Panier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Taille.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/TranslationArticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/TranslationCategorie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/TranslationCouleur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/TypeArticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/service/PaypalService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/service/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/errors_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/errors_fr.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/general_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/general_fr.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/articles.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/catalogue.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/commande.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/compte.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/importTags.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/panier.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/template/template.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/tiles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/BonnetNatation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/CasqueVTTJaune.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/CasqueVTTNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ChaussuresTennisBlanc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ChaussuresTennisBleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ChaussuresTennisBleuMarinne.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ChaussuresTennisNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/CuissardCourseNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/DebardeurCrossTrainingBlanc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/DebardeurCrossTrainingBleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/FNScarHNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/FNScarHNoirV2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/LeggingRéversibleYOGAFemmeNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/LeggingRéversibleYOGAFemmeOlive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/PattesD_OursBoxe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/SacADosTreckingRandonnee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/SacDeFrappe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/SangleYogaEnCotonÉcru.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ShortKayak.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ShortyDébardeurFemmeNopreneBleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/ShortyDébardeurFemmeNopreneGris.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/TenteTrekRandonnee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/VesteCourse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/balle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/bandesBoxe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/barreDeTraction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/barresParalleles.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/basicbenchPress.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/batonMarcheNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/batonMarcheRose.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/benchPress.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/billes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/billesBio.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/briqueYoga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/casqueBoxeNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/casqueBoxeRouge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/casqueEscrime.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussetteFootballBlanches.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussetteFootballBleues.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussureCourse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussureCrampons.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussureMarche.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/chaussuresAdidaDartagnan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/fleuret.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/gantGardienBleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/gantGardienOrange.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/gantsBoxeBleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/gantsBoxeRouge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/haltere20Kg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/kayakRivière.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/lotBalles.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/lunetteNatation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/lunetteVéloBlanches.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/lunetteVéloNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/maillotFemme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/maillotHomme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/pagaie.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/pagaieEntière.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/pantalonCamouflageAirsoft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/raquette.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/sacSportRaquetteWilson.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/t-shirtHomme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/t-shirtHomme_Bleu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/tapisDomyosNoir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/tapisYoga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/veloRoute.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/veloRouteV2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/vesteAllstarEcostarHomme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/vesteCamouflageAirsoft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/vttBlanc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/articles/vttNoir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/blessure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/airsoft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/boxeAnglaise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/course.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/escrime.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/football.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/kayak.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/musculation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/natation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/randonnee.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/tennis.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/velo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/categories/yoga.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/haltere.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/image_fond.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/locale_en.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/locale_fr.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/ocean.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/paypal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/ringBoxe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/jQuery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/Ig3EquipementsSportifPwooPozziApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/buisness/PromotionTest.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/IG3_EquipementsSportif_PWOO_POZZI$Ig3EquipementsSportifPwooPozziApplication.ic" NAME="Ig3EquipementsSportifPwooPozziApplication Coverage Results" MODIFIED="1533908515712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1272426940">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="33" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.14" value="5" />
+          <entry key="project.open.time.15" value="5" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.2" value="4" />
+          <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="33" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="16" />
+          <entry key="css" value="5" />
+          <entry key="gitignore" value="1" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="250" />
+          <entry key="js" value="9" />
+          <entry key="jsp" value="99" />
+          <entry key="properties" value="15" />
+          <entry key="sql" value="5" />
+          <entry key="xml" value="3" />
+          <entry key="yml" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="16" />
+          <entry key="CSS" value="5" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="250" />
+          <entry key="JSP" value="99" />
+          <entry key="JavaScript" value="9" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Properties" value="15" />
+          <entry key="SQL" value="5" />
+          <entry key="XML" value="3" />
+          <entry key="YAML" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="24" />
+          <entry key="gitignore" value="6" />
+          <entry key="java" value="639" />
+          <entry key="js" value="1" />
+          <entry key="jsp" value="610" />
+          <entry key="properties" value="1" />
+          <entry key="txt" value="563" />
+          <entry key="xml" value="1" />
+          <entry key="yml" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="24" />
+          <entry key="JAVA" value="639" />
+          <entry key="JSP" value="610" />
+          <entry key="JavaScript" value="1" />
+          <entry key="PLAIN_TEXT" value="569" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="1" />
+          <entry key="YAML" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>bd</find>
+      <find>not</find>
+      <find>test</find>
+      <find>displ</find>
+      <find>name</find>
+      <find>Promotion</find>
+      <find>article</find>
+      <find>lang</find>
+      <find>tailles</find>
+      <find>signin</find>
+      <find>45</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/dbequipementssportifs.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/test.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/translations/general_fr.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/ImageDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Article.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TranslationArticlePK.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/GlobalControllerAdvice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/PanierController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Panier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/MainConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/articles.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticlesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/catalogue.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/commande.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/compte.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/panier.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/template/template.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticleController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/Constants.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/buisness/PromotionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/RegistrationController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/validation.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Commande.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/tiles.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="860" />
+    <option name="width" value="1070" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IG3_EquipementsSportif_PWOO_POZZI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IG3_EquipementsSportif_PWOO_POZZI" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="UserVa&#9;PSI&#9;JAVA://com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.controller.RegistrationController#userValidator&#10;setCoul&#9;PSI&#9;JAVA://com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.model.Article#setCouleur&#10;Article&#9;FILE&#9;file://D:/rsca-/Documents/IG_local/Depot_Git_Java_Web/IG3_EquipementsSportif_PWOO_POZZI/src/main/webapp/WEB-INF/jsp/article.jsp" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547311156555" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Sources" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\rsca-\Documents\IG_local\Depot_Git_Java_Web\IG3_EquipementsSportif_PWOO_POZZI\src\main\webapp\images\articles" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Ig3EquipementsSportifPwooPozziApplication">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PromotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IG3_EquipementsSportif_PWOO_POZZI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness" />
+      <option name="MAIN_CLASS_NAME" value="com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.buisness.PromotionTest" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ig3EquipementsSportifPwooPozziApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="IG3_EquipementsSportif_PWOO_POZZI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.spring.henallux.IG3_EquipementsSportif_PWOO_POZZI.Ig3EquipementsSportifPwooPozziApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.Ig3EquipementsSportifPwooPozziApplication" />
+      <item itemvalue="JUnit.PromotionTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PromotionTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64818ca8-add4-4926-8cb4-bfa9c4f206a6" name="Default" comment="" />
+      <created>1529421291192</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529421291192</updated>
+      <workItem from="1529421295286" duration="1246000" />
+      <workItem from="1529655193984" duration="8000" />
+      <workItem from="1532335097669" duration="277000" />
+      <workItem from="1532336004653" duration="1469000" />
+      <workItem from="1532337570791" duration="363000" />
+      <workItem from="1533745339627" duration="4305000" />
+      <workItem from="1533806783943" duration="15000" />
+      <workItem from="1533806903291" duration="11748000" />
+      <workItem from="1533883677339" duration="64000" />
+      <workItem from="1533893461453" duration="3422000" />
+      <workItem from="1533908874686" duration="5549000" />
+      <workItem from="1534170356522" duration="7772000" />
+      <workItem from="1534322591556" duration="6569000" />
+      <workItem from="1534413334063" duration="63000" />
+      <workItem from="1534510308409" duration="13532000" />
+      <workItem from="1534691480937" duration="3799000" />
+      <workItem from="1535179403691" duration="607000" />
+      <workItem from="1535180187568" duration="18719000" />
+      <workItem from="1535272846454" duration="14534000" />
+      <workItem from="1535350133818" duration="2764000" />
+      <workItem from="1538127541023" duration="408000" />
+      <workItem from="1542302676147" duration="1993000" />
+      <workItem from="1542440478392" duration="733000" />
+      <workItem from="1542874468747" duration="2813000" />
+      <workItem from="1542905535771" duration="7000" />
+      <workItem from="1543659369111" duration="2059000" />
+      <workItem from="1544081871713" duration="6687000" />
+      <workItem from="1544295085689" duration="1931000" />
+      <workItem from="1544686837249" duration="10665000" />
+      <workItem from="1544982469049" duration="1203000" />
+      <workItem from="1545029961804" duration="2204000" />
+      <workItem from="1545072769200" duration="1851000" />
+      <workItem from="1545157695015" duration="5638000" />
+      <workItem from="1545221899650" duration="2394000" />
+      <workItem from="1546684279769" duration="23000" />
+      <workItem from="1547284276544" duration="10442000" />
+      <workItem from="1547395625625" duration="1010000" />
+      <workItem from="1547397065734" duration="33000" />
+    </task>
+    <task id="LOCAL-00001" summary="Commit ajout d'images">
+      <created>1533747197626</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533747197626</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit ajout d'images">
+      <created>1533749452747</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533749452747</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Commit ajout d'images muscu">
+      <created>1533808052279</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533808052279</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Commit ajout d'images">
+      <created>1533819498338</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533819498338</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Commit ajout d'images">
+      <created>1533826539847</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533826539847</updated>
+    </task>
+    <task id="LOCAL-00006" summary="correction de fautes ortho">
+      <created>1534173819576</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1534173819576</updated>
+    </task>
+    <task id="LOCAL-00007" summary="suppresion du commentaire test de la page jsp compte">
+      <created>1534176018225</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1534176018225</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Résolution de bugs dans articleController (incrémentation du nombre d'article dans le panier)">
+      <created>1534517309198</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1534517309198</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tentative de rendre dynamique langues dans articles">
+      <created>1544297010519</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544297010520</updated>
+    </task>
+    <task id="LOCAL-00010" summary="translation articles et couleur articles dynamiques. Choix sélection langue dans toutes les pages jsp">
+      <created>1544706199095</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544706199095</updated>
+    </task>
+    <task id="LOCAL-00011" summary="translation articles et couleur articles dynamiques. Choix sélection langue dans toutes les pages jsp">
+      <created>1545037283718</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1545037283718</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chgt clientId et secretId">
+      <created>1545162202112</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1545162202112</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test unitaire mis à jour">
+      <created>1545225210805</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1545225210805</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Correction traduction msg d'erreur registration">
+      <created>1547287724199</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547287724199</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Sup du chgt de langue dans login">
+      <created>1547288433154</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1547288433154</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="PromotionTest - 2018.08.19 at 18h 31m 35s.xml">
+      <configuration name="PromotionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PromotionTest - 2018.08.19 at 18h 51m 56s.xml">
+      <configuration name="PromotionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PromotionTest - 2018.08.25 at 10h 46m 05s.xml">
+      <configuration name="PromotionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PromotionTest - 2018.12.19 at 14h 06m 35s.xml">
+      <configuration name="PromotionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PromotionTest - 2018.12.19 at 14h 12m 53s.xml">
+      <configuration name="PromotionTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="148919000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2557047" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32340425" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33049646" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3134752" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32907802" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32907802" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3295302" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.3295302" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit ajout d'images muscu" />
+    <MESSAGE value="Commit ajout d'images" />
+    <MESSAGE value="correction de fautes ortho" />
+    <MESSAGE value="suppresion du commentaire test de la page jsp compte" />
+    <MESSAGE value="Résolution de bugs dans articleController (incrémentation du nombre d'article dans le panier)" />
+    <MESSAGE value="Tentative de rendre dynamique langues dans articles" />
+    <MESSAGE value="translation articles et couleur articles dynamiques. Choix sélection langue dans toutes les pages jsp" />
+    <MESSAGE value="chgt clientId et secretId" />
+    <MESSAGE value="Test unitaire mis à jour" />
+    <MESSAGE value="Correction traduction msg d'erreur registration" />
+    <MESSAGE value="Sup du chgt de langue dans login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sup du chgt de langue dans login" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.17.RELEASE/spring-webmvc-4.3.17.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="532" selection-start-line="532" selection-end-line="532" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.17.RELEASE/spring-webmvc-4.3.17.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="405" selection-start-line="405" selection-end-line="405" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.17.RELEASE/spring-webmvc-4.3.17.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="475" selection-start-line="475" selection-end-line="475" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.6.RELEASE/spring-security-web-4.2.6.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.6.RELEASE/spring-security-web-4.2.6.RELEASE.jar!/org/springframework/security/web/access/ExceptionTranslationFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.6.RELEASE/spring-security-web-4.2.6.RELEASE.jar!/org/springframework/security/web/header/HeaderWriterFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.6.RELEASE/spring-security-web-4.2.6.RELEASE.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.6.RELEASE/spring-security-web-4.2.6.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.17.RELEASE/spring-web-4.3.17.RELEASE.jar!/org/springframework/web/filter/RequestContextFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.17.RELEASE/spring-web-4.3.17.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.31/tomcat-embed-core-8.5.31.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/Util.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/util/UserValidator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticleController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/article.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/commande.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/CommandeController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/Constants.java" />
+    <entry file="file://$PROJECT_DIR$/IG3_EquipementsSportif_PWOO_POZZI.iml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/dao/LigneCommandeDAO.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.17.RELEASE/spring-web-4.3.17.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/ArticlesController.java" />
+    <entry file="file://$PROJECT_DIR$/dbequipementssportifs.sql" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/PaypalPaymentIntent.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationArticleRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/LigneCommandeRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/DisponibleRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/DisponibleEnCouleurRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/CommandeRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationCategorieRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TranslationCouleurRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/repository/TypeArticleRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/UserEntity.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/CommandeEntity.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/dataAccess/entity/TranslationArticleEntity.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/buisness/PromotionTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/controller/RegistrationController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/panier.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/translations/general_en.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/translations/errors_fr.properties" />
+    <entry file="file://$PROJECT_DIR$/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/configuration/TilesConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/tiles.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spring/henallux/IG3_EquipementsSportif_PWOO_POZZI/model/Commande.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/validation.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/translations/general_fr.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/template/template.jsp" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
