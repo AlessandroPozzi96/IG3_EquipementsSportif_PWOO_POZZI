@@ -14,10 +14,10 @@ public class Promotion {
     }
 
     //Règles de promotion :
-    //5% de réduction si article en double
-    //10% de réduction si acheté en triple
+    //15% de réduction si article en double
+    //20% de réduction si acheté en triple
     //...
-    //On fixe la limite à 25% si le même article est acheté plus de 5 fois
+    //On fixe la limite à 35% si le même article est commandé plus de 5 fois
     public Double calculPromotion(Panier panier) {
         Double prixAvecPromo = 0.0;
         for (Map.Entry<Article, Integer> panierEntry : panier.getPanierHashMap().entrySet()) {

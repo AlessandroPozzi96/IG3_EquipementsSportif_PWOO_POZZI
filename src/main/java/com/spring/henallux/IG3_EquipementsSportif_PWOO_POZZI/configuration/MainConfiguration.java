@@ -18,16 +18,6 @@ import java.util.Locale;
 
 @Configuration
 public class MainConfiguration extends WebMvcConfigurerAdapter {
-/*
-    @Bean
-        public ViewResolver viewResolver()
-        {
-            InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-            resolver.setPrefix("/WEB-INF/jsp/");
-            resolver.setSuffix(".jsp");
-            return resolver;
-        }
-*/
 
     @Bean
     public DefaultMessageCodesResolver defaultMessageCodesResolver() {

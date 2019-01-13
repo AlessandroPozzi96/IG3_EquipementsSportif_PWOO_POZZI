@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 public class Util {
     public static String makeUrl(HttpServletRequest request)
     {
-        //return request.getRequestURL().toString() + "?" + request.getQueryString();
         return request.getRequestURL().toString();
     }
 }

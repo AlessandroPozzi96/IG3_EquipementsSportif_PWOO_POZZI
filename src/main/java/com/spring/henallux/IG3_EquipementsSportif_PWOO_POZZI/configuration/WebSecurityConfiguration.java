@@ -27,14 +27,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
-/*    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("Aless").password("pass123").roles("USER")
-                .and()
-                .withUser("admin").password("pass123").roles("ADMIN");
-    }*/
-
     /**
      * We do the configuration of spring security here.
      */
